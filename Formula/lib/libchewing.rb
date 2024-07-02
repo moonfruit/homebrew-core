@@ -1,18 +1,18 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.8.2/libchewing-0.8.2.tar.zst"
-  sha256 "46a520295f5313067610a0fccec596323558fafa74245ea56fcf506c9757fbdf"
+  url "https://github.com/chewing/libchewing/releases/download/v0.8.4/libchewing-0.8.4.tar.zst"
+  sha256 "c272e85c9aff03265db08641cac25709b9faf45b4602e04ea6cb39317103b3fa"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "57603da4fbb8bc54e12a38d7520dc1b64c7dc2a13972ccfab45679d1a8229ab7"
-    sha256 cellar: :any,                 arm64_ventura:  "6ba9710f17f650c516123d5ae6bf8481ef3ff55826e754e6039a7ec33174ac54"
-    sha256 cellar: :any,                 arm64_monterey: "cbc2cc38fc3383dc4e1715133639cdc79ee6dbc751cc9ebadf5b5ecb4a5ee711"
-    sha256 cellar: :any,                 sonoma:         "4004a1c04b204b4d4cb25c1da42666762f8eca5513587324a62f482baf4d8760"
-    sha256 cellar: :any,                 ventura:        "cd9ef6146afcb9a53f96654461cd95d1b9de1314c6a2236abbde7ad4ae0cdc5d"
-    sha256 cellar: :any,                 monterey:       "f178dcfe3ac0bdec8da9de1463be4472d401f4b380930fee54f0fa72a236f91a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34847129aa5c1d05b4f67301ad9914dd141d7ba4a53e7743b1014ba4abcfc5cb"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f1a299fcae44b3ff5c4b857e7218ea8b9ec689eec261a7787efce48084a99e7"
+    sha256 cellar: :any,                 arm64_ventura:  "39f8feb5a332fb7e5c5ccf7a7c34f2962ea06af11821dc2a797d6d6a9f44c6eb"
+    sha256 cellar: :any,                 arm64_monterey: "c5d4c657ae42255346a6948686c6c133be6759b074fac940e666d7fe06a6ab47"
+    sha256 cellar: :any,                 sonoma:         "72f4a959c958f5cc3857cc70e993130c946932fa720a45cb7fc35ec2f2eafa8a"
+    sha256 cellar: :any,                 ventura:        "7fadf43898c394b03850e0135cb4bcf1e49503d624ac67107f5f5467c3be1542"
+    sha256 cellar: :any,                 monterey:       "7fb74f41c2c0709f5167733b54bf7a533848b02d2d03d4c6abffe7ccdbd4557a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b1c2e758831df267ae0a6245a69a2002086bc26ce7ee30be9e5c1a9d55e1252"
   end
 
   depends_on "cmake" => :build
@@ -25,20 +25,15 @@ class Libchewing < Formula
     depends_on "texinfo" => :build
   end
 
-  # patch to use system corrosion, upstream PR ref, https://github.com/chewing/libchewing/pull/559
+  # cmake build patch, https://github.com/chewing/libchewing/pull/575
+  # remove in 0.9.0 release
   patch do
-    url "https://github.com/chewing/libchewing/commit/7ab350bd213c05389f14d1e97b88c019328977f4.patch?full_index=1"
-    sha256 "5c9c830d4b67f06837a5958dfd5ba84ba7a3488e81c9a3c0d3906dad9bbcdcdc"
-  end
-
-  # add option to turn off tests, upstream PR ref, https://github.com/chewing/libchewing/pull/560
-  patch do
-    url "https://github.com/chewing/libchewing/commit/31809bc57acbef19e3c051a104cac584a2bc22f2.patch?full_index=1"
-    sha256 "13874606bad73beef47e045dadd82e150ed7503ddee5248997e772302bf78aec"
+    url "https://github.com/chewing/libchewing/commit/b21ff8f118e6138b795da4d37026712516a12676.patch?full_index=1"
+    sha256 "13d64e23d42c0549117bc2f6239cd09da03d17d2f8015a81fb1a3307aeaf708f"
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_TESTS=OFF", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_TESTING=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

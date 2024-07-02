@@ -4,8 +4,8 @@ class Libgeotiff < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.2/libgeotiff-1.7.2.tar.gz"
-    sha256 "93c51fe139661d78092b30449293d28c230041d4e33ec3cabadeb167745c1177"
+    url "https://github.com/OSGeo/libgeotiff/releases/download/1.7.3/libgeotiff-1.7.3.tar.gz"
+    sha256 "ba23a3a35980ed3de916e125c739251f8e3266be07540200125a307d7cf5a704"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -20,13 +20,13 @@ class Libgeotiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "50d91e947c0969911681cab5955e6225642120376359f9e18e12c179d6b3316a"
-    sha256 cellar: :any,                 arm64_ventura:  "a166acd2043b465027c51dd99511c6d36d0e821bd178f449acebb74bb49cd1ff"
-    sha256 cellar: :any,                 arm64_monterey: "afed8abb5481dc95894186274a6836a415750e2954dc5ff94d4b9fcd5fc3691a"
-    sha256 cellar: :any,                 sonoma:         "93f331ee2af0f7a43d840352d0c62275a37d7690a73a4838a1d101cef2a8bd35"
-    sha256 cellar: :any,                 ventura:        "6dffe00210966a0a9d96cb7bf8ac2166a62cab3f10697e1f965eecfa28d151f2"
-    sha256 cellar: :any,                 monterey:       "513fbaebba07eb6984a75c7eb48f73f4772ae5ba3c1f835f18dfa259a9d234c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b3e3ccfac32e6404fc1c3c77211d4d670f5b838e1daa3de67fdb4f686ce37af"
+    sha256 cellar: :any,                 arm64_sonoma:   "331afc789e13b0ccf8260d5c85d68d4cec97d11320fee880bf472c1326de0c27"
+    sha256 cellar: :any,                 arm64_ventura:  "606dfa6c652bbd07c5dc8fbb2efea2fc8e29fd95fca9ea2ba11a3b70d0e1e6a8"
+    sha256 cellar: :any,                 arm64_monterey: "3dfe3caf669b158e180892b06ccc81cb7eef1fafa76281b6235f697c8e6ed569"
+    sha256 cellar: :any,                 sonoma:         "3a23a973aeda8bd930a9124214d9f962fddc0e1d319d10098bd784aa7d2a8093"
+    sha256 cellar: :any,                 ventura:        "e70694e0333a004285351949eb6939e88bbe5f81de205efe428468a56d775e3f"
+    sha256 cellar: :any,                 monterey:       "cc17963344ed889fcde8c72b0037386ac54c08f60d83b8019387de0a3af9ef76"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d4a823390e8a4b884b499c9a17847db282646e6d108f524124e8e8863796736"
   end
 
   head do
