@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2024.7.3.tar.gz"
-  sha256 "60192b6e9f43f403c8d1080abedcae79ef59f94703ac43f0c0fa72b9d334184c"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2024.8.5.tar.gz"
+  sha256 "38a7d5da54b8089202c7fc576a0310cc06a422e4ee2e3c5980439eb2e602495a"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "94db09ee61f01a7e5b884b30fe1807b1e2b7aeef63b4dea095d05aaf11245f40"
-    sha256 cellar: :any,                 arm64_ventura:  "47bcad4171282facabb5c8956e329d7a7105034780fdc9b73e4e53c0cfef1b94"
-    sha256 cellar: :any,                 arm64_monterey: "913d6cc1484ec29c8f04c96375b073c42be790264429978f067d4f229a291752"
-    sha256 cellar: :any,                 sonoma:         "422924b2f09d3dda93aca87b586805b89c0c86b95f29472316451c59596ab74f"
-    sha256 cellar: :any,                 ventura:        "b4ab73756122b47959e5366622dfb880000ec6d9013da8aa9c4d1d0d5359d8cc"
-    sha256 cellar: :any,                 monterey:       "82cb3f48fa176f21a0de4112063f81a65510db7ce54cc88519b9033693d44d49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c609aacbe1c47eb218b4cbf136c3841ae4bcd1187e8c8d8395f7dc1bb4106b15"
+    sha256 cellar: :any,                 arm64_sonoma:   "b61d0974086d5ad7d21b439ccd9cc3b5ed7050d78f7b48bbf95f541e27e41ad8"
+    sha256 cellar: :any,                 arm64_ventura:  "df79f3546fbe6ff48730e740b5efa8b688f577e3d2050f0d13a1e20040c8c214"
+    sha256 cellar: :any,                 arm64_monterey: "13a0888259359bd55b3960aff1d18de2e2274140501665ae825aa69513c24359"
+    sha256 cellar: :any,                 sonoma:         "20ac346ad81c92648435f5c7e4b04465f4a857583854c93bf6846904e02b9c67"
+    sha256 cellar: :any,                 ventura:        "82f9a252b6a9a1f6320ccdd1e5915ae7469a7fc4c458a793ed2b03d284c5671e"
+    sha256 cellar: :any,                 monterey:       "398850f71c3819d6b095530747766dd753b36cbe6882119b962eede2bc31c364"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c93023cd04f85c1f8641f62266a924cdaa66c14de5140a1d28b89be36cd3677"
   end
 
   depends_on "pkg-config" => :build
@@ -60,7 +60,7 @@ class Mise < Formula
   end
 
   test do
-    system "#{bin}/mise", "install", "terraform@1.5.7"
+    system bin/"mise", "install", "terraform@1.5.7"
     assert_match "1.5.7", shell_output("#{bin}/mise exec terraform@1.5.7 -- terraform -v")
 
     [
