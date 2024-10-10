@@ -12,6 +12,7 @@ class Scheme48 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sequoia:  "a24724c149c3e2954fc468093432e63fb1306fa6e545d3e06f76790697f9bf1f"
     sha256 arm64_sonoma:   "e0657af21f8db5bff943e21c608082e06d68161b2025354af2c6cee675a7f1fb"
     sha256 arm64_ventura:  "cc137fe1119517b408d4c7d7667663be60379276926b784615e39a0895f297ee"
     sha256 arm64_monterey: "c20ad35da984e79e5a9fda348b2c1f9eea887926bd5a5078c9a489e7e93b9204"
