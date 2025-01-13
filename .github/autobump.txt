@@ -407,6 +407,7 @@ cdebug
 cdk
 cdk8s
 cdktf
+cdncheck
 cdogs-sdl
 cdsclient
 cdxgen
@@ -431,6 +432,7 @@ cgal
 cgif
 cgl
 cglm
+cgns
 cgrep
 chafa
 chain-bench
@@ -439,6 +441,7 @@ chainloop-cli
 chainsaw
 chamber
 changie
+chaos-client
 chaoskube
 charm-tools
 charmcraft
@@ -539,6 +542,7 @@ coconut
 code-cli
 code-minimap
 code-server
+codeberg-cli
 codec2
 codelimit
 coder
@@ -1299,6 +1303,7 @@ gum
 gumbo-parser
 gupnp
 gupnp-tools
+gurk
 gwt
 gwyddion
 gxml
@@ -1578,6 +1583,7 @@ ksops
 ktfmt
 ktor
 kty
+kube-bench
 kube-linter
 kube-ps1
 kube-score
@@ -1794,6 +1800,7 @@ libscfg
 libsecret
 libserialport
 libshumate
+libsixel
 libslirp
 libsm
 libsndfile
@@ -1806,6 +1813,7 @@ libsql
 libssh
 libssh2
 libstrophe
+libsvgtiny
 libsvm
 libtensorflow
 libtiff
@@ -1890,6 +1898,7 @@ livekit
 livekit-cli
 lla
 llama.cpp
+lldpd
 llgo
 llm
 lmdb
@@ -2141,6 +2150,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmpc
 ncmpcpp
 ncnn
 nco
@@ -2470,6 +2480,7 @@ pixman
 pjproject
 pkg-config-wrapper
 pkgconf
+pkgdiff
 pkl
 plantuml
 planus
@@ -2558,6 +2569,7 @@ ptex
 ptpython
 pueue
 pug
+pugixml
 pulsarctl
 pure
 pure-ftpd
@@ -2709,6 +2721,7 @@ river
 rizin
 rke
 rmw
+rnr
 roadrunner
 roapi
 robin-map
@@ -3059,6 +3072,7 @@ systemd
 t-completion
 ta-lib
 tabiew
+tach
 tailscale
 tailspin
 tailwindcss
@@ -3104,6 +3118,7 @@ tenere
 tengo
 tenv
 tere
+termbg
 terminator
 termscp
 termshark
@@ -3213,6 +3228,7 @@ trurl
 tsduck
 tt
 ttdl
+tty-share
 ttyd
 ttyplot
 tuisky

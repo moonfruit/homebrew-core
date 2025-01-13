@@ -1,17 +1,17 @@
 class Libultrahdr < Formula
   desc "Reference codec for the Ultra HDR format"
   homepage "https://developer.android.com/media/platform/hdr-image-format"
-  url "https://github.com/google/libultrahdr/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "d57ec6186116bd3ab140b3ef1baa7077f91ad2e10539d8820fc641aee0417a2e"
+  url "https://github.com/google/libultrahdr/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "e7e1252e2c44d8ed6b99ee0f67a3caf2d8a61c43834b13b1c3cd485574c03ab9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "f74e0cb7b904bfbf1bf949e0354a89bb28ffc76824f7bb612d76758f6d5a67c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "c2850201ee80d9eaf326a417cc3d7e2a33503c8c1956057e772713ff2d1afbc5"
-    sha256 cellar: :any,                 arm64_ventura: "09fbfccb0ff2373e1ba0c07f2445c6ca4c75d2d9148a5de09b471b2094bfaa27"
-    sha256 cellar: :any,                 sonoma:        "d4ea563be110bda70feb1489f4f4defadc3d856742d78c75a4c4da45b99fb008"
-    sha256 cellar: :any,                 ventura:       "bba3657ad279753243ff8feb518836f9f0117d4976b1e59ce1087cbf8b021907"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "853ae42d73cddb32e68911498a9b5ca8822f944274b35c7a98ba2ebf412edcb9"
+    sha256 cellar: :any,                 arm64_sequoia: "ea42ab96abe5c0222dc6699bc23f7258be3c8063a3091f49f6995ae46ad3bad8"
+    sha256 cellar: :any,                 arm64_sonoma:  "b73d5876637e5adce9edaffdb21d41aaee2af45027246e034a5387364025a796"
+    sha256 cellar: :any,                 arm64_ventura: "09d834c256bf1b6cf18ed1031d4ca817c91bb32bbbcb14efa4bc94ddfd76da56"
+    sha256 cellar: :any,                 sonoma:        "bcc9eb419fbd3537629dad795cf7aebfa4003054f1ed048938fd921a5dbcf7d6"
+    sha256 cellar: :any,                 ventura:       "3b8c26a6c5454bbf9e92f44ffd08e0827e233a2557ca72c3c5fd6165da3897c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90793c83c2f180f134f70c76e8e7bb3a72dd1d5959bff6f0add687f792b544ac"
   end
 
   depends_on "cmake" => :build
