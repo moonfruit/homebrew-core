@@ -1,9 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  # TODO: Build with `-DWITH_LIBFMT=system` when fmt >= 11
-  url "https://archive.mariadb.org/mariadb-11.6.2/source/mariadb-11.6.2.tar.gz"
-  sha256 "7bad85bd1c77168afcae5db1396c0c52044dc044f7eae6fff5ac3cd4dec89bbd"
+  url "https://archive.mariadb.org/mariadb-11.7.2/source/mariadb-11.7.2.tar.gz"
+  sha256 "557a89f08e74015d1d6909595e003dca75d4df21ed1ef8180d63cdd74e5e71b3"
   license "GPL-2.0-only"
 
   livecheck do
@@ -18,12 +17,12 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7062cdab377f1e6edda560e1634ce08e44a64fdb1ee5825584d9ce379742aa46"
-    sha256 arm64_sonoma:  "f991ae1d9404fb23b3b61e522e9c17aa87365fc3e24d31b4639930773ecb2dc3"
-    sha256 arm64_ventura: "881af9b755c71ed838a3cc9c208a9928af60530539705a8a40f1ba2e8d4729d3"
-    sha256 sonoma:        "69d2edbf6b7888cfba5461ad445a32b2e6f1debc834530356c27f6d34d74b2a9"
-    sha256 ventura:       "37a34771e6da7726e3d9428a073a230cdcaf277db54c1219a0a964c1dada1887"
-    sha256 x86_64_linux:  "f2e42e6c4e6589287c1ad1de569ceab4c2cc78f61c60f27428b3b6c71baf71cf"
+    sha256 arm64_sequoia: "f483e528ab5b816e2c20b88598d8a5bfe9134cecca4c0de9ac64d312e6b00969"
+    sha256 arm64_sonoma:  "fe4e4c88bbd489d87b7f36de38274249a9ac824d7b2903a4c5042301e539d6ce"
+    sha256 arm64_ventura: "93d5d35242544df13cd074a324ee5d93565ca75e1278efb7393f3e767eb343c3"
+    sha256 sonoma:        "a6274271328cb579529ec17ec0a5daca2a98c490ad9c2c726be4cc74a99e3ba8"
+    sha256 ventura:       "7d03aa1668de2cfb383369d4a84d86aa8445a0000950a152e6b92865489d4d7c"
+    sha256 x86_64_linux:  "74ce4ec27335b9aec7c54cb57a76d1e686f31f4e24a5705e93fe3ff8affe8ade"
   end
 
   depends_on "bison" => :build
@@ -55,7 +54,12 @@ class Mariadb < Formula
   end
 
   conflicts_with "mysql", "percona-server", because: "mariadb, mysql, and percona install the same binaries"
-  conflicts_with "mytop", because: "both install `mytop` binaries"
+
+  # system libfmt patch, upstream pr ref, https://github.com/MariaDB/server/pull/3786
+  patch do
+    url "https://github.com/MariaDB/server/commit/b6a924b8478d2fab5d51245ff6719b365d7db7f4.patch?full_index=1"
+    sha256 "77b65b35cf0166b8bb576254ac289845db5a8e64e03b41f1bf4b2045ac1cd2d1"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -79,6 +83,7 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_LIBFMT=system
       -DWITH_PCRE=system
       -DWITH_SSL=system
       -DWITH_ZLIB=system
@@ -119,6 +124,9 @@ class Mariadb < Formula
     inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
 
     bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Fix user variable used by su_kill - Credit: https://stackoverflow.com/questions/59936589
+    inreplace "#{prefix}/support-files/mysql.server", /^user='mysql'/, "user=$(whoami)"
 
     # Move sourced non-executable out of bin into libexec
     libexec.install "#{bin}/wsrep_sst_common"

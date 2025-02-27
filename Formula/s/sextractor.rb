@@ -1,6 +1,6 @@
 class Sextractor < Formula
   desc "Extract catalogs of sources from astronomical images"
-  homepage "https://github.com/astromatic/sextractor"
+  homepage "https://www.astromatic.net/software/sextractor/"
   url "https://github.com/astromatic/sextractor/archive/refs/tags/2.28.2.tar.gz"
   sha256 "d92c5214ea75b8a70214d7d7f6824207fc53861ec923ceb2cc574f2ec9effa94"
   license "GPL-3.0-or-later"
@@ -38,6 +38,6 @@ class Sextractor < Formula
   test do
     cp_r Dir[pkgshare/"tests/*"], testpath
     system bin/"sex", "galaxies.fits", "-WEIGHT_IMAGE", "galaxies.weight.fits", "-CATALOG_NAME", "galaxies.cat"
-    assert_predicate testpath/"galaxies.cat", :exist?, "Failed to create galaxies.cat"
+    assert_path_exists testpath/"galaxies.cat", "Failed to create galaxies.cat"
   end
 end

@@ -2,12 +2,12 @@ class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://github.com/MusicPlayerDaemon/MPD"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   stable do
-    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.16.tar.gz"
-    sha256 "a3ba8a4ef53c681ae5d415a79fbd1409d61cb3d03389a51595af24b330ecbb61"
+    url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.17.tar.gz"
+    sha256 "6fcdc5db284297150734afd9b3d1a5697a29f6297eff1b56379018e31d023838"
 
     # support libnfs 6.0.0, upstream commit ref, https://github.com/MusicPlayerDaemon/MPD/commit/31e583e9f8d14b9e67eab2581be8e21cd5712b47
     patch do
@@ -17,12 +17,12 @@ class Mpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "9a9354f8f2e68f7b9a7f3374c69a6216e3bbbddfdf00c88bee70a11f7024ffd6"
-    sha256 cellar: :any, arm64_sonoma:  "1a816d6549cf5485e60b818e86933166a97af3f0f838fd9e4436b0d56b20262a"
-    sha256 cellar: :any, arm64_ventura: "7959d13d7d3e5e64d658b77b0f7204237b7bd0a8b74a200a34c55c3116a8f727"
-    sha256 cellar: :any, sonoma:        "34d9b1cd6e9963b8fa4042ea49b0b85aedb28574c5a3576d3a113c29f378da2a"
-    sha256 cellar: :any, ventura:       "6c57462d32ab0bbe02bcb8d36547d8895dc19e468ce3c6ffb626cbbeab15cc3e"
-    sha256               x86_64_linux:  "312aa5516ab7ba1c7018425dea8b0439850c6727d4073a85fd1e789d84889ad0"
+    sha256 cellar: :any, arm64_sequoia: "90e12fc71d7428a90102ffb762384846a28b39c39d7371218373c3a8a78d6406"
+    sha256 cellar: :any, arm64_sonoma:  "e5f0b7dae9ca2c0230cab0476c4c4fb33254cbe20f44f083796e9ebde7792835"
+    sha256 cellar: :any, arm64_ventura: "4f4b0d45c704cf13f435bc86b0b4604eface24784de5a46b7ddf249cd2b1f2de"
+    sha256 cellar: :any, sonoma:        "fab14765f0a4c40f863183e13aff7fa0a33f9519e6ceaed9bff6c0f8ee17d094"
+    sha256 cellar: :any, ventura:       "614c990624036f146efd9039b8912d6e6fe4a535f09de23e19aa81f406b5b343"
+    sha256               x86_64_linux:  "3840d84605b21d4688f76ae5f9ca54d175a6bca9d94f4ef8b8207f479e07c77d"
   end
 
   depends_on "boost" => :build
@@ -79,6 +79,9 @@ class Mpd < Formula
     # that against libstdc++ anyway, which won't work.
     # The build is fine with G++.
     ENV.libcxx
+
+    # https://github.com/MusicPlayerDaemon/MPD/pull/2198
+    inreplace "src/lib/nfs/meson.build", "['>= 4', '< 6']", "['>= 4']"
 
     args = %W[
       -Dcpp_std=c++20

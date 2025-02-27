@@ -1,18 +1,18 @@
 class Ruff < Formula
   desc "Extremely fast Python linter, written in Rust"
   homepage "https://docs.astral.sh/ruff/"
-  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.9.2.tar.gz"
-  sha256 "d47a61bbbfceda23ddd29dd0c3cb3bb55f240e80a7aa0ba944e7f9f3f6ed886f"
+  url "https://github.com/astral-sh/ruff/archive/refs/tags/0.9.8.tar.gz"
+  sha256 "e992c50a540a64cacf64b8717d596832aea43ca8dce4bcfd3b551f9ad05fa97f"
   license "MIT"
   head "https://github.com/astral-sh/ruff.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "321c76ee1af004603781e3951d08d7e62a2db45b49295c573cb691a76cce25c2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a67231d0bc50934884870877c36f0cde87b85dfad8d8cd078a2c392edf9789e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e4956d710e60d7f82a31a75ea6784572fed492f885038ab2eafbe46f2588fd1f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3ea9257ada89fbf9b1ad07bde315a67a00c749f2e4c90c5ea15def860e4ebfc8"
-    sha256 cellar: :any_skip_relocation, ventura:       "77ead1ab9d917489c539760165cc82178cb96dabb44b206030dbcdde35a17756"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4af1c57c2c7d885ebb8e33551e5b1ff4fbb75d1ba8cd64de97b5a54061d2970"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "279ce70f82b40e950bca02427c8f282a7d67d700bb4654ba94d925eb503ee714"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f76e5ec55e888e2a1b50718de6f378a2c9d9cfa31a1def3b65cb862dd7e8c729"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8f60cc2e5996cee30b588594ca060509f6578ab74a6125dd8aaa713c59efb90c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "644905e0a3d32960ef307caf07a28e435cdb36125d1c2337939efdda5ba0798a"
+    sha256 cellar: :any_skip_relocation, ventura:       "0943c569f1655f5a7069ff8daeb12bc9908af989f8b945ef7dea09a2acb38ae7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19b8bfdb8752c6b2db5f967b22f0a24996c453a5b76869237d94920bdb9aea48"
   end
 
   depends_on "rust" => :build

@@ -21,7 +21,7 @@ module Homebrew
 
       sig { override.void }
       def run
-        formula = Formula[args.named.first]
+        formula = Formula[T.must(args.named.first)]
         timeout = args.named.second.to_i
 
         linux_runner = if timeout > 360

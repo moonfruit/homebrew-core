@@ -1,18 +1,18 @@
 class Sesh < Formula
   desc "Smart session manager for the terminal"
   homepage "https://github.com/joshmedeski/sesh"
-  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "a0e0cb66932265aec2f03fd07507c1b4a94748b21fafcc29d1e3b57b19016e79"
+  url "https://github.com/joshmedeski/sesh/archive/refs/tags/v2.13.0.tar.gz"
+  sha256 "14d69448c689ba5116a55260518ca8b6a4f659c2e41833dc1341801b0dc5ad2d"
   license "MIT"
   head "https://github.com/joshmedeski/sesh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "868e817bdfc7ede33ef6b77455171ac199b76f788d7e4699a53c1c4173869cd7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "868e817bdfc7ede33ef6b77455171ac199b76f788d7e4699a53c1c4173869cd7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "868e817bdfc7ede33ef6b77455171ac199b76f788d7e4699a53c1c4173869cd7"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cf1b635aae0dc117fd21dd58250936e6ea76442edfc648fef5fc99bc47020a93"
-    sha256 cellar: :any_skip_relocation, ventura:       "cf1b635aae0dc117fd21dd58250936e6ea76442edfc648fef5fc99bc47020a93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7c9855bd541b7df9e68554dda7c0da09db3f2138f9ed8b3462b8c4c9ccc9d5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "68da55e239a522e3c8b4311407184a2bd958b83bfe7f1d64048884badf38ffd4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "68da55e239a522e3c8b4311407184a2bd958b83bfe7f1d64048884badf38ffd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "68da55e239a522e3c8b4311407184a2bd958b83bfe7f1d64048884badf38ffd4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "13f517c70687613ace023e9ad13b4dcb800f7bd3092d42e460381a6e2370685a"
+    sha256 cellar: :any_skip_relocation, ventura:       "13f517c70687613ace023e9ad13b4dcb800f7bd3092d42e460381a6e2370685a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13efb4aa7dbf4b5839b25ecd7000d64a5413c5bc4348c2536e837cbb70ca8b5d"
   end
 
   depends_on "go" => :build

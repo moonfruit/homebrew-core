@@ -1,17 +1,17 @@
 class Vsearch < Formula
   desc "Versatile open-source tool for microbiome analysis"
   homepage "https://github.com/torognes/vsearch"
-  url "https://github.com/torognes/vsearch/archive/refs/tags/v2.29.2.tar.gz"
-  sha256 "7baf08c08f7c3e7488f3fe8d54909d5c1bf6ecbf590105323fb5444fe40ffeec"
+  url "https://github.com/torognes/vsearch/archive/refs/tags/v2.30.0.tar.gz"
+  sha256 "6d11ce960206ab64cf6d7907e539348d192a5b3f32f82d37c9bfbc4d789b576c"
   license any_of: ["BSD-2-Clause", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06c5f002c59a7902b3b8765d4acaed648a44f5e18ba23849b05005d958b2c5dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "67f549cc778a59e8f722d9c132b685d24706ef61428b5807f6fb3b90bf3314db"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b23b0b193c605ab4ee8e5c17b551d8fc4ba058400e3e4276edc5bbd45777653"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e7ac9cc9a8b37e6f8e80f968c48fd874bc32bcf18c2041dc6c787ba6ff37cd15"
-    sha256 cellar: :any_skip_relocation, ventura:       "0224d8751a1cf86001f923452515a7ca3e7a796eef60fe9f547eabc5de99e959"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93f9c7d35adeb548a4d5a7764cff584784dcd1b408fbbed34e26f069adc28295"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5f7cc238606626fa0e7ef7934d1be830a1f6d3414948d96c64657a7c0e7261d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "95bf8675d1df686a387c61e8abe592dd295f6f20a6d8bde1dd5820cdeb3df895"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a10dde53f6f72b7c42c64149cef00a946903a6ca381666d7a4185de57816ba1e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "76c2bfbdcee1d144d998f55efb5b2f065307fe95c05d1ca9f4d8f66c65b4d035"
+    sha256 cellar: :any_skip_relocation, ventura:       "1d00ca3077cc1516feb5b8b6b9d7aa1895c7d739c937763961c9f6d50921d164"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01ede91c3962acd2f7600a7d8b2c0bb33506507ecfa1ff07d272a06bab3816e6"
   end
 
   depends_on "autoconf" => :build
@@ -32,6 +32,6 @@ class Vsearch < Formula
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     system bin/"vsearch", "--rereplicate", "test.fasta", "--output", "output.txt"
-    assert_predicate testpath/"output.txt", :exist?
+    assert_path_exists testpath/"output.txt"
   end
 end

@@ -2,18 +2,18 @@ class Cosign < Formula
   desc "Container Signing"
   homepage "https://github.com/sigstore/cosign"
   url "https://github.com/sigstore/cosign.git",
-      tag:      "v2.4.1",
-      revision: "9a4cfe1aae777984c07ce373d97a65428bbff734"
+      tag:      "v2.4.3",
+      revision: "6a7abbf3ae7eb6949883a80c8f6007cc065d2dfb"
   license "Apache-2.0"
   head "https://github.com/sigstore/cosign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0f8bb46b58ddc1624f80d26e9da4fa96ead1fa24b71e30a64615fe3ddf596f7b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f8bb46b58ddc1624f80d26e9da4fa96ead1fa24b71e30a64615fe3ddf596f7b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0f8bb46b58ddc1624f80d26e9da4fa96ead1fa24b71e30a64615fe3ddf596f7b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e448c682821ed03a899715868c752045abee38bb0f87d084d84e59ca9a93fa2"
-    sha256 cellar: :any_skip_relocation, ventura:       "502cca6ebec6a5afd4f3089b536695705fbbd34bfcc92cc891016297e544bfe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1fcf376637fb49a9d34bf7fee31180809fe211edb78793c0d504e6b59bd7ea2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3b6136f1eb6d0f0301016ab7650e6d81c85662a9e6a40cbf3efa98d75e24df9d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3b6136f1eb6d0f0301016ab7650e6d81c85662a9e6a40cbf3efa98d75e24df9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3b6136f1eb6d0f0301016ab7650e6d81c85662a9e6a40cbf3efa98d75e24df9d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "971ff9c4bff3fc5cd415e7b4af7ca62f61c087ddfe07e8f50b27414fdff00eec"
+    sha256 cellar: :any_skip_relocation, ventura:       "f06fec593603209357e51b7ddc519354c8b7fb4afc56d920741b4b83a7d57156"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be8841e368a9cacd521192289a0c16a97fe472eb09431dc92ea7591780212b6c"
   end
 
   depends_on "go" => :build
@@ -36,7 +36,7 @@ class Cosign < Formula
   test do
     assert_match "Private key written to cosign.key",
       pipe_output("#{bin}/cosign generate-key-pair 2>&1", "foo\nfoo\n")
-    assert_predicate testpath/"cosign.pub", :exist?
+    assert_path_exists testpath/"cosign.pub"
 
     assert_match version.to_s, shell_output(bin/"cosign version 2>&1")
   end

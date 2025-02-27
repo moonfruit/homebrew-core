@@ -1,17 +1,17 @@
 class CubejsCli < Formula
   desc "Cube.js command-line interface"
   homepage "https://cube.dev/"
-  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.1.15.tgz"
-  sha256 "0b45d5083fd18b094388ca86b35b3b04165ffc502bad6c4cdf375c1673cf3a63"
+  url "https://registry.npmjs.org/cubejs-cli/-/cubejs-cli-1.2.13.tgz"
+  sha256 "0616413712fa54cd4afbf5e3ef17cc66f6c77b7490ed5b466f1abd69e8d01a4f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
-    sha256 cellar: :any,                 arm64_sonoma:  "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
-    sha256 cellar: :any,                 arm64_ventura: "1aeea8575348aae1b3099e603bf2418546ae1cfdcd6045642a2034db5dcd7537"
-    sha256 cellar: :any,                 sonoma:        "f466c9f3e80e10aa0fa7c6f5c5531ddb4d730f0b672bcc4d210c73402bd0de41"
-    sha256 cellar: :any,                 ventura:       "f466c9f3e80e10aa0fa7c6f5c5531ddb4d730f0b672bcc4d210c73402bd0de41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acce345c88a386915652f646af90266f25a4feee25c12aff008eb161b61906ae"
+    sha256 cellar: :any,                 arm64_sequoia: "daf0a72647d589616af7fef45b2dd2f796d4022d1d1f68f141e27baeb6b8e9b9"
+    sha256 cellar: :any,                 arm64_sonoma:  "daf0a72647d589616af7fef45b2dd2f796d4022d1d1f68f141e27baeb6b8e9b9"
+    sha256 cellar: :any,                 arm64_ventura: "daf0a72647d589616af7fef45b2dd2f796d4022d1d1f68f141e27baeb6b8e9b9"
+    sha256 cellar: :any,                 sonoma:        "7fe82d29c987eba9605e4c1490cc97cbd680b6e4d018bafa81ac0fcfc3c55d1c"
+    sha256 cellar: :any,                 ventura:       "7fe82d29c987eba9605e4c1490cc97cbd680b6e4d018bafa81ac0fcfc3c55d1c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01ce8a4a3806a98520a0da8632af220186c18b6680b296f98a1bd435e10ef909"
   end
 
   depends_on "node"
@@ -25,6 +25,6 @@ class CubejsCli < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/cubejs --version")
     system bin/"cubejs", "create", "hello-world", "-d", "postgres"
-    assert_predicate testpath/"hello-world/model/cubes/orders.yml", :exist?
+    assert_path_exists testpath/"hello-world/model/cubes/orders.yml"
   end
 end

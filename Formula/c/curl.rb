@@ -3,11 +3,11 @@ class Curl < Formula
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
   # `url` goes below this comment when the `stable` block is removed.
-  url "https://curl.se/download/curl-8.11.1.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_11_1/curl-8.11.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.11.1.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.11.1.tar.bz2"
-  sha256 "e9773ad1dfa21aedbfe8e1ef24c9478fa780b1b3d4f763c98dd04629b5e43485"
+  url "https://curl.se/download/curl-8.12.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_12_1/curl-8.12.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.12.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.12.1.tar.bz2"
+  sha256 "18681d84e2791183e0e5e4650ccb2a080c1f3a4e57ed2fbc2457228579d68269"
   license "curl"
 
   livecheck do
@@ -16,12 +16,12 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9becff07bed074d7ccf57b6875c54e0f81313faf5304d0a83c3b4a5f030fb7d5"
-    sha256 cellar: :any,                 arm64_sonoma:  "abe90ee3f273e4101cc2a6d597341de4f0fcff5add2ac70664bf6abd045cc204"
-    sha256 cellar: :any,                 arm64_ventura: "a2a7f0e1b2ec4b1444c6fb74e747801da3b2cc17fa2defab8e8766ca66fa2317"
-    sha256 cellar: :any,                 sonoma:        "d3f0ef75ee89823890173bae4caf3eff9cf552361dc400ea576e439b69045a5b"
-    sha256 cellar: :any,                 ventura:       "af443263f1ce0d8330fc4a8863b5bcd094686cf5e7c7352b5670f3137008fe0e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76e0a5154b41a48c92434df18bc22727f50e1c5d85dbda724c7353ce0bbe385a"
+    sha256 cellar: :any,                 arm64_sequoia: "2663f0a1bfbe370da2a4296bdf3de05485d89d4d648b2cbe1f8eef664d13f66d"
+    sha256 cellar: :any,                 arm64_sonoma:  "457619db75a4738c92ff6a390eeee0899efdf5611f2c7763607cb9e77d274b94"
+    sha256 cellar: :any,                 arm64_ventura: "4bb7dd339d9bb3de5aa76bf6ca0ce01d869df99f820c92a6d5dbad2966091a2f"
+    sha256 cellar: :any,                 sonoma:        "2a9b5f610de1972e9305ed412fcf72ecfa6cf5f4471427e7a5a97c1f045f6aae"
+    sha256 cellar: :any,                 ventura:       "c4d9c6d0328ad469f248ac04d8560d27cf79c1974e4d5ce87e24290445f7006a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58d5e891a8712ac06e0b7df853081601e45f0c0ba271beea6956f7bfa96d48e9"
   end
 
   head do

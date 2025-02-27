@@ -1,18 +1,18 @@
 class HickoryDns < Formula
   desc "Rust based DNS client, server, and resolver"
   homepage "https://github.com/hickory-dns/hickory-dns"
-  url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.24.2.tar.gz"
-  sha256 "72c1d4e4dc16787ebc1bf7565eb5804d4631e473d71bf8ace67aa261e7a6bdf1"
+  url "https://github.com/hickory-dns/hickory-dns/archive/refs/tags/v0.24.4.tar.gz"
+  sha256 "c7dbbee6d32640a30193b708d48003de92df2313d9ead8096b265065a17745b6"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/hickory-dns/hickory-dns.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2faf2bbeec0a13e367d865d76ea955d212b9ba7828b0d017e97a091caebc5b5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a0d671f46052f30576fd724fd8db70184d70b0af03bf58f1672ebfc413294d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "620abe8a9441d5583b0ed4b77cc6b1e285f76a878ce216c91bd10b415d9a9961"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4f394c33309a46e308d0a4261f49010af177d2ad4f1a6540d8d5338ec66bf69b"
-    sha256 cellar: :any_skip_relocation, ventura:       "32d23b4b68fa67665327bb46f76aba23fa4a92c1cef6092d1fd539d081b01931"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9ed15fa06da990e9d5b73a876e2ff0119ae86c7a0befc5a5b3cd4d388c0a0508"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e275881170e607c5bd0afea1732395ac71ee40c80c7fe56f0214bc2f44453dca"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e074a448cf6133446c5ad7ab3fe5d28daecbc9a075b6b9a2a6917e4a1b1d467"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cc7889e91482c87fd965136c1d81132f804db4abd603b78f01b500f21ce5446e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "588911e3addb0738c7c8b681c4d890f13d5a953bce15966e32292869dc565708"
+    sha256 cellar: :any_skip_relocation, ventura:       "463c857879d5b33266d4a753dc67f601241838480bea44a695f4b8f9cb847a5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "561baa561f718d9b91ac5b6e254cb6f24b1700d30e4fba737e6213b627e6ed56"
   end
 
   depends_on "rust" => :build

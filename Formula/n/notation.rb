@@ -1,20 +1,18 @@
 class Notation < Formula
   desc "CLI tool to sign and verify OCI artifacts and container images"
   homepage "https://notaryproject.dev/"
-  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "e792c8991e2fa03bbe65623f4232345c369cd91107014c36ec67f5666b8e0041"
+  url "https://github.com/notaryproject/notation/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "4b37f74646fd02ce05a4fd7eea48e463540133171c8811b486dff90da41bc07e"
   license "Apache-2.0"
   head "https://github.com/notaryproject/notation.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8f154bacbf4da75dab08520d7a574bb1dbf271960290d83200b4d44260c2fbd2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8257d351a65fd2ad5b0d66c99b4bf332a067c49cb0d581b1a0b81b96c90c3af2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, ventura:        "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, monterey:       "94198be627dfa4aa0bc197a41901491b9ee5ac9de28c2f1ea17fdc5a48805469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24561723cc8e33f7f5b97d051e1187683ad46f312734e98f36a3eb479a126706"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "169ccb885aefbadc0af07d8496520ee14b7e96a6946d9b1ab1580c99121ce055"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "169ccb885aefbadc0af07d8496520ee14b7e96a6946d9b1ab1580c99121ce055"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "169ccb885aefbadc0af07d8496520ee14b7e96a6946d9b1ab1580c99121ce055"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ac41c269d2f3a8265ecc4afa4aa090e753a2642b752f3ba93c6305941001410c"
+    sha256 cellar: :any_skip_relocation, ventura:       "ac41c269d2f3a8265ecc4afa4aa090e753a2642b752f3ba93c6305941001410c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea9b03114d7f26134611c39adc596139a7a8408a87f4021d819a1d7bee37f32b"
   end
 
   depends_on "go" => :build

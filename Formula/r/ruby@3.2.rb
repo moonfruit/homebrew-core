@@ -1,8 +1,8 @@
 class RubyAT32 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.6.tar.gz"
-  sha256 "d9cb65ecdf3f18669639f2638b63379ed6fbb17d93ae4e726d4eb2bf68a48370"
+  url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.7.tar.gz"
+  sha256 "8488fa620ff0333c16d437f2b890bba3b67f8745fdecb1472568a6114aad9741"
   license "Ruby"
 
   livecheck do
@@ -11,12 +11,13 @@ class RubyAT32 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "1699f819bfb77774b7c71e7cabe2d22f57d98bcf0d253e6ee78a6e254289e60d"
-    sha256 arm64_sonoma:  "974759f22b4c526a89fecfb6fe7271457465f9a46f65ffb26b788a2ea6a2e086"
-    sha256 arm64_ventura: "6c494ee006260a9b517f3d9c7b516dfd849eb2971d96fb7e472e36fb93326e8c"
-    sha256 sonoma:        "daf8990e96ce6e294a833f54c3459f0627b8bc8ac07abffd8bccddd88b0c1026"
-    sha256 ventura:       "3b4e1265fa4d15d6b09c27812b848fed3f7aa5a97d08e697effaa32167fad377"
-    sha256 x86_64_linux:  "f2ba2e3b24093a1f1ad2783615cab5b28d6bf135d05bfb44f1025e7c12135806"
+    rebuild 1
+    sha256 arm64_sequoia: "b0e8fc18b801722c9bce70e61dda9a137eac1a86903d9fb2b92146c0d063b1b9"
+    sha256 arm64_sonoma:  "20932a8cdb7605d5e5184a0d4b44a2e335808edf5a75e8d85c19820abe0062b6"
+    sha256 arm64_ventura: "44f7895f2864f5baa1ae95609a63f477cfcce09dce142fff702829ea1a2a235b"
+    sha256 sonoma:        "dd7ac1f4f417211afe92021dd04fa423057a74d7e411d981deb54112032f2895"
+    sha256 ventura:       "9f05163abfdfc024c385c655792942fcf33adf63989523cbcc632c91672158da"
+    sha256 x86_64_linux:  "e0ba023611e9ffd7f838943c6c20bef8b74ea3731ab61d2e44c020f702d13811"
   end
 
   keg_only :versioned_formula
@@ -100,6 +101,19 @@ class RubyAT32 < Formula
 
     # A newer version of ruby-mode.el is shipped with Emacs
     elisp.install Dir["misc/*.el"].reject { |f| f == "misc/ruby-mode.el" }
+
+    if OS.linux?
+      arch = Utils.safe_popen_read(
+        bin/"ruby", "-rrbconfig", "-e", 'print RbConfig::CONFIG["arch"]'
+      ).chomp
+      # Don't restrict to a specific GCC compiler binary we used (e.g. gcc-5).
+      inreplace lib/"ruby/#{api_version}/#{arch}/rbconfig.rb" do |s|
+        s.gsub! ENV.cxx, "c++"
+        s.gsub! ENV.cc, "cc"
+        # Change e.g. `CONFIG["AR"] = "gcc-ar-11"` to `CONFIG["AR"] = "ar"`
+        s.gsub!(/(CONFIG\[".+"\] = )"(?:gcc|g\+\+)-(.*)-\d+"/, '\\1"\\2"')
+      end
+    end
 
     # This is easier than trying to keep both current & versioned Ruby
     # formulae repeatedly updated with Rubygem patches.

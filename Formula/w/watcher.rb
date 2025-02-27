@@ -1,19 +1,18 @@
 class Watcher < Formula
   desc "Filesystem watcher, works anywhere, simple, efficient and friendly"
   homepage "https://github.com/e-dant/watcher"
-  url "https://github.com/e-dant/watcher/archive/refs/tags/0.13.2.tar.gz"
-  sha256 "d7c788fd55673aef59567f75f061255c6243db583d3bfd5944768b3ee6510cee"
+  url "https://github.com/e-dant/watcher/archive/refs/tags/0.13.5.tar.gz"
+  sha256 "3d5c3809e7be28f06eb6b8d077cfb3fab4fd05ac653d2540643b05c93273803a"
   license "MIT"
   head "https://github.com/e-dant/watcher.git", branch: "release"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "bbe48a136bb675df5f2eedf9037f5679630388ac138432fd8b44532ea557fa97"
-    sha256 cellar: :any,                 arm64_sonoma:  "f90c5ffa0af1fc17bb7b7bcec9951bbaf9c55afb5e96820e166685e9ce6a494f"
-    sha256 cellar: :any,                 arm64_ventura: "a299d21354784d25dbaaef3945eb5d3bad5c73326aebe22ba7cc0a4ff40933c2"
-    sha256 cellar: :any,                 sonoma:        "573bd31fa9cdc5009592c1eee404114b9a685b6be22a3b10fab95a537082acb6"
-    sha256 cellar: :any,                 ventura:       "1e842312456ccff1da97df5df435ef1a58e505c46e0f1a29fa6f176d7e27316a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6b91612886fb06d34ef734209f2f8280d8ce654df3b973e83c690f9a2b1711d"
+    sha256 cellar: :any,                 arm64_sequoia: "71d27cb20d333bddbe57770a8b59aefa5646ce23eaa943b4d25ac0ce3fb49102"
+    sha256 cellar: :any,                 arm64_sonoma:  "d5ebbf8298ddbdcc5394cc263ba4aadb5580717683c95c30145b159760d4aed4"
+    sha256 cellar: :any,                 arm64_ventura: "53157a0f1edf216242266fd6a9f7d0c8932d0ce54effc46f545bf54658c9e792"
+    sha256 cellar: :any,                 sonoma:        "c7f39e92be6da2d9f7146e06c379eea38819886c6a39da7df10e4dd766550725"
+    sha256 cellar: :any,                 ventura:       "18a9f158c5b2bdb1bdfb8ca6e1222a0990826234590fd4badca6c7a424b02585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b48edcac1609f95123e313cd24069ffcc0f5de6aa10d594892d4492ffd3e54e"
   end
 
   depends_on "cmake" => :build

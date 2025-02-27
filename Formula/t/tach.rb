@@ -3,18 +3,18 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/8c/fa/61d4208652b4ddfeb12236a9d582b21831ab4a38b5956ac9210dc521e97c/tach-0.21.0.tar.gz"
-  sha256 "628ba343fe84b95998a5652520862e42c306b15c89fd32da88efe0031f986051"
+  url "https://files.pythonhosted.org/packages/52/76/09e0d7889684dca1201f42ea52bc2e7fc8c08bf92dd84fa12d24cb506819/tach-0.27.0.tar.gz"
+  sha256 "0c221a51ddfce5a4d65183f0ff2ebda6fd4230c36eb39cf2021c1aeea84be81a"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "59fb05173eaf3168ed40984439eb6105db0c424ca5115b2847f5ad0569fa72e9"
-    sha256 cellar: :any,                 arm64_sonoma:  "cd9abfaa1364fa676999cdd38a96418045ed3cd738bb3b10ddc178bbc3125cc7"
-    sha256 cellar: :any,                 arm64_ventura: "a3eaaad77a5cd53cc9f7291433f5cfa28f819433432405c85cbfc563b9fb9df3"
-    sha256 cellar: :any,                 sonoma:        "67e4eebd17f14d0ed5796ff70fbb02abe861ab7b51db5393d80a2947bb229531"
-    sha256 cellar: :any,                 ventura:       "874b501b205d29971a3e05bed02bf321bbd7284c5db87a5411be3038bdb5c6e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e60d94529845750d6340db5ab3809e2885c074adcd113da67144cfe076aac1a0"
+    sha256 cellar: :any,                 arm64_sequoia: "b3962009f2a8d71181b809c84e71027914a5b157d5be9fb953cc7fa615554397"
+    sha256 cellar: :any,                 arm64_sonoma:  "1a208a45e0fe02462475933dcfe0b42c0fa41eb54213d0be949496e948305a7a"
+    sha256 cellar: :any,                 arm64_ventura: "0cefc8174cac81e2457d70a659433550a56c246a46150e4058cf35ca4912d4a2"
+    sha256 cellar: :any,                 sonoma:        "f0a085ba6a5d36b65e5a299b513fcebd894f1600630d0b99df42b36f0ca64681"
+    sha256 cellar: :any,                 ventura:       "ef26358d1caa5566385e7da0f54f6b2a1cf10ee0262b74d3c938ef68798d8490"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e21e56ddf167179fc2807e23a8053f63fa4d58a0c9c551c1ba0e4715eba029e6"
   end
 
   depends_on "rust" => :build
@@ -47,8 +47,8 @@ class Tach < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/2d/4f/feb5e137aff82f7c7f3248267b97451da3644f6cdc218edfe549fb354127/prompt_toolkit-3.0.48.tar.gz"
-    sha256 "d6623ab0477a80df74e646bdbc93621143f5caf104206aa29294d53de1a03d90"
+    url "https://files.pythonhosted.org/packages/a1/e1/bd15cb8ffdcfeeb2bdc215de3c3cffca11408d829e4b8416dcfe71ba8854/prompt_toolkit-3.0.50.tar.gz"
+    sha256 "544748f3860a2623ca5cd6d2795e7a14f3d0e1c3c9728359013f79877fc89bab"
   end
 
   resource "pydot" do

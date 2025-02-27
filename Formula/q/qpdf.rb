@@ -1,19 +1,17 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://github.com/qpdf/qpdf"
-  url "https://github.com/qpdf/qpdf/releases/download/v11.9.1/qpdf-11.9.1.tar.gz"
-  sha256 "2ba4d248f9567a27c146b9772ef5dc93bd9622317978455ffe91b259340d13d1"
+  url "https://github.com/qpdf/qpdf/releases/download/v11.10.1/qpdf-11.10.1.tar.gz"
+  sha256 "defca435cf57d26f8a0619864841aa21f5469fddc6eb5662f62d8443021c069d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "b01a2a7b9b940ef234c0832f0d1482c3ea5509049c969b46f39e446045609f20"
-    sha256 cellar: :any,                 arm64_sonoma:   "a4aa3f1a65544861debcfbf6c5df9283e17e4a2f40b14b8c680fa9e8636c0ae9"
-    sha256 cellar: :any,                 arm64_ventura:  "e9f29cb2c999847320165614618f92d9487172a6c5ca09a2691159b934072399"
-    sha256 cellar: :any,                 arm64_monterey: "546a9271c1e4fa88c50a15ed0a6baf4a10e6729e249cdda7642337c125d309fc"
-    sha256 cellar: :any,                 sonoma:         "0af29572086526cbd6e8ec28526d5b02fb97f0b3c7dca97bcf9de7d42a5f555d"
-    sha256 cellar: :any,                 ventura:        "a7b542a3cbfeeaf64f7481d9cbc8a9edd2c4367783519281d59309578d50f8c1"
-    sha256 cellar: :any,                 monterey:       "fe39e820c2a21942e07975bd1f1dc2b596219ffb3b90aa4053fe41223c08eeda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f208edd304c812097562ceb2e069dc472d1b5a630086eedf4b645451f6a90384"
+    sha256 cellar: :any,                 arm64_sequoia: "1e038e1c17d7593c41d5971eff18e7510d1efafc3b60839467c2550079a65d30"
+    sha256 cellar: :any,                 arm64_sonoma:  "18d4d89c87492f32ed836f306097cf06f093e7b221d505a815878647001be4d2"
+    sha256 cellar: :any,                 arm64_ventura: "2300bcf8a73a671839b72555c67953d1b36d2af87c4e75459279edf2e337e8a7"
+    sha256 cellar: :any,                 sonoma:        "dd1ee4a66287745cbc12abc120425d98b56f7efa80be7e70b1ca996a20b0ff8e"
+    sha256 cellar: :any,                 ventura:       "f4d84d400a1378795f947c42993f0fe58b24d2dd2523a7f9d39a1da2880470a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "33ba8bd0a4b41646a4bd54a51e1cc93a6de3827061846d16e44434a7975b4d20"
   end
 
   depends_on "cmake" => :build

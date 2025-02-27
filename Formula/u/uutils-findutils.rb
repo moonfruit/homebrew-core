@@ -1,6 +1,6 @@
 class UutilsFindutils < Formula
   desc "Cross-platform Rust rewrite of the GNU findutils"
-  homepage "https://github.com/uutils/findutils"
+  homepage "https://uutils.github.io/findutils/"
   url "https://github.com/uutils/findutils/archive/refs/tags/0.7.0.tar.gz"
   sha256 "129c263c6953b5c6aa756666aa9f5e968e04c1d0315d9d8ad9e93ec3d1823bc0"
   license "MIT"
@@ -49,15 +49,9 @@ class UutilsFindutils < Formula
     EOS
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     touch "HOMEBREW"
     assert_match "HOMEBREW", shell_output("#{bin}/ufind .")
     assert_match "HOMEBREW", shell_output("#{opt_libexec}/uubin/find .")
@@ -73,7 +67,7 @@ class UutilsFindutils < Formula
     missing_linkage = []
     expected_linkage.each do |binary, dylibs|
       dylibs.each do |dylib|
-        next if check_binary_linkage(binary, dylib)
+        next if Utils.binary_linked_to_library?(binary, dylib)
 
         missing_linkage << "#{binary} => #{dylib}"
       end

@@ -1,17 +1,17 @@
 class AwsCIo < Formula
   desc "Event driven framework for implementing application protocols"
   homepage "https://github.com/awslabs/aws-c-io"
-  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.15.3.tar.gz"
-  sha256 "d8cb4d7d3ec4fb27cbce158d6823a1f2f5d868e116f1d6703db2ab8159343c3f"
+  url "https://github.com/awslabs/aws-c-io/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "edf8dbd19704685f7400c6fc3fcb875ab858b1e55382c7ec933efddff28b2332"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "469de82757523b94efc41e8ace0a482d750ecd0aceb2df9090a2ea23d4b02484"
-    sha256 cellar: :any,                 arm64_sonoma:  "81df61ba419531bf106653fbd735f88f281493a98b5f3f699567f83caeafd2f8"
-    sha256 cellar: :any,                 arm64_ventura: "ecd9199b467d67b45e631d7530645c652e61d3875f3cfb267e479ae44dd35161"
-    sha256 cellar: :any,                 sonoma:        "7a7f6a942570d98acd89d560aab36b979bde43c96363c3eeef167a21871868f0"
-    sha256 cellar: :any,                 ventura:       "18c41ebc9f73e8a607621b93c219d0f22204d75910aba9cc25ceddbb6e46022d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cc6f16cf5dcc1015926d002729cf31883de6f89b127eb9a9d23ac7c6d58c358"
+    sha256 cellar: :any,                 arm64_sequoia: "1ac54844fc128c359d78e50dd477f888a50eea0351aac85b9aaaa7e2ee6d42fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "d941617b9154f510dcde32419ee171a0f4d4c4b773a7268b4270881de44b0d32"
+    sha256 cellar: :any,                 arm64_ventura: "a443297894ef1ee54ec6a1184cd3f1b16a488b0e86affa5d81dfec23285d8b24"
+    sha256 cellar: :any,                 sonoma:        "0f0d63c304a855744e9a7b4f8260b705c108162f00a2a147b804ef540dbd8e91"
+    sha256 cellar: :any,                 ventura:       "403da3e379f7fb4cb93073218d992360b2ad7c1f3bac7039a9e2037668a51ed6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b2083e8c39c21c5f7abc25111f02bb042e6f42e728c6055c77c9f39e8a91792"
   end
 
   depends_on "cmake" => :build
@@ -23,12 +23,7 @@ class AwsCIo < Formula
   end
 
   def install
-    args = %W[
-      -DBUILD_SHARED_LIBS=ON
-      -DCMAKE_MODULE_PATH=#{Formula["aws-c-common"].opt_lib}/cmake
-    ]
-
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

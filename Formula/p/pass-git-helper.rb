@@ -3,17 +3,17 @@ class PassGitHelper < Formula
 
   desc "Git credential helper interfacing with pass"
   homepage "https://github.com/languitar/pass-git-helper"
-  url "https://github.com/languitar/pass-git-helper/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "98f8250fd0e31d157e4d389c151d02dfa2b0184938fedeeec44aa6fea383cb88"
+  url "https://github.com/languitar/pass-git-helper/archive/refs/tags/v3.3.0.tar.gz"
+  sha256 "d602ddf2ab45ecaa6ec50815f4468fdeafccfb979ac5191e541a53b54b658e33"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74bf55802e49db36d362863e4dda283fdf5b32c065743d4d5bbb173bacd7c981"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "74bf55802e49db36d362863e4dda283fdf5b32c065743d4d5bbb173bacd7c981"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "74bf55802e49db36d362863e4dda283fdf5b32c065743d4d5bbb173bacd7c981"
-    sha256 cellar: :any_skip_relocation, sonoma:        "20ee491913b65aa3bd0a77acabf8c4eac7ea776fe364056de29d475f18b92f7d"
-    sha256 cellar: :any_skip_relocation, ventura:       "20ee491913b65aa3bd0a77acabf8c4eac7ea776fe364056de29d475f18b92f7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "74bf55802e49db36d362863e4dda283fdf5b32c065743d4d5bbb173bacd7c981"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8173dc09953993aae822147c4929171be223c97cda7241a00d86a3bbec556b08"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8173dc09953993aae822147c4929171be223c97cda7241a00d86a3bbec556b08"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8173dc09953993aae822147c4929171be223c97cda7241a00d86a3bbec556b08"
+    sha256 cellar: :any_skip_relocation, sonoma:        "734b7c223f2a2c32694c7ebbbb5448c43fe87612d7fac5257c2a7a4470a9a1e4"
+    sha256 cellar: :any_skip_relocation, ventura:       "734b7c223f2a2c32694c7ebbbb5448c43fe87612d7fac5257c2a7a4470a9a1e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8173dc09953993aae822147c4929171be223c97cda7241a00d86a3bbec556b08"
   end
 
   depends_on "gnupg" => :test

@@ -1,12 +1,12 @@
 class Deployer < Formula
   desc "Deployment tool written in PHP with support for popular frameworks"
   homepage "https://deployer.org/"
-  url "https://github.com/deployphp/deployer/releases/download/v7.5.8/deployer.phar"
-  sha256 "72bc7b3508a7877b7b4fe3877de72738ff28b512a056ccfbcc432d0baf325ec6"
+  url "https://github.com/deployphp/deployer/releases/download/v7.5.12/deployer.phar"
+  sha256 "b55c6609653e888c672d327c407f8bba6324b9c9cc24f9dcfb3f4b3922760632"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a9b3fbfa0f721119a455a73ae0e0ae7c598f789eba0e7ebfe093c49f79638abb"
+    sha256 cellar: :any_skip_relocation, all: "7ad0768ee13aaf77122d729f2248c27da237354fd1efc5bc0f41aeda11e5631b"
   end
 
   depends_on "php"
@@ -17,6 +17,6 @@ class Deployer < Formula
 
   test do
     system bin/"dep", "init", "--no-interaction"
-    assert_predicate testpath/"deploy.php", :exist?
+    assert_path_exists testpath/"deploy.php"
   end
 end

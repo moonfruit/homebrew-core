@@ -1,18 +1,18 @@
 class Croaring < Formula
   desc "Roaring bitmaps in C (and C++)"
   homepage "https://roaringbitmap.org"
-  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.2.1.tar.gz"
-  sha256 "3514728e9eb8c90dbc00a9e337302eb458c65be2f9501a3e882d051599c4a74c"
+  url "https://github.com/RoaringBitmap/CRoaring/archive/refs/tags/v4.2.3.tar.gz"
+  sha256 "9f28c04bc5b818757e4bd857e7b78507b6fc9145d8f8da9bb2191c7c04fc3b9b"
   license "Apache-2.0"
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e974350f88d48b01a67889db048adc10afedc58b30bbd7b0ff1713caa5e3593e"
-    sha256 cellar: :any,                 arm64_sonoma:  "ddc34aa730264ea9dd5888b5ad4921d274b689800b8f7d34d92e88ff49b3e23a"
-    sha256 cellar: :any,                 arm64_ventura: "37cdf56f107ffce5f8e057ed7af3e3fccc858cba7186a8a34245baccc8e83d81"
-    sha256 cellar: :any,                 sonoma:        "7d80e56d7ddac82b599a7294d46675be1ba649551512df0d1f3ae83b91d52457"
-    sha256 cellar: :any,                 ventura:       "5edef7cff1281ddf4bad1334417073a514072c1e927a319f280bcd298e2e7480"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64d7133a9ff1cc475fb901116c344424df59b73f396de49804da23b72a37db6a"
+    sha256 cellar: :any,                 arm64_sequoia: "a77d36c1c11baef9624f2fb3c8c78a069d9787380a50c14e62ee1bf6f8e52b36"
+    sha256 cellar: :any,                 arm64_sonoma:  "14fdab96a5f7eed28b6eeaa8a6d2ddf103808dac850754cccddb4d1c36452686"
+    sha256 cellar: :any,                 arm64_ventura: "ffc2400109130139b6d1e7ce9a3f99ca6633e1fa53d79e4a06fdbcb573c2a3cf"
+    sha256 cellar: :any,                 sonoma:        "0c6750ab26fb3c6fd089c2389ba0a443fdc9e8bf10197b3e1896f3c16dc28ed6"
+    sha256 cellar: :any,                 ventura:       "d5e50f7de7f0dde7a2fcdcbf2b0e6b7fa14531319cf578bd041623ff13fde565"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6bc5ca8011247c040782ef96b3289a5b4fd0b7af0195a99c917985413933119e"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.16.0.tar.gz"
-  sha256 "f1a97c8cef5ee9d0abb57e9244549d4fe18d4ecac80cf82e250d1fc5f38b1501"
+  url "https://github.com/danmar/cppcheck/archive/refs/tags/2.17.1.tar.gz"
+  sha256 "bfd681868248ec03855ca7c2aea7bcb1f39b8b18860d76aec805a92a967b966c"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Cppcheck < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "fb5842051cde656928d4b808ed159e4b25d04496b75f2a792372fa2b3adb0b4b"
-    sha256 arm64_sonoma:  "bb3feb14aae1f7954396b8026c91253ed01809f70ddeba6e5e375e2d577932b0"
-    sha256 arm64_ventura: "7e9c35a1c2d1998d89747a67ee77046fab42688508e5e05e0b5b87b8935ec566"
-    sha256 sonoma:        "efaa934a8536deaac326094c5aad9f401b59983f1b9a7a270986959f3700dea3"
-    sha256 ventura:       "c380212e8b3bedc5d2f1aecbc0c4730042897fb6ca0b2e46c000cbf88ea0b272"
-    sha256 x86_64_linux:  "ffda2b7b66275fecd5f9caf7b4004b9f764c5ad478eed47497d3e4172303f179"
+    sha256 arm64_sequoia: "206160b7783f7c60c7e5ec950f67fc6a7b3d7b016fee9342235f9f1fcb8e645d"
+    sha256 arm64_sonoma:  "2ede7bd9259c9139c00904ca8091602a57fed8ef139f2e85f7889fa919d2b3c9"
+    sha256 arm64_ventura: "a428674b288493fea056e88d430c3263a57b94f2f142b7bb7237a77f794fdfeb"
+    sha256 sonoma:        "714aadb21afbee797947ebb8b1edba2539baf2ad52e77b50ae9a4bebaf40fd67"
+    sha256 ventura:       "ee7dea8418338de2a88388c2ef8f3cbc5380102b957dcaffd2d354b638285d25"
+    sha256 x86_64_linux:  "ef4965de8d6c6af29dc5935986d828162b6a44ff33b4f9391e2a6b34ab6004f3"
   end
 
   depends_on "cmake" => :build
@@ -125,7 +125,7 @@ class Cppcheck < Formula
 
     system bin/"cppcheck", "--dump", test_cpp_file
     test_cpp_file_dump = "#{test_cpp_file}.dump"
-    assert_predicate testpath/test_cpp_file_dump, :exist?
+    assert_path_exists testpath/test_cpp_file_dump
     output = shell_output("#{python3} #{sample_addon_file} #{test_cpp_file_dump}")
     assert_match "#{expect_function_names}\n#{expect_token_count}", output
   end

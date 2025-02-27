@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://geth.ethereum.org/"
-  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.14.12.tar.gz"
-  sha256 "9f9deab753c072cbb26e8a14bc245760225c27ff6a9f397d25711f403c138d54"
+  url "https://github.com/ethereum/go-ethereum/archive/refs/tags/v1.15.3.tar.gz"
+  sha256 "5eb6ee2a38c2cf27081589bcebd2f866cf52afbcba21a723227ab21cc468f7cb"
   license "LGPL-3.0-or-later"
   head "https://github.com/ethereum/go-ethereum.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Ethereum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b04d2147abd2065f5b93963614185bc752fdc6b27a2b4f37e700c7a3ff1a2496"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f54065d7227192453026e4977269ea28c67b0b0879779e8f638b38bd3c4b2a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0719bbd021439aab359269ce2bae3e32b95c8839202ddc8bd54bf49eb46544d1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7ebc7201d85fe282b0ba2fd69397d74deeb0e75b012dc76a9f88c85052904ff3"
-    sha256 cellar: :any_skip_relocation, ventura:       "f84a3659f304f0ce0182a65e6b575792261c2b5f0bd3a7e8cfc0265b023fce57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b7433219c7eabed827497e02745e2f949f81a0db2ab4791d82f7befb98e82f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c43cac414a697a604522f4a0bedb3c4052c2b1840bc371fa9685444fba6ccbfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "99d9b9b3b13aa223d79e63dd078e426ad2409d66f6fe484df633da917f332f3e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bb34eb456cca5be4f4caf1f8c75063be7ebb133227c239f1937cf366ae025c5c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eb70fac53fb6650650024a3990d40e33a22881e7de2931bd1b34cf3e13c4e53e"
+    sha256 cellar: :any_skip_relocation, ventura:       "36569d28f61367c2ab31841d86141b2e85a2ec440de9448cbbd09f311112c23b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d4b879f33bf2f394933a1e7997fb85e26add0c555883d1f8f24cec1c6d291a41"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Ethereum < Formula
     ENV.O0 if OS.linux?
 
     system "make", "all"
-    bin.install Dir["build/bin/*"]
+    bin.install buildpath.glob("build/bin/*")
   end
 
   test do
@@ -53,8 +53,8 @@ class Ethereum < Formula
     JSON
 
     system bin/"geth", "--datadir", "testchain", "init", "genesis.json"
-    assert_predicate testpath/"testchain/geth/chaindata/000002.log", :exist?
-    assert_predicate testpath/"testchain/geth/nodekey", :exist?
-    assert_predicate testpath/"testchain/geth/LOCK", :exist?
+    assert_path_exists testpath/"testchain/geth/chaindata/000002.log"
+    assert_path_exists testpath/"testchain/geth/nodekey"
+    assert_path_exists testpath/"testchain/geth/LOCK"
   end
 end

@@ -1,18 +1,18 @@
 class Httm < Formula
   desc "Interactive, file-level Time Machine-like tool for ZFS/btrfs"
   homepage "https://github.com/kimono-koans/httm"
-  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.44.1.tar.gz"
-  sha256 "8d06f174a51312e1cf5a5ef6c8ed921a5d64e82f2bb848eb5614b251b9275f69"
+  url "https://github.com/kimono-koans/httm/archive/refs/tags/0.46.4.tar.gz"
+  sha256 "daef3f4f3619b07038a445bc03ddd801ab9e3a6aed1e2be0719eb3403906afa9"
   license "MPL-2.0"
   head "https://github.com/kimono-koans/httm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5bd60064a162f3146ac1cafd74e36c375caeec249f65c29a2a7cbaa86fbba20"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a27d2042982921a76b5f342efa41eef86f399414c9578f54b826f3029734f7bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cee73e4ebb3209f6d3777285a73b3306c15a64b055a3f989edff3d1ab503f17d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dab34df3936ab58ed41f68a9ca7c4c60e3dcea198fd4d998ab89f31d51a23016"
-    sha256 cellar: :any_skip_relocation, ventura:       "5e849c3e7a2d97765efea68cedd1106f7afb68411872eac9c046f7c40fbd41fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef0fcb92f0f8b924a7786bebdd446354b8d9b88637c49d04f165a4853f1d2c8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5fc8fbaf5897fe35d6c835be054a3d7bf024f548f1f5ceb86595cb600080342e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "839b449e460fc1aa77b948f88b9c82ac8f1c58be30ea8f34a0a18e9c1f5e6c0a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7f9d247fb5a88ec5f3ba83e6aa06147633787440cf96d891bbda15dd85050f3a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9bf234aa2295f43730906056e9ad614d2668cd3875603c23396ebf245e4f0ef6"
+    sha256 cellar: :any_skip_relocation, ventura:       "c1a4e38a637ed27c003a8c46db4431563f8ce931862bb24a2b0c352f33bcccf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0921047a5328f60c569f93d8f632f17e083ce4023dba5e0e91b054db803e047"
   end
 
   depends_on "rust" => :build
@@ -35,7 +35,7 @@ class Httm < Formula
 
   test do
     touch testpath/"foo"
-    assert_equal "Error: httm could not find any valid datasets on the system.",
+    assert_equal "ERROR: httm could not find any valid datasets on the system.",
       shell_output("#{bin}/httm #{testpath}/foo 2>&1", 1).strip
     assert_equal "httm #{version}", shell_output("#{bin}/httm --version").strip
   end

@@ -1,8 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v17.2/postgresql-17.2.tar.bz2"
-  sha256 "82ef27c0af3751695d7f64e2d963583005fbb6a0c3df63d0e4b42211d7021164"
+  url "https://ftp.postgresql.org/pub/source/v17.4/postgresql-17.4.tar.bz2"
+  sha256 "c4605b73fea11963406699f949b966e5d173a7ee0ccaef8938dec0ca8a995fe7"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "19a546873543dc5f5f371e58189b78d271572c004439a91adee9197304fa0d58"
-    sha256 arm64_sonoma:  "4c57a872e4e82a403b8d835f444d4ac2f75e9eacaa578bac328de028fc756bb4"
-    sha256 arm64_ventura: "b9f0e38dab1a54c8bac3ec7379d37c23a9b499dfe8bb4fb19f47407f1a0fd743"
-    sha256 sonoma:        "8c9f2f6cd6900fba195e644ac33064cca523fb09d8fa73215e13a519163cbeff"
-    sha256 ventura:       "357e8a8078ca089792f32bc0993cb2db1019aa2a5a94771af7b9ee9e1290d4c6"
-    sha256 x86_64_linux:  "4692a1ed22511d941e2ef0e09d4ac85771752461b48d3c7878af9046de828197"
+    sha256 arm64_sequoia: "ca510d923e4b9d7b9c61db86ae27ecffe5fd9f12db4ec36e3005f778f82cf9e7"
+    sha256 arm64_sonoma:  "3828b6749e09bc003684776c4f00e2888c50aacb11159496c88ae940aac61e60"
+    sha256 arm64_ventura: "fe9b6ebf209bfe40a9d7a7fd1d3e4ab7f907811f06fbd33df8507047927b23a0"
+    sha256 sonoma:        "2c61e22de86f70ccebc5d97c65047d56cfbe34e8ef27262c97df3e542c02f97d"
+    sha256 ventura:       "845891800f6014e9b338edd59a7b819cb5fe22261606add6aea2fdd12f67644c"
+    sha256 x86_64_linux:  "72ca572de63c4842796b8047b9514667e06aa40460ec2e483ce0501f8f0e5a80"
   end
 
   keg_only "conflicts with postgres formula"

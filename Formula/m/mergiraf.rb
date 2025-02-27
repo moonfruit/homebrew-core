@@ -1,18 +1,18 @@
 class Mergiraf < Formula
   desc "Syntax-aware git merge driver"
   homepage "https://mergiraf.org"
-  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.4.0.tar.gz"
-  sha256 "354f1d90c192f85598d51f10fa2a3b793d89edabc2a55f2a0cecbd16efd87db8"
+  url "https://codeberg.org/mergiraf/mergiraf/archive/v0.5.1.tar.gz"
+  sha256 "90cff495a1c84bb074b0c0846fe22a32b1765e76de0046e3e444d5a209099086"
   license "GPL-3.0-only"
   head "https://codeberg.org/mergiraf/mergiraf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ee97d6da55666b61d293577087ab0c1a4b689f6317346c09e3df57e16cc6b358"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45a86129a38de61dfca828ab1c2638125b04b848de257e4b2ea6be0a9c33c9f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ca70e4007db48e9accbb4b0cfd1a709d2bfacc6fe1f9eb13d1e1920b93cfd5e3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "81920d360ba38e532764588f5199fcd8aac8fc778d5d4537f7460a973c631f5b"
-    sha256 cellar: :any_skip_relocation, ventura:       "3a57d449bfce17017e2fa9f5eff0e416dc7e8a11c566b539915be3e85cb6e341"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b5d8e9d28ebed44c0b6d15321af785aadf2aae95cb30bf3a0d9fce5cd3ec66c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "04c65fb4be282a9db4ce965ea9b175a1558cc93fb0aae4ded6e2c620b3bbe32f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5702957495e2148e9a8e7e65b0ba73e1f8b69c85d1111bfbc6482a5c5f07b2f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f9b34a9c3b6d40bbbb1d6cedac36ad6ee8f2c27c545d64bbba4899822eedd6f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ec622b751feb0c3b8c28c2fecc9daf77ed03f01a8eec9c9a1cc9e332afc4e390"
+    sha256 cellar: :any_skip_relocation, ventura:       "66366528bb8a3c98e5fb82ac049256c1a2fc070c16a1189d70a9571483904972"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3784d170ec7f11c8005071d1ec3a6e0918fdad9af81e88835147c7d46214ffd8"
   end
 
   depends_on "rust" => :build
@@ -24,6 +24,6 @@ class Mergiraf < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/mergiraf -V")
 
-    assert_match "YAML (*.yml, *.yaml)", shell_output("#{bin}/mergiraf languages")
+    assert_match "YAML (*yml, *yaml)", shell_output("#{bin}/mergiraf languages")
   end
 end

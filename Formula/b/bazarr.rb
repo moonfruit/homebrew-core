@@ -22,7 +22,7 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # Python 3.13 issue (closed w/o fix): https://github.com/morpheus65535/bazarr/issues/2803
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
@@ -126,7 +126,7 @@ class Bazarr < Formula
       Process.kill "TERM", wait_thr.pid
     end
 
-    assert_predicate (testpath/"config/config.ini.old"), :exist?
+    assert_path_exists (testpath/"config/config.ini.old")
     assert_includes (testpath/"config/config.yaml").read, "#{testpath}/custom_backup"
     assert_match "BAZARR is started and waiting for request", (testpath/"log/bazarr.log").read
   end

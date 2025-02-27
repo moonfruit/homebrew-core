@@ -1,18 +1,18 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.15.2.tar.gz"
-  sha256 "32d0cb011303878bc5307d06625bc6e5fc28e788377873016bc52681e4e9fee9"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v2.17.0.tar.gz"
+  sha256 "f8d5b7167f6032bc286b4de63a7feae281d1845d962edcfa21d81a025eef2bb2"
   license "BSD-3-Clause"
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "448b12c38cbc4320e80e99113485b31807e244db6b1ef5c48ab3381b6fcbc46d"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b5c04a7f02daf82239c4fda3cc48710b7cf05db3b2eba342bb58fcdd84a7ae4"
-    sha256 cellar: :any,                 arm64_ventura: "a2a210b917f6ebb7baa9ee7de0a455fbc054d59cac29ef1c15d69d7925b4b260"
-    sha256 cellar: :any,                 sonoma:        "8ae1f5700568cc974952aaf9e3dd9546728034463cb6194e5152eb701d63897a"
-    sha256 cellar: :any,                 ventura:       "1a0b02435b2d5d880b77caa0dc0d84f7cb758924e8d7b88c7b0c0b9b930329ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7dd1717feaf38a0f81822c52de8aab783a805d67e4ab14a7a387bdb0f0dc270"
+    sha256 cellar: :any,                 arm64_sequoia: "c1c2f86f261cc31f6def5abaf8edc8180eaa401512a2123caf10b6def7a599c7"
+    sha256 cellar: :any,                 arm64_sonoma:  "24bb535454241a339692d86ee2c6cf8e594bba7c2e667958a0d9531ffc034dab"
+    sha256 cellar: :any,                 arm64_ventura: "87fad3d9f01a6b3a6875a863b716b7c3c94f4a88b632ebcf7d14d54f00fa91de"
+    sha256 cellar: :any,                 sonoma:        "3dad5b1fbac9f11ba573f7d6705cc9ada47bb190380b72c31844606b9195c01d"
+    sha256 cellar: :any,                 ventura:       "a599182a883be6c842874df5efb6d0620c6eca30c2679e81e17fa5fc43949d08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f780bb9ba93e846788dc7ed5044563fb59293bfb028e8d01e177b3ccf8e7537"
   end
 
   depends_on "cmake" => :build

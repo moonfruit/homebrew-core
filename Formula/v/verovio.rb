@@ -1,18 +1,18 @@
 class Verovio < Formula
   desc "Command-line MEI music notation engraver"
   homepage "https://www.verovio.org"
-  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-4.5.1.tar.gz"
-  sha256 "ef088bdf3f68b95dc74e12dd7b5fdcbf35e70be33f07dc65f8f5902db76e8d5e"
+  url "https://github.com/rism-digital/verovio/archive/refs/tags/version-5.1.0.tar.gz"
+  sha256 "9c763112c31ed2cd49b9b406fc9437e0da2394f64c85f137a4e82c1e9c245d82"
   license "LGPL-3.0-only"
   head "https://github.com/rism-digital/verovio.git", branch: "develop"
 
   bottle do
-    sha256 arm64_sequoia: "6076672f943ccebd0f7aac7805001aa9d4e7bcf65d359e9969860aaa98796de2"
-    sha256 arm64_sonoma:  "4efe1058fd2c45d2b1749b8683a2734ffe6388deb8c311e69ca8637da36c987d"
-    sha256 arm64_ventura: "291caa707fe635b104c24ef48f791f33008cbefb3ceb5c3b0a6a0bbe2e4461e8"
-    sha256 sonoma:        "cf9cac00c664f3a57511857899512453ed4becda3684879e2f06809fbcaac234"
-    sha256 ventura:       "9143a905311e96bb38beb55fba06d3018246c193a130449fc1177174cb103415"
-    sha256 x86_64_linux:  "0ac976fbe1edb62069f5b07f15f177dfeb1e13c1271cc74cf28f195be6a0953d"
+    sha256 arm64_sequoia: "0cc3bc2dfc5201f8708e6ead89a91447b9f0ba1a8ea9c5e835903c46a5078b38"
+    sha256 arm64_sonoma:  "67ee4411cf79d0b2827096ae9e31e554bd712b97a5637a446669bca0e4661e8c"
+    sha256 arm64_ventura: "7dca5e82009385ca63e491d23838662dff936098c36cc1577fa8c2c1df6a62f6"
+    sha256 sonoma:        "deeadddce373b6de5ccec4d6d099469053249f0996925ed10f86fbab7a98a9d0"
+    sha256 ventura:       "a1990cc9a88ffefd484031a4ff1ef3f6f48b1463ff63faa46717bab788f24c52"
+    sha256 x86_64_linux:  "13254b818d239db801f45ffb4421fb6299bc5522f64403974e450e07633d065c"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +33,6 @@ class Verovio < Formula
     resource("homebrew-testdata").stage do
       shell_output("#{bin}/verovio Ahle_Jesu_meines_Herzens_Freud.mei -o #{testpath}/output.svg")
     end
-    assert_predicate testpath/"output.svg", :exist?
+    assert_path_exists testpath/"output.svg"
   end
 end

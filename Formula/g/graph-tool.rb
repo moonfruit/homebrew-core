@@ -3,8 +3,8 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.86.tar.bz2"
-  sha256 "954029be1146474b704b5e366acd12d97a72c9bff80facffe8ebd3d5099b7b61"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.91.tar.bz2"
+  sha256 "3c850e92b35efdd71ef2abd26d9fe5c0212ec2a07990fbe7323408e127a3fd02"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -13,12 +13,12 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "4065b38907557b263bcc193241260b34d1b1ec0230f114bda227989b54757e85"
-    sha256                               arm64_sonoma:  "a9319dc67cacebc28da7594595a7858fd8f58f62c59f452f38385810f0531c8a"
-    sha256                               arm64_ventura: "e44b253510d8bbc8d096d5adcf4df1ed071342c8538fc4f5a5bb905371796fc2"
-    sha256                               sonoma:        "57ef645f3c653a6ef1f425261c90ca7f56305c56228df1743e87fe1023a4e547"
-    sha256                               ventura:       "70037094f947181614c11c063556aaf86b226b20eede19dc3b02e54941fe74a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b76c623c1f6b73da76e6f399b0cb74d36b254b7afa00765937e8d8d6c82454f2"
+    sha256                               arm64_sequoia: "6176f2eea0a40489e2378d46637397651119f3ad526ea54957600ae4d2bdd606"
+    sha256                               arm64_sonoma:  "5b3ff6077584d7b08481d9b1c8ac529b1abcc4ac386f11038aeff29a1acad613"
+    sha256                               arm64_ventura: "d1287da26e96483cd93ed5f4b5f3601eec4dc0bc5685b3d2ee0292cabd1c578b"
+    sha256                               sonoma:        "0fc00dec9fdee4e02501ef93ae7b008fbf5f2d1b6ee31e0a66cd1a286322b2e2"
+    sha256                               ventura:       "35095ae32c6a17514fbb93f7638e4985998968c2afc104c3208831657fff350c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2970f28e5c862f638c412456457c3b20195a28374133abc6bf4ca10a0b7f38f"
   end
 
   depends_on "google-sparsehash" => :build
@@ -64,8 +64,8 @@ class GraphTool < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/76/61/a300d1574dc381393424047c0396a0e213db212e28361123af9830d71a8d/fonttools-4.55.3.tar.gz"
-    sha256 "3983313c2a04d6cc1fe9251f8fc647754cf49a61dac6cb1e7249ae67afaafc45"
+    url "https://files.pythonhosted.org/packages/1c/8c/9ffa2a555af0e5e5d0e2ed7fdd8c9bef474ed676995bb4c57c9cd0014248/fonttools-4.56.0.tar.gz"
+    sha256 "a114d1567e1a1586b7e9e7fc2ff686ca542a82769a296cef131e4c4af51e58f4"
   end
 
   resource "kiwisolver" do
@@ -111,6 +111,9 @@ class GraphTool < Formula
   def python3
     "python3.13"
   end
+
+  # remove obsolete pointer_traits workaround for older libstdc++
+  patch :DATA
 
   def install
     site_packages = Language::Python.site_packages(python3)
@@ -179,3 +182,30 @@ class GraphTool < Formula
     refute_match "Graph drawing will not work", shell_output("#{python3} test.py 2>&1")
   end
 end
+
+__END__
+diff --git a/src/boost-workaround/boost/container/vector_old.hpp b/src/boost-workaround/boost/container/vector_old.hpp
+index c4152c8..f72e646 100644
+--- a/src/boost-workaround/boost/container/vector_old.hpp
++++ b/src/boost-workaround/boost/container/vector_old.hpp
+@@ -3167,20 +3167,6 @@ struct has_trivial_destructor_after_move<boost::container::vector<T, Allocator,
+
+ }
+
+-//See comments on vec_iterator::element_type to know why is this needed
+-#ifdef BOOST_GNU_STDLIB
+-
+-BOOST_MOVE_STD_NS_BEG
+-
+-template <class Pointer, bool IsConst>
+-struct pointer_traits< boost::container::vec_iterator<Pointer, IsConst> >
+-   : public boost::intrusive::pointer_traits< boost::container::vec_iterator<Pointer, IsConst> >
+-{};
+-
+-BOOST_MOVE_STD_NS_END
+-
+-#endif   //BOOST_GNU_STDLIB
+-
+ #endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+
+ #include <boost/container/detail/config_end.hpp>

@@ -1,17 +1,25 @@
 class Rye < Formula
-  desc "Experimental Package Management Solution for Python"
-  homepage "https://rye-up.com/"
-  url "https://github.com/astral-sh/rye/archive/refs/tags/0.43.0.tar.gz"
-  sha256 "e4106514141a2369802852346ad652f9b10d30b42e89d2e8e6c4a1dcbc65db6b"
+  desc "Package Management Solution for Python (consider the successor \"uv\" instead)"
+  homepage "https://rye.astral.sh/"
+  url "https://github.com/astral-sh/rye/archive/refs/tags/0.44.0.tar.gz"
+  sha256 "6ef86ccba82b59edfc4f6deba39be6394e7866fe2250596b96124c20327f0581"
   license "MIT"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8d37a06c4a25db7bf068e0c534215482fd1ad649b6ef7c295a89368f46b30527"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "55d4940ca01a25e10130857de4c5b3a71d828c4fddd3579fd3740b8f72405f86"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b48117cf72dd83653d6eeabb027a32bed37efb8815e9818a4c40c3019959df4c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab8662050bf34d342b01a155170dad6157cbf7c75a2dbcebae6212ceb36ffc68"
-    sha256 cellar: :any_skip_relocation, ventura:       "9c0b2d9a507b2a3dcb9a0c3352b581115115f22f781026d6b6f998f7a2c1be11"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ac3c7319165ae16dcf4d98c9f29ca0c44cee22f365a126970b5d870d5a0865a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84c1ce8ddff03d794c636fdd224c0ccf873a0a74b330d2eb3b56b7c481ccb9f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b68d8c0f567cb5d26d3ae99cacb29c56cb7cc1ef4233c73c43d554681a20c740"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc5259ed968232a6ee88fa9afeba7dd6429dc7eea4a3fafa3dc1eeda259c6a27"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b3a8e7efb4d1cb5070a3182778474e5e196f9f2e94edf30a8584de32bbe1f050"
+    sha256 cellar: :any_skip_relocation, ventura:       "e15f3bbaa74bc6ef7b7fe65e79af32a812567394c27f5074f675726e3f0da24a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c57f18a9a1dd66aca420ceb0bdd53d91915bfd9b93298b5cfa12411af9558a7"
   end
 
   depends_on "rust" => :build
@@ -23,6 +31,8 @@ class Rye < Formula
     depends_on "pkgconf" => :build
     depends_on "openssl@3"
   end
+
+  conflicts_with "ryelang", because: "both install `rye` binaries"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "rye")

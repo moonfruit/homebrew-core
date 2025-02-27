@@ -1,16 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.30.0.tar.gz"
-  sha256 "c1e7f745275526a92b4797ca63bb5a8b8b558f8cb35c200e13097244db6c8a1c"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "d38d576f85bfa936412413b6860875ba3b462a8e67405f3984a0485778f2fdac"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "5f31b68727ed72b25f68bb5c0597e21aa02b9c5ae122589d34f8b9ce87ed1f4f"
-    sha256 cellar: :any, arm64_sonoma:  "909e2be4d7a59c0d984b74f6c3f190ad57f1106314b66eb998cc216f7965105b"
-    sha256 cellar: :any, arm64_ventura: "05745379bd18636496b7074eb3f9bbd5f8328d9012a985dff877b341459acd0e"
-    sha256 cellar: :any, sonoma:        "c973393e6c198ab2be70ad54decde560ebbf0880e5fc5f00ec622cc644f8543e"
-    sha256 cellar: :any, ventura:       "4deac0a5e90d41a6d361a4684ebb1afb7b381cb21396b0f5b5d5536359616e58"
+    sha256 cellar: :any, arm64_sequoia: "503bcd02e9c1cee66a0fe1c31b4fb92c456e0403dbeff251ab37a89d097800ba"
+    sha256 cellar: :any, arm64_sonoma:  "5148be65fd513313ab9eae89eada1ab878e311c5bf7bae260adc8d9742005213"
+    sha256 cellar: :any, arm64_ventura: "0dbfc1421b25651a69006ac4f2dc5995c79ad832f582b57877b53deed618b47e"
+    sha256 cellar: :any, sonoma:        "e7a695a5486603ca20361ee1ea25680f77cbfefe31b073b2f881c1f4dd7e7302"
+    sha256 cellar: :any, ventura:       "7c12245e729a102ec2b284ce3cc5ff11532269effd442175acc8890c440a1b7f"
   end
 
   depends_on "boost" => :build
@@ -42,21 +43,17 @@ class Snapcast < Formula
   end
 
   test do
-    server_pid = fork do
-      exec bin/"snapserver"
+    server_pid = spawn bin/"snapserver"
+    sleep 2
+
+    begin
+      output_log = testpath/"output.log"
+      client_pid = spawn bin/"snapclient", [:out, :err] => output_log.to_s
+      sleep 10
+      assert_match("Connected to", output_log.read)
+    ensure
+      Process.kill("SIGTERM", client_pid)
     end
-
-    r, w = IO.pipe
-    client_pid = spawn bin/"snapclient", out: w
-    w.close
-
-    sleep 10
-    Process.kill("SIGTERM", client_pid)
-
-    output = r.read
-    r.close
-
-    assert_match("Connected to", output)
   ensure
     Process.kill("SIGTERM", server_pid)
   end

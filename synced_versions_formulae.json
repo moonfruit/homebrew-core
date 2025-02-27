@@ -24,7 +24,7 @@
   ["b3sum", "blake3"],
   ["bcftools", "htslib", "samtools"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
-  ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
+  ["bundler-completion", "gem-completion", "rails-completion", "rake-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],
   ["dbhash", "lemon", "sqldiff", "sqlite", "sqlite-analyzer"],
   ["dmd", "dtools"],

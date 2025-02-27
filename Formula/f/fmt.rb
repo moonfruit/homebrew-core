@@ -1,18 +1,18 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/releases/download/11.1.2/fmt-11.1.2.zip"
-  sha256 "ef54df1d4ba28519e31bf179f6a4fb5851d684c328ca051ce5da1b52bf8b1641"
+  url "https://github.com/fmtlib/fmt/releases/download/11.1.4/fmt-11.1.4.zip"
+  sha256 "49b039601196e1a765e81c5c9a05a61ed3d33f23b3961323d7322e4fe213d3e6"
   license "MIT"
   head "https://github.com/fmtlib/fmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "34b5e506a3a4b204fc5b7bfeed88a68c21636a03fb9fe18f335bee6530fd6ba3"
-    sha256 cellar: :any,                 arm64_sonoma:  "1046ef8370d738db0b1b31844068e04f6ba2e37f8f2971fd66317db20683a08a"
-    sha256 cellar: :any,                 arm64_ventura: "c937ca512d3659428d16171b116a93b77356958b67963ca2444c1d932f35095d"
-    sha256 cellar: :any,                 sonoma:        "7c665fc73469d4322a4f2739b84ca45feba1eb46adeca2ad507b772358ef8a41"
-    sha256 cellar: :any,                 ventura:       "9155a09ab31fb52c3b4c963c6177ed1f6035896e8d584cb873a9f463fcb21e07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8be2c52165bba3b7bde1e1c0fa2ccfbad1f76299434da9e29f8857d9e00ee55"
+    sha256 cellar: :any,                 arm64_sequoia: "a66ba523ff4d827b679de7e9ed284a1f3fc091c06152c64946e4c536f284d8c0"
+    sha256 cellar: :any,                 arm64_sonoma:  "bd4ba9753212bb107c8e0a5dcc4f78afa076537a718987d9f302f09c447ce275"
+    sha256 cellar: :any,                 arm64_ventura: "dd8071bddd6d4c1b2d21e5cd4caa4d78cdcf7218caedf65c58ef8e58071bac12"
+    sha256 cellar: :any,                 sonoma:        "4c472ff65bc9d0f5d5bc0631dcd97c2ed17d3d5dc8f4b3deae3d6b87cb62de56"
+    sha256 cellar: :any,                 ventura:       "4fc070f491d3b1396aac67c75c882b73457a3b40877f5bf53d1b72e4e74d6cca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3cd54b7682a79a203e780740e07aa1658998392f7b5787dd3cf8c7d17da2680b"
   end
 
   depends_on "cmake" => :build

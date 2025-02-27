@@ -3,13 +3,12 @@ class Dynaconf < Formula
 
   desc "Configuration Management for Python"
   homepage "https://www.dynaconf.com/"
-  url "https://files.pythonhosted.org/packages/56/1a/324f1bf234cc4f98445305fd8719245318466e310e05caea7ef052748ecd/dynaconf-3.2.6.tar.gz"
-  sha256 "74cc1897396380bb957730eb341cc0976ee9c38bbcb53d3307c50caed0aedfb8"
+  url "https://files.pythonhosted.org/packages/98/a8/bd76f872481c783a7e29cf0d4eccf773b1a2418b971f389245964223dcd6/dynaconf-3.2.10.tar.gz"
+  sha256 "8dbeef31a2343c8342c9b679772c3d005b4801c587cf2f525f98f57ec2f607f1"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "dd470da2064bfb5d2a4c5dcabc7d09dcda5a986c66586c2c98d931d8e06321db"
+    sha256 cellar: :any_skip_relocation, all: "d16d121cb8ee8c6f5db0f745e28413a935e997df9f8b5cbe9c317101cef64183"
   end
 
   depends_on "python@3.13"
@@ -20,7 +19,7 @@ class Dynaconf < Formula
 
   test do
     system bin/"dynaconf", "init"
-    assert_predicate testpath/"settings.toml", :exist?
+    assert_path_exists testpath/"settings.toml"
     assert_match "from dynaconf import Dynaconf", (testpath/"config.py").read
   end
 end

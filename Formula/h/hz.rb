@@ -33,11 +33,13 @@ class Hz < Formula
   end
 
   test do
+    ENV["GOPATH"] = testpath
+
     output = shell_output("#{bin}/hz --version 2>&1")
     assert_match "hz version v#{version}", output
 
     system bin/"hz", "new", "--mod=test"
-    assert_predicate testpath/"main.go", :exist?
+    assert_path_exists testpath/"main.go"
     refute_predicate (testpath/"main.go").size, :zero?
   end
 end

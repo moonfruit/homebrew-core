@@ -1,8 +1,8 @@
 class Kraftkit < Formula
   desc "Build and use highly customized and ultra-lightweight unikernel VMs"
   homepage "https://unikraft.org/docs/cli"
-  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "919b86d44232ca443dee7b7be547fa6983036ac9dd3c11a0b744c1a6799af550"
+  url "https://github.com/unikraft/kraftkit/archive/refs/tags/v0.11.3.tar.gz"
+  sha256 "c0afe55f8c161082c0d45602b33e36f59656b81b917dfb9445a7786f99345e63"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Kraftkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4da02f2e9a16724401ad3aaa71f9e708d8e69319dd682d5f096a93e525ab4eb9"
-    sha256 cellar: :any,                 arm64_sonoma:  "6520f5ae2b5e50d04040d6ad9a5e6b2d22c5f269041fdd408406553d038d4aa5"
-    sha256 cellar: :any,                 arm64_ventura: "3f24227a64581cfe3f110b1afeb826a5fafccc855ad820ee833234b1f19ccd1c"
-    sha256 cellar: :any,                 sonoma:        "14c3ce340f523ad930c525327dd4bd5be5dacce84bc82d42e20bcc290e05ee48"
-    sha256 cellar: :any,                 ventura:       "7f363ca81b228a4ae090442faa92e1fbb9d687b6ad5515a8e5d5129c0a2c5b15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4fb912b888a4b6015e995e55aeb0e43c4e67b2345238b068295f17cae331902"
+    sha256 cellar: :any,                 arm64_sequoia: "7c7eb354f1234fcadf082c2779050bc4d24d0b1169d712b07eaa206ba3f541af"
+    sha256 cellar: :any,                 arm64_sonoma:  "ac4af46d2f8a7513ad539a955ae6092254c9e54e365f44d7653d7df63ec82af0"
+    sha256 cellar: :any,                 arm64_ventura: "55209704d0987fc475a8dd2457d561f2728858ca947123257d596514b4257a72"
+    sha256 cellar: :any,                 sonoma:        "8db7db5ce66824789917e8baae70c00c4eb78e6fc6f7f0f015ec6c68df5adaaa"
+    sha256 cellar: :any,                 ventura:       "dd96543bedb10ab3cb29cc000bd787ec1a5d1d1c4462c36b87ee9c1ac2e4682f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1cd29813403920ccf64416b359600e25e2e659e17dfbaacda9f156b7d443a77"
   end
 
   depends_on "go" => :build
@@ -43,7 +43,7 @@ class Kraftkit < Formula
     expected = if OS.mac?
       "could not determine hypervisor and system mode"
     else
-      "found unikraft.org/helloworld:latest (qemu/x86_64)"
+      "finding unikraft.org/helloworld:latest"
     end
     assert_match expected, shell_output("#{bin}/kraft run unikraft.org/helloworld:latest 2>&1", 1)
 

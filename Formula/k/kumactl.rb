@@ -1,8 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/refs/tags/2.9.2.tar.gz"
-  sha256 "fef179d27d161638f757912ef3d965f2fb30bc2ca45bc849ca0b4c0d970c9b37"
+  url "https://github.com/kumahq/kuma/archive/refs/tags/2.9.4.tar.gz"
+  sha256 "50fb1880d8b6262f23c4ebf9408edecdd8ee4557f500b2e1ce75de07cb0cbf94"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Kumactl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52afa082cd2e4a63c8e87364003a5b484c73f67b575090d18e9d378d9f2107fa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52afa082cd2e4a63c8e87364003a5b484c73f67b575090d18e9d378d9f2107fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "52afa082cd2e4a63c8e87364003a5b484c73f67b575090d18e9d378d9f2107fa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "86a1e17ca9fb789c9377ec93fe48917ab12a0bb32a546c72e19f03d2067bfe71"
-    sha256 cellar: :any_skip_relocation, ventura:       "86a1e17ca9fb789c9377ec93fe48917ab12a0bb32a546c72e19f03d2067bfe71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "756f7d0017e34fb00381d19bea38ad38005f9cd8a5ab34cd1cd19779f436ab50"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48997430169713c40fea4f15be35a946b89426ca13e86aca1948d00f9b7958f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48997430169713c40fea4f15be35a946b89426ca13e86aca1948d00f9b7958f5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "48997430169713c40fea4f15be35a946b89426ca13e86aca1948d00f9b7958f5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "25cadcf193cfea5aea278a857c0f5ee05a66b7424ad36c45942d405acc44f2d2"
+    sha256 cellar: :any_skip_relocation, ventura:       "25cadcf193cfea5aea278a857c0f5ee05a66b7424ad36c45942d405acc44f2d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b947a0edb876e05abb4c6c3ca2d206c1325e32babfcbd23e305292139f5dc8c5"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class CargoPublicApi < Formula
   desc "List and diff the public API of Rust library crates"
   homepage "https://github.com/cargo-public-api/cargo-public-api"
-  url "https://github.com/cargo-public-api/cargo-public-api/archive/refs/tags/v0.42.0.tar.gz"
-  sha256 "cc6328f092fbf3896eee8f28c32e36420d5cca400d5fc18f43fc0932e05a7ba3"
+  url "https://github.com/cargo-public-api/cargo-public-api/archive/refs/tags/v0.44.2.tar.gz"
+  sha256 "9355847d4513a8e5994bd75765c473c025fda0ddecf2babe3c8342091425f259"
   license "MIT"
   head "https://github.com/cargo-public-api/cargo-public-api.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d6fb7758a1e0d0ddf055f42a9244794c2c6b8797aeebda9b659b2b28e899f4f8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c2ae65e24c70e29a01a9e418c46dd44041e323b327deadb211d68ac0a67f308"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4b2d129303e9388ad71c6442fcd1c53f8625d7e246da4c01e2911741f3f7f186"
-    sha256 cellar: :any_skip_relocation, sonoma:        "39c0476c66f5338d1e539225ae4d0b5ef0e9cc5a232edccca74e0098343a2b0e"
-    sha256 cellar: :any_skip_relocation, ventura:       "747bed135e9ec87919deab7f35861639fca60be934c4df083b85e8a5afb17014"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79610dff0462bc1ebedacf09a77eb0abd4ab47b71deb50a5c87d09685b715a41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00280dea57c0cf34b7306d3a1510fe4cb2b7a6004e6c95a7169317ee69e15877"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4cf6c75c5008d0a485da7d43d00434a0e5fa994f3d311e9173975e5232d2790f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "237fcb5ad9726595a5660c6c41e71ddc215f6e38e014e5fd9eeaf45f38add78c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2eab8239a667f4dffcb17ad66d42c86a7678791026eeb55e6ec4b4355fcb94f9"
+    sha256 cellar: :any_skip_relocation, ventura:       "2547271ed0da8a1a9cb46ed3251c4e58143535f25a141560fa0636ff6e688684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7debe5eac122bfc58b86559de1a8d783389631495513b3523f6837f82bc3a11"
   end
 
   depends_on "pkgconf" => :build

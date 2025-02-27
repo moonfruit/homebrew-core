@@ -3,18 +3,18 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/72/ee/41eb1ba07adfa50ada9526a6c8c41dcec382da794a0981ac803e7e6d415c/linode_cli-5.56.0.tar.gz"
-  sha256 "6e0cabb52a1cb32b71537010181f8547753cc177edba2576255c0429cf2bf5be"
+  url "https://files.pythonhosted.org/packages/57/40/2a4bf1bb9ab4f1a6fe3710579832b3dc9a76c43f38db7b972baf504f0370/linode_cli-5.56.3.tar.gz"
+  sha256 "a8550e85571fd92e09dfc2e46689a9c575890af9cd161ead75d3aac54863efc5"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3d7fae77d9ee204da311af6952e530a7ca63704936beee34f93763198ae56c5e"
-    sha256 cellar: :any,                 arm64_sonoma:  "c989b9db0c51ce05d5553589265583c4b2d2ff6b2d7b43e06e9c80be1e59cca1"
-    sha256 cellar: :any,                 arm64_ventura: "2335e9aa3af64a91b75d3ba9b82ecd6658e54758d360eefb437d27d527211760"
-    sha256 cellar: :any,                 sonoma:        "1c8626dd198a2500de45e9e9cb29d28f86ebb4b0db57688570127f97fde50570"
-    sha256 cellar: :any,                 ventura:       "7ba242d4efe7a112e8b23ac8747ddae7134841682330218719912e645de44b3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4449d9be3628b13bcc2e1411750f40901367c4a00a3d887abd69bb7145651fd4"
+    sha256 cellar: :any,                 arm64_sequoia: "84cf89e05c5f6ec8e7ffbf0254da30659f625814fa50adb8f32a7f92187cb4ef"
+    sha256 cellar: :any,                 arm64_sonoma:  "d337705dfb981c2a59707e4d92cc985531f7ca0fcea28d95476eb42ea12db5cf"
+    sha256 cellar: :any,                 arm64_ventura: "0caceaff27e54557beab2ade91f6b75236b43c43b9dbaa185d1edee484b47955"
+    sha256 cellar: :any,                 sonoma:        "a61dfdffae18cd44fbb8c9c3c64480c536ab3d34a45613dd08f7038d36ca3de0"
+    sha256 cellar: :any,                 ventura:       "f826452bda6c4acf36d1bb62d93fbf899f370b6c7e82cc7d89b05192272fef6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0895621e063cebdab022184fed65657f81398492fab2481620da92b52d3cbc00"
   end
 
   depends_on "certifi"

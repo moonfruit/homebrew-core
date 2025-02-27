@@ -1,18 +1,18 @@
 class Regclient < Formula
   desc "Docker and OCI Registry Client in Go and tooling using those libraries"
-  homepage "https://github.com/regclient/regclient"
-  url "https://github.com/regclient/regclient/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "31f38400fc3941120130ac3d1271ae31bc9bc586cd28b3bd2e40f89ab93dcdd3"
+  homepage "https://regclient.org/"
+  url "https://github.com/regclient/regclient/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "64ffd66661a88cf8357ad9e961901cc64f926a5d1e0c6cfafeb12ed2023c18b3"
   license "Apache-2.0"
   head "https://github.com/regclient/regclient.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e183fa6831d91cd9defe312c7d6ad4c787076e4b32a500de93ce07a47a32ad38"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e183fa6831d91cd9defe312c7d6ad4c787076e4b32a500de93ce07a47a32ad38"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e183fa6831d91cd9defe312c7d6ad4c787076e4b32a500de93ce07a47a32ad38"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e638dc9a9419dd840e522c23b7a5c7b75b081eb3a11d0359dbf75c472996d3a"
-    sha256 cellar: :any_skip_relocation, ventura:       "2e638dc9a9419dd840e522c23b7a5c7b75b081eb3a11d0359dbf75c472996d3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56260bba5f7b2833a21a381f988e70b2331db9e7a8d9efbd68cf37edd185b2cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ef4cda4c96eaf436865d9a12cd987676cd72df019c6fabf310965561566db47"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ef4cda4c96eaf436865d9a12cd987676cd72df019c6fabf310965561566db47"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5ef4cda4c96eaf436865d9a12cd987676cd72df019c6fabf310965561566db47"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c5d779eb3761573d30491d5635614b5eb669bd1852f9ee1415ae52781d95b450"
+    sha256 cellar: :any_skip_relocation, ventura:       "c5d779eb3761573d30491d5635614b5eb669bd1852f9ee1415ae52781d95b450"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27d90736256354cdebaaab6050078ad7056c074b736f82db62fe0ec290db0d8d"
   end
 
   depends_on "go" => :build
