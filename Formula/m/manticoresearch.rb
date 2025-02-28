@@ -1,8 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.3.8.tar.gz"
-  sha256 "633a55f20545eb4c722dd05175b7187ca802d765fc3eaf9cce3bc2ebb4eaebbe"
+  url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/7.4.6.tar.gz"
+  sha256 "413cf45b2cad144a40021aa1deb389ca2a5076a3c906759e66df0ca6e15570de"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-2.0-only", # wsrep
@@ -19,20 +19,20 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "6dcdd6b0272b3d137486441e402e76533ce3fa37af5ae5187b15f9b0d8e91323"
-    sha256 arm64_sonoma:  "1f37515148fac4f4b83d4c847900e3a4053671de246b6d6c969a8ef4995063d8"
-    sha256 arm64_ventura: "7d30b9fb98196c9a569adafb85f73c66d23f975beb1015931d9ee5933c8ba410"
-    sha256 sonoma:        "de5e34aa93653420dbd4f3cee685be832b6ddc8944ef8598265693030c966858"
-    sha256 ventura:       "006072f761e4ae6145779953a579ca3db29a3d505ffe5f10001d6b4faefdf850"
-    sha256 x86_64_linux:  "9499fd95c8b1e71dcd1d004531edc7b8baf0a8a52868f46c435adb752979a297"
+    sha256 arm64_sequoia: "8dbbccbe82cd65d385e84b558ab6847ef73cab317b2439b12fda12fc1d0bfda4"
+    sha256 arm64_sonoma:  "fc29444a70ad4254b29e5eafb1a721e466a1da62bab306ad11409baac8282a77"
+    sha256 arm64_ventura: "09d2155cea5ca7ff9e53480991b8592427eb067efefa2b8e0c9bd189c1fcb5b9"
+    sha256 sonoma:        "2367a4fcff3d32982c260c92348625f3ea6b2159e40865e8b9353a61bedced81"
+    sha256 ventura:       "464efbf92f3e980cc475a49dc4586cce1f87d7c0f3357ee086c312aeee4ec295"
+    sha256 x86_64_linux:  "cc0f951ddfe97b0fd5c51c06de8a3c14888aadb78fc6305a46080765db90fc33"
   end
 
-  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a
 
   # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
+  depends_on "boost"
   depends_on "cctz"
   depends_on "icu4c@76"
   depends_on "libpq"
@@ -50,9 +50,8 @@ class Manticoresearch < Formula
   uses_from_macos "zlib"
 
   def install
-    # Work around error when building with GCC
-    # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/2393
-    ENV.append_to_cflags "-fpermissive" if OS.linux?
+    # Avoid statically linking to boost
+    inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
 
     ENV["ICU_ROOT"] = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
                           .to_formula.opt_prefix.to_s

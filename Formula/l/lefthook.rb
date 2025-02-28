@@ -1,18 +1,18 @@
 class Lefthook < Formula
   desc "Fast and powerful Git hooks manager for any type of projects"
   homepage "https://github.com/evilmartians/lefthook"
-  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.10.9.tar.gz"
-  sha256 "d98b5b93f40ef72facb67c2ec119dfcd5dfc4eb49f7c081ab7a333508bd45e08"
+  url "https://github.com/evilmartians/lefthook/archive/refs/tags/v1.11.2.tar.gz"
+  sha256 "2362a632eb66e34c8ae0e440b35b901a024fcf2bb85c88149d77826e78487ebf"
   license "MIT"
   head "https://github.com/evilmartians/lefthook.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ec7cc8323972d37e3eb72993aa0d49102cd8f958b303470e77e70bdbdbc153af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ec7cc8323972d37e3eb72993aa0d49102cd8f958b303470e77e70bdbdbc153af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec7cc8323972d37e3eb72993aa0d49102cd8f958b303470e77e70bdbdbc153af"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e417fed0792c4c36c35fe292e653f2d18addbf455b8ab66a1f6bd32d0611d189"
-    sha256 cellar: :any_skip_relocation, ventura:       "e417fed0792c4c36c35fe292e653f2d18addbf455b8ab66a1f6bd32d0611d189"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5eb9be4471ed437b2da7cf986ba0159e5df6fd0c915e4c7067798bab5a80ae0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b1cd72550b8bf23d98257474c6975f74bb3ffc5c881c93ba0ecd00a20caccbc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b1cd72550b8bf23d98257474c6975f74bb3ffc5c881c93ba0ecd00a20caccbc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "9b1cd72550b8bf23d98257474c6975f74bb3ffc5c881c93ba0ecd00a20caccbc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a360caaec048121e5b611baa0943b2a304b06b2b16d1a1fa8f50cc88deb3d69"
+    sha256 cellar: :any_skip_relocation, ventura:       "4a360caaec048121e5b611baa0943b2a304b06b2b16d1a1fa8f50cc88deb3d69"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4e18023533e6755b9657730f495be3cb30ab4b39da113b2bd6e257ecb7a6269"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,7 @@ class Lefthook < Formula
     system "git", "init"
     system bin/"lefthook", "install"
 
-    assert_predicate testpath/"lefthook.yml", :exist?
+    assert_path_exists testpath/"lefthook.yml"
     assert_match version.to_s, shell_output("#{bin}/lefthook version")
   end
 end

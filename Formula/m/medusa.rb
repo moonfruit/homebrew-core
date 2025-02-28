@@ -1,18 +1,18 @@
 class Medusa < Formula
   desc "Solidity smart contract fuzzer powered by go-ethereum"
   homepage "https://github.com/crytic/medusa"
-  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "f8b6e55541ce4443d6f07ba6f2394148809691cf8c68037bab0ec7ce742ac2ea"
+  url "https://github.com/crytic/medusa/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "ea0056e40fe11ec5dd4256cf4bb61d4251af3b9c7f4a22a1a37d7539b642b1f3"
   license "AGPL-3.0-only"
   head "https://github.com/crytic/medusa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "daf0e9f52c0333eb6fcaeb28184d0bba54511a081ce3dfecea84e724292a3e02"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "45549fc0fdfb15714d2ab270831a7ee07880ecf5f6d92ce2ae220c8a79149cd0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "60ceae2a39f6e40142f6f2e70089bca3fb63641ac187cfce319443bf8cee290d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "06dd2192d804a45acee223d9dab41d5e8cdbefbc23fa7f2b49b85df37dc5eb68"
-    sha256 cellar: :any_skip_relocation, ventura:       "a174a0fc2689a2823cde31885a537f37f3d217baf585e3514f3b2ea9868941bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7ebe2c5fdccd5f0897a2cd38df166a6d53e0b439ef2eaed8c92ec21880c3ec4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "40ccd57ac7c231429661f90e65c1f899e2f7a6521d24ac8ebae81fd81d06d06f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "13dcf3f5cbfc86608589c781c761b563719fb8a4c7e1c8934b80aa60fd757be8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "b57eb723fdaab0698f66dfa2c4108cd080faf5f33ebcc738073f31699448bf96"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fd4ea2ef5bb5c39654b2944a3a4b8b15ecc9c3d6f525e128b6be0345e7c9fbc0"
+    sha256 cellar: :any_skip_relocation, ventura:       "a326141d32b58a4a2ff86c62d290c697f5911b4941c7bd8008e3f8512f2abf5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b2d0c95431003d98e35636661868845758ff0b76ba96eef8627d37cc92c3d22"
   end
 
   depends_on "go" => :build

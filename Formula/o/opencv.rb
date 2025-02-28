@@ -1,10 +1,22 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
-  sha256 "9a7c11f924eff5f8d8070e297b322ee68b9227e003fd600d4b8122198091665f"
   license "Apache-2.0"
-  head "https://github.com/opencv/opencv.git", branch: "4.x"
+  revision 1
+
+  stable do
+    url "https://github.com/opencv/opencv/archive/refs/tags/4.11.0.tar.gz"
+    sha256 "9a7c11f924eff5f8d8070e297b322ee68b9227e003fd600d4b8122198091665f"
+
+    resource "contrib" do
+      url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.11.0.tar.gz"
+      sha256 "2dfc5957201de2aa785064711125af6abb2e80a64e2dc246aca4119b19687041"
+
+      livecheck do
+        formula :parent
+      end
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,11 +24,19 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "d035c4506b85c05055ee3116fbfd48bde6633a38a4923e14cb4933aa8ca3e9a8"
-    sha256 arm64_ventura: "9e2476f323c7b24ae18690cdaa4341a87e972a41c2674d20436c089ed9e20671"
-    sha256 sonoma:        "73cff09359f66beeb837e43a4e4123fcdb1bf5999c78bf77bc52a3e9d74b51fe"
-    sha256 ventura:       "d6be06315f928644ad2f90f01700e8f6af37903894d36e9527351fca9bfadf9e"
-    sha256 x86_64_linux:  "b5da4aa096725d6fe1a3254edfc32ffbea13186c49d6aa9b72f9dbc80ef529b6"
+    sha256 arm64_sonoma:  "14e468ccb54da0d671e31730284f933508d5195a208aca7a9b08541ada70c32a"
+    sha256 arm64_ventura: "b70e530ca8d0aeb8e6bc91a13c5d1fffd114fce6807f517b8d87c9375cf18b05"
+    sha256 sonoma:        "b2ff125058f1b6c8b409c3510d833fbd22ee9a025663f8acb91bab12d03aec5e"
+    sha256 ventura:       "690e423d0e51cca672a27d570f452ed7d8d867ba43d808ac7fb5156768d5d6c5"
+    sha256 x86_64_linux:  "f91667972adca2f3e7e286ab0a8cd1623b7b14954f01d233a7efb8143cf66e85"
+  end
+
+  head do
+    url "https://github.com/opencv/opencv.git", branch: "master"
+
+    resource "contrib" do
+      url "https://github.com/opencv/opencv_contrib.git", branch: "master"
+    end
   end
 
   depends_on "cmake" => :build
@@ -40,7 +60,7 @@ class Opencv < Formula
   depends_on "openjpeg"
   depends_on "openvino"
   depends_on "protobuf"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "tbb"
   depends_on "tesseract"
   depends_on "vtk"
@@ -61,13 +81,8 @@ class Opencv < Formula
     depends_on "gtk+3"
   end
 
-  resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.10.0.tar.gz"
-    sha256 "65597f8fb8dc2b876c1b45b928bbcc5f772ddbaf97539bf1b737623d0604cba1"
-  end
-
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

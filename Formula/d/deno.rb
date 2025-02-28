@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v2.1.6/deno_src.tar.gz"
-  sha256 "1a6b88bbebd006b92f8522553f7fbca97e32420c2ce7685e3578bfa75cc1b8fc"
+  url "https://github.com/denoland/deno/releases/download/v2.2.2/deno_src.tar.gz"
+  sha256 "0c802c7ed0035739d2c0b836de24a0f4215a1a864226573b12412e6516f5d198"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "bf585b86088cad25765bbcc52cba035b38596a623e8c22ddd197299413e27d79"
-    sha256 cellar: :any,                 arm64_sonoma:  "8c65da92b6e56016d4f45b93b89a1bc57e6f6abe04995f0a26bdca06b21d6611"
-    sha256 cellar: :any,                 arm64_ventura: "a5ab83538abbea97da76f7170a022592da1e40f583479f33d79b6dfe0bbefade"
-    sha256 cellar: :any,                 sonoma:        "3d6ce5a1945e1a11b7731acec3fa556578361c8600b3fc625774e8461cbfafdf"
-    sha256 cellar: :any,                 ventura:       "6bf085f0944817dc1ac8218d0134cc7b06689015d82ddcb4ea4bf3a26e8ec269"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc16ab1eb38acd72ec2722ad1b6bf28c38db5b6e0969f2c01231e1681dde89fe"
+    sha256 cellar: :any,                 arm64_sequoia: "7bbbbabfd174c97a6fd42703b62cd7b490817a04ed42fe4bcc552590924a8673"
+    sha256 cellar: :any,                 arm64_sonoma:  "adc73ba0dbf31dac04b96c3929c5f86ed2a3c2f170287f4e82e9558ea0170874"
+    sha256 cellar: :any,                 arm64_ventura: "5640afbab0f9713ffb05540e9dddb8294c5f0e5cb95115c2b58702c6a5f7dfaf"
+    sha256 cellar: :any,                 sonoma:        "8ec7b9891b982334dfadf71a5c16a91396418ce5a06e905adb67588e0758a905"
+    sha256 cellar: :any,                 ventura:       "54d32cfdf2287a98449f335887c1fb625af307a33c2839d3a703bd5be5f97296"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "215bd0b5e3d2d5114cbb99cb61ec12da84c06f65bcc728cc76eb9676a4ec67ec"
   end
 
   depends_on "cmake" => :build
@@ -38,22 +38,22 @@ class Deno < Formula
   # TODO: Remove this and `v8` resource when https://github.com/denoland/rusty_v8/issues/1065 is resolved
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "v8"'
   resource "rusty_v8" do
-    url "https://static.crates.io/crates/v8/v8-130.0.7.crate"
-    sha256 "a511192602f7b435b0a241c1947aa743eb7717f20a9195f4b5e8ed1952e01db1"
+    url "https://static.crates.io/crates/v8/v8-134.4.0.crate"
+    sha256 "224c6c3d1fd3c0356224b2ad355b61c242cdafa9d14cc31b7f161ea177b3b4e9"
   end
 
   # Find the v8 version from the last commit message at:
   # https://github.com/denoland/rusty_v8/commits/v#{rusty_v8_version}/v8
   # Then, use the corresponding tag found in https://github.com/denoland/v8/tags
   resource "v8" do
-    url "https://github.com/denoland/v8/archive/refs/tags/13.0.245.12-denoland-6a811c9772d847135876.tar.gz"
-    sha256 "d2de7fc75381d8d7c0cd8b2d59bb23d91f8719f5d5ad6b19b8288acd2aae8733"
+    url "https://github.com/denoland/v8/archive/refs/tags/13.4.114.9-denoland-ed8e5975a290a84ae9aa.tar.gz"
+    sha256 "cb747dd9531fb16905095ac00664c8925aadd0bc2b04f3a71074f658c8e8e609"
   end
 
   # VERSION=#{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.330.0.tar.gz"
-    sha256 "d05fb04360a1a193a51399b713f068ee2376b4e389ec3bb3cc7f0996d1bc1292"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.338.0.tar.gz"
+    sha256 "de43ab683064b7061c5e8757c311ac4043cdabf2a025c51a2f113e61a635ac51"
   end
 
   # The latest commit from `denoland/icu`, go to https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/third_party
@@ -66,7 +66,7 @@ class Deno < Formula
   # V8_TAG=#{v8_resource_tag} && curl -s https://raw.githubusercontent.com/denoland/v8/$V8_TAG/DEPS | grep gn_version
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "20806f79c6b4ba295274e3a589d85db41a02fdaa"
+        revision: "ed1abc107815210dc66ec439542bee2f6cbabc00"
   end
 
   def llvm
@@ -91,8 +91,8 @@ class Deno < Formula
               /^libffi-sys = "(.+)"$/,
               'libffi-sys = { version = "\\1", features = ["system"] }'
     inreplace "Cargo.toml",
-              /^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled"\] }$/,
-              'rusqlite = { version = "\\1", features = ["unlock_notify"] }'
+              /^rusqlite = { version = "(.+)", features = \["unlock_notify", "bundled", "session"\] }$/,
+              'rusqlite = { version = "\\1", features = ["unlock_notify", "session"] }'
 
     if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
@@ -136,15 +136,9 @@ class Deno < Formula
     generate_completions_from_executable(bin/"deno", "completions")
   end
 
-  def check_binary_linkage(binary, library)
-    binary.dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == File.realpath(library)
-    end
-  end
-
   test do
+    require "utils/linkage"
+
     IO.popen("deno run -A -r https://fresh.deno.dev fresh-project", "r+") do |pipe|
       pipe.puts "n"
       pipe.puts "n"
@@ -170,7 +164,7 @@ class Deno < Formula
       ]
     end
     linked_libraries.each do |library|
-      assert check_binary_linkage(bin/"deno", library),
+      assert Utils.binary_linked_to_library?(bin/"deno", library),
               "No linkage with #{library.basename}! Cargo is likely using a vendored version."
     end
   end

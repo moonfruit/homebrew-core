@@ -1,18 +1,18 @@
 class Draft < Formula
   desc "Day 0 tool for getting your app on Kubernetes fast"
   homepage "https://github.com/Azure/draft"
-  url "https://github.com/Azure/draft/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "eee0a43194eab56642077d165026f9d4ce88dbfadb790262ce1a23c00d7df221"
+  url "https://github.com/Azure/draft/archive/refs/tags/v0.17.4.tar.gz"
+  sha256 "f2f17afc951bfdf195dc6051a9a9d920b2fed348a0423e350ac624aae2a8b94e"
   license "MIT"
   head "https://github.com/Azure/draft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0bfa153dde9851a07d37ac84552d06fa2a2eac39c9b613aef47ee2ee8f8b24bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "48d293f69e442d42acb4366f7547b94c052a775b493b7105ad894462a224ee66"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "6ec4d6f1704fa68aaeb35270f979474adb66b5cf1d153b5658d258cf93b3037c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad21742c91a31abd481d0d738001e39cf35db25142ec564a7cdfdfcdca736614"
-    sha256 cellar: :any_skip_relocation, ventura:       "55512d695b94a6d59d8f0e9d5d8bccb6343bacfa93e000378b733511e02cc1dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6f095f794665b03ccf14bd44398353680d0e5fb9738965adf0857a17690d1b1f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b75dc410bd15c8d1875b9c466931f56ef315dea98835f711d7aa870a8dfa1519"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cae665ea01226bce45161e859e3ea0630b3d0595cfda62e6eefc853dbbe9df7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c5c2f361cddfeea870966da6b5651cade0a23e2bda03830c1fa7a1af10feaf68"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d45517912a7f82d7242b23132605b94333205debb8542bf603a446d4a9be9deb"
+    sha256 cellar: :any_skip_relocation, ventura:       "73699740260ad71533c137edd19975398a0fde0ed27134c36fc5c82de8366376"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57414db9983b14a2b3a578184d0b11d4338c9bb7145c6f8089281e0efd9a5b0d"
   end
 
   depends_on "go" => :build

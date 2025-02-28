@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://cli.github.com/"
-  url "https://github.com/cli/cli/archive/refs/tags/v2.65.0.tar.gz"
-  sha256 "af026f1b0368b1444a67a941f179ddce7e97333881ec0bbcb49fed29f4151241"
+  url "https://github.com/cli/cli/archive/refs/tags/v2.67.0.tar.gz"
+  sha256 "8f685207c63cebfde375a20b235e34012d75d4d41fbaad8b2cc1b8cfc1eceae8"
   license "MIT"
   head "https://github.com/cli/cli.git", branch: "trunk"
 
@@ -12,12 +12,12 @@ class Gh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d968cb4fd20d0eedeffd6de72b4fcf90672037b49b86ea4f785af0b3ae93f90c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d968cb4fd20d0eedeffd6de72b4fcf90672037b49b86ea4f785af0b3ae93f90c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d968cb4fd20d0eedeffd6de72b4fcf90672037b49b86ea4f785af0b3ae93f90c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6f71766ae5956beec415070f2cdca33552c19223feb5730530b1abe4abef467b"
-    sha256 cellar: :any_skip_relocation, ventura:       "2475ad201fb3970f6e1b9d894c328073a7782229c58fa4022e9f8bdea9c1835e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d9863a0c954e617b157c2563e7eed03a7d2e233792ebb79c87037dc1650c6270"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "579787d70807effe3e75e8ba8b2975e621260a10a05dd229cf42ac022d8a6c9a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "579787d70807effe3e75e8ba8b2975e621260a10a05dd229cf42ac022d8a6c9a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "579787d70807effe3e75e8ba8b2975e621260a10a05dd229cf42ac022d8a6c9a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d665e87ebc2ac4a46d6f20818fa616d5d9a82248ba4305b5201b34f9ac7cf73d"
+    sha256 cellar: :any_skip_relocation, ventura:       "383aa106299399d9b0b5f135bb71bb5db84696968f450235a6c7c0f9dfe32f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "092eb15fbf27b1d47a227b55bfec943ba6ff88b8895e44a41621053e1ea4551f"
   end
 
   depends_on "go" => :build

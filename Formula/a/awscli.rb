@@ -3,23 +3,23 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.23.2.tar.gz"
-  sha256 "589b6fad96ea7495198091b55b340058c642de8cb1ad5ff29b56d44f0ce4adde"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.24.14.tar.gz"
+  sha256 "3ccf30fe8721b35a3463073f71d0e358c7d4c61003bad11a8724435ac21fcd9d"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "51d9d8ecdb5ae46e6964d3d8d77b050b0dfc934985a9d3ad1946de890ec9af4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8be1ea107c46cdd16cf29ea4b18cead26574dee46053acf00ac7413ec1566ec8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "330f59382164630e50f2e3656d7ee9c03415090ebcf98b4ee73dfc4085dc30bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d76627045dbfae7139527b96c7aceb54b2f28536152f49fa0f70a64f629afe88"
-    sha256 cellar: :any_skip_relocation, ventura:       "8a4c04f94e88250b34ef6903219a2a20a6fd5682c1f39702cb2b1f83d61a1189"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac2c4f998b53ac742ebdf2f05611d59c22bd633617560b8d1f8f7f0cc1ef527b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "680865e6157310a96618d64d1e6924ea458d63c2ea3d7360d88ccdb1c85bcc92"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7de6f063994a359ef5e128eeb4dad1cfeb2fbb5f3b9e06defd0f6352e5b5385c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "27f4a5d289f8a41432f6ceed6ac558be0a7c8e1a964bf96b59c713a14f46d297"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f40d9af6265bcbeec34878d5c1e7d7c8be488ff28206ea1798425f57be878213"
+    sha256 cellar: :any_skip_relocation, ventura:       "169db474f8f327d323d3cecff6eb8ac778cd32588b0e100df6351be491565560"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fee047819846ab4e71d27a35eff0da07bcd0fd9b21f295d63c97c0019e7a59a5"
   end
 
   depends_on "cmake" => :build
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # Python 3.13 issue: https://github.com/aws/aws-cli/issues/9234
 
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
@@ -29,8 +29,8 @@ class Awscli < Formula
   end
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/ff/ba/ff910e6c0f51eae21cd517b17bf0fc532230b72b2f759bd0482ac2f8706b/awscrt-0.23.4.tar.gz"
-    sha256 "3ef5212a3c3b0549b3b0e85507b7bbdfb891ff40ca4c597e92db07a0bf7b614a"
+    url "https://files.pythonhosted.org/packages/fe/50/0e3fd91488e5f0a18bc829869fc081cf4d9cd86642d9ee21b32907b02e80/awscrt-0.23.8.tar.gz"
+    sha256 "cba55f3ee80ea3192a0a24e84caad778570250800a59d29ef9efbcd4d1612f2f"
   end
 
   resource "colorama" do

@@ -1,19 +1,18 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.12.02.00.tar.gz"
-  sha256 "c394eb7a607c54f6ec57979b06f4ebdcab6b3ae66ef71ad4a532b98ed39027fe"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2025.02.17.00.tar.gz"
+  sha256 "9d8a696cad0d69c5fb856ce64def30d64db4f10392977c29a872e1c92e4afe40"
   license "Apache-2.0"
-  revision 3
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "c814ae490e22b3fed576dea7dac045ca650619320423c36193ca78230ef4a6db"
-    sha256 cellar: :any,                 arm64_sonoma:  "09bcca76c3fbed62706b4fdf881b5232019724730e69d1a03dd9f3ecfef842b1"
-    sha256 cellar: :any,                 arm64_ventura: "adf2eac065f73edd1bcbdfdec5aa4134d197c0e2a9c8125a724405637e97074b"
-    sha256 cellar: :any,                 sonoma:        "72d3ed86d6bd7ea6c59908e718bd1343c718958e49f247313e3eedbb90c76ca6"
-    sha256 cellar: :any,                 ventura:       "b68e7edcefd6a5728d1c5fe4e4acace9e35c0805de5f0172581dfebc91db0ce8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e857beb6da7183df4c265b141c1b22fea36fbd412a6e19ca3543264a7d704d84"
+    sha256 cellar: :any,                 arm64_sequoia: "4f25f69a71fae46f07f33071d04c04218ed032440d13ea7a1a7edb2aa573e08c"
+    sha256 cellar: :any,                 arm64_sonoma:  "e074ebdd8baf21b737bd6c3158f09394916a6c4a74e4b6fcb82c86ea8721ccdd"
+    sha256 cellar: :any,                 arm64_ventura: "32811fbf3db2de7d270ae96ea7c02ac78fe54d8d5774810c81c360c39ea10691"
+    sha256 cellar: :any,                 sonoma:        "adc85d95b37746535a713448a486d93e827117c43bd08e77d4ef4bcfdf3c6ba0"
+    sha256 cellar: :any,                 ventura:       "2851c9c275a310786033aca0b338246505408df44dd7cd5e643a9d6d6dbd0a86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cfa346114a9becc02d26c8ca56b007d272cf9dea36e219e416791343f249a2ce"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -44,9 +43,7 @@ class Fbthrift < Formula
 
   fails_with :clang do
     build 1100
-    cause <<~EOS
-      error: 'asm goto' constructs are not supported yet
-    EOS
+    cause "error: 'asm goto' constructs are not supported yet"
   end
 
   def install
@@ -62,11 +59,16 @@ class Fbthrift < Formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
     # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
     shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"]
-    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs" if OS.mac?
+    if OS.mac?
+      shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup -Wl,-dead_strip_dylibs"
+      shared_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs"
+    end
 
-    system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
-    system "cmake", "--build", "build/shared"
-    system "cmake", "--install", "build/shared"
+    # We build in-source to avoid an error from thrift/lib/cpp2/test:
+    # Output path .../build/shared/thrift/lib/cpp2/test/../../../conformance/if is unusable or not a directory
+    system "cmake", "-S", ".", "-B", ".", *shared_args, *std_cmake_args
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     elisp.install "thrift/contrib/thrift.el"
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
@@ -82,7 +84,7 @@ class Fbthrift < Formula
     THRIFT
 
     system bin/"thrift1", "--gen", "mstch_cpp2", "example.thrift"
-    assert_predicate testpath/"gen-cpp2", :exist?
+    assert_path_exists testpath/"gen-cpp2"
     assert_predicate testpath/"gen-cpp2", :directory?
 
     # TODO: consider adding an actual test

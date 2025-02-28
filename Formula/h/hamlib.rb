@@ -1,18 +1,18 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
   homepage "http://www.hamlib.org/"
-  url "https://github.com/Hamlib/Hamlib/releases/download/4.6/hamlib-4.6.tar.gz"
-  sha256 "6f873579bc4e0ef4e540313ec2acd4f198b5510d7dd9397a4ae68fe8ff20d167"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.6.2/hamlib-4.6.2.tar.gz"
+  sha256 "b2ac73f44dd1161e95fdee6c95276144757647bf92d7fdb369ee2fe41ed47ae8"
   license "LGPL-2.1-or-later"
   head "https://github.com/hamlib/hamlib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fef2669dbd14b7eb9444d67dd07b583a24c642b93534cf98e658c68af205a9e4"
-    sha256 cellar: :any,                 arm64_sonoma:  "63b00a950e4834bb234bee5426560f20384adbc93b0ef4357e4df48878aa3af6"
-    sha256 cellar: :any,                 arm64_ventura: "9bca5b206f7b1bbad714cfa9631ec0054605daa8404ae7bb01b7096fb62e417a"
-    sha256 cellar: :any,                 sonoma:        "e6bd7ffb646a0bc46604ea968ec770d38641d1e6da613697ba75168f25062673"
-    sha256 cellar: :any,                 ventura:       "7ef8078221bd4b158f38d83c6e41240e0ae9d7c9b02e3d5b1ce2bb8319fb6401"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a71ffe4636052758942c819463e3af382e1de91c9b1d58fbe899734dc845947"
+    sha256 cellar: :any,                 arm64_sequoia: "9167a0022aa4c469cc54b917d0f4eccb1df3a8dd16c2bde575939a9bb363053f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4aa54f5b84ad20d5378a77c1860de8ef5307a36e2ba4d44252c3236115e7f68"
+    sha256 cellar: :any,                 arm64_ventura: "29ca12dd53120b6219a72cf06003ac4f9f7b0136d3a906f2f7c7e283a677ad27"
+    sha256 cellar: :any,                 sonoma:        "6e018327f7f25dc3826e923f7e1aff7c45f20a90a5682b9359f78d548b33e610"
+    sha256 cellar: :any,                 ventura:       "49b659bd45a24723430fc33d608f8bbd247678183a9f67e7cf2ff95d6344fc96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "39cd33fc06e7145cca060ed370d7c6b099dcd87eba63947403f947d9eac2d1a0"
   end
 
   depends_on "autoconf" => :build

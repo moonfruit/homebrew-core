@@ -1,18 +1,18 @@
 class Kuttl < Formula
   desc "KUbernetes Test TooL"
   homepage "https://kuttl.dev"
-  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "9864535b0e4d90532772d617f010f80d07f82893098e1b6fb49ab19cb51e83b4"
+  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "45777fdca82d14030b9661a2819b15e6380a9f4b0f8bbcfd826d8b21ffae7803"
   license "Apache-2.0"
   head "https://github.com/kudobuilder/kuttl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "918fa1e24cdd516f175d2a94942ea2e2668c68ae62fa92e6833789bd827cae3c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "918fa1e24cdd516f175d2a94942ea2e2668c68ae62fa92e6833789bd827cae3c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "918fa1e24cdd516f175d2a94942ea2e2668c68ae62fa92e6833789bd827cae3c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "15487e70e0068aaa8bd481d906d0e65c7679db4b16feb1411e2c5c3c2caed4ab"
-    sha256 cellar: :any_skip_relocation, ventura:       "15487e70e0068aaa8bd481d906d0e65c7679db4b16feb1411e2c5c3c2caed4ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2f95a24587b56221a5b7577326e98d3142497943442ad66a980bc4dadb28c65"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a200c41971635ed7a3653587e733f9ba432eef06741e418c9ca76ff8f8164d54"
+    sha256 cellar: :any_skip_relocation, sonoma:        "02527ab79b8757cbdef026cf010d835ab249bcc7eef92c23900490afa334521f"
+    sha256 cellar: :any_skip_relocation, ventura:       "02527ab79b8757cbdef026cf010d835ab249bcc7eef92c23900490afa334521f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bda78e3404303c5bfcdc8f9a7d0c9b39c1315be6bce046589de118146e587712"
   end
 
   depends_on "go" => :build

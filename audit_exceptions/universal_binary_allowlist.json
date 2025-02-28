@@ -1,6 +1,5 @@
 [
   "llvm",
-  "llvm@11",
   "llvm@12",
   "llvm@13",
   "llvm@14",

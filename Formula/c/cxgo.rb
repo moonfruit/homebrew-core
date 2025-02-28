@@ -1,18 +1,18 @@
 class Cxgo < Formula
   desc "Transpiling C to Go"
   homepage "https://github.com/gotranspile/cxgo"
-  url "https://github.com/gotranspile/cxgo/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "f3b4e7e1579c37e64618103bd82752e632d67653b686de9b513c47530169790f"
+  url "https://github.com/gotranspile/cxgo/archive/refs/tags/v0.4.3.tar.gz"
+  sha256 "231230723572d49bc74b9d58c9f15700cbd3b9287d6e281b8d53cb580ad58d3e"
   license "MIT"
   head "https://github.com/gotranspile/cxgo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2869f3397eb5b07e5e8977bba350a01b8094037b71dc8fefe81cefad2197fe68"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2869f3397eb5b07e5e8977bba350a01b8094037b71dc8fefe81cefad2197fe68"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2869f3397eb5b07e5e8977bba350a01b8094037b71dc8fefe81cefad2197fe68"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a1b9f53a63e688c9872604e6ed97f6713017aa1203cdbb4148a7c25047673b3b"
-    sha256 cellar: :any_skip_relocation, ventura:       "a1b9f53a63e688c9872604e6ed97f6713017aa1203cdbb4148a7c25047673b3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4ce6f29b644fa488aa3b595dd643197a89fa3e5e321fc5b91995921e81983266"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8e46f296a649e4f4f524de427e79cf5a8c28ac4d5b55f3e5aae9243b7ea31f31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "52cc457a3e45486011265da5f3c5b9f702cfa593fc943d23c4606d2708406b91"
+    sha256 cellar: :any_skip_relocation, ventura:       "52cc457a3e45486011265da5f3c5b9f702cfa593fc943d23c4606d2708406b91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42180c97c67c678111bed63bd39aae1663b8527e8adade1bffffdc048a676ead"
   end
 
   depends_on "go" => :build

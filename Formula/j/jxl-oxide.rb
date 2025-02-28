@@ -1,17 +1,17 @@
 class JxlOxide < Formula
   desc "JPEG XL decoder"
   homepage "https://github.com/tirr-c/jxl-oxide"
-  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.11.0.tar.gz"
-  sha256 "035ebefb13e7dce5cc9517ada36b5e677df0d5da7c613695ab82983f9be96f0f"
+  url "https://github.com/tirr-c/jxl-oxide/archive/refs/tags/0.11.2.tar.gz"
+  sha256 "60d327942030f54190c7d2650edf0804349baa20c2e7a21ed4cb8950e3f4e904"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e749b9f7c96dba73fb330ce26cff24f906b34e5cfe0fd10498ec63845fabf21e"
-    sha256 cellar: :any,                 arm64_sonoma:  "f9774319e324e44e0f981aa7f036ae8e4b3513cc2165b73eeea878eb9c1ef9e8"
-    sha256 cellar: :any,                 arm64_ventura: "6218e460376fc12cc3cccbbf554b23a66be0d6c959988e910d1ea383fd96aab0"
-    sha256 cellar: :any,                 sonoma:        "d7bd67d051f8ae7bbb518b6366882509121f4567101cc1d24563ff9655da8ba1"
-    sha256 cellar: :any,                 ventura:       "0e2dd6812957242a25ca607b957ac6dc522f1e08dc74f9b8370c1abca8d5c045"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d591c14976cf450c922e1e2198c501c07229e2d415eadfa4700169297ceb0ca0"
+    sha256 cellar: :any,                 arm64_sequoia: "1ee77d9a48a6a5cd448859f7658d12bdbb3602e893aedf6f9aae00be59426eed"
+    sha256 cellar: :any,                 arm64_sonoma:  "a3add0ade186427fe4d21eebfa883593a774bda96d39c287dfd7378efc8d992b"
+    sha256 cellar: :any,                 arm64_ventura: "ff0cc669ee1b084ef04b83406a4cf4bcd1b0c43d9b3f17a3b641f35203637ed3"
+    sha256 cellar: :any,                 sonoma:        "18a35d11ffb88f9f6e63d155579dd059d279b7fcec6eb6d46ea2d5d777750aef"
+    sha256 cellar: :any,                 ventura:       "92cae5da5ad47e6d1e697e4efeb0d1950a8f962e739a7b4410ce2e8ed2b96741"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8f1e81b550c44862880f3bb9dffd84026defbc8f11e34ed937006a70a585bee"
   end
 
   depends_on "rust" => :build
@@ -31,6 +31,6 @@ class JxlOxide < Formula
     resource("sunset-logo-jxl").stage do
       system bin/"jxl-oxide", "input.jxl", "-o", testpath/"out.png"
     end
-    assert_predicate testpath/"out.png", :exist?
+    assert_path_exists testpath/"out.png"
   end
 end

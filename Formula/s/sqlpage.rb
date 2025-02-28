@@ -1,18 +1,18 @@
 class Sqlpage < Formula
   desc "Web app builder using SQL queries to create dynamic webapps quickly"
   homepage "https://sql-page.com/"
-  url "https://github.com/sqlpage/SQLpage/archive/refs/tags/v0.32.1.tar.gz"
-  sha256 "5222e0987901d758d832dbf64b19edcfbcc92eab331ea06a872ab8995bee56c6"
+  url "https://github.com/sqlpage/SQLpage/archive/refs/tags/v0.33.1.tar.gz"
+  sha256 "b41f289292e528b1d72dff0efbca10bbc8238a0496dd9d60dd566ce190359fcb"
   license "MIT"
   head "https://github.com/sqlpage/SQLpage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "751edf0dbfe28000a268c1858e5e473e357705b121a65b26c527edba8b7e2daf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "28b163e604e5c390c4e650c1d3193b07416f1b5dcfd0cf18330264560d820ecb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "1afa0e0817e2a38f8c155c9dabb35503395e35582f8dc38a72c96dfa26e600ad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5fb961b823c2fb1ba7d5b116c91de054635111286069e3893f24049cddca9feb"
-    sha256 cellar: :any_skip_relocation, ventura:       "f3999c04b36a4571b4f9b5090816b1facf0da5e4b277c59fe51dcfb6c317bcf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82d71511cd9fa935c3ed026f343c0823b2c8e0a8f437464fee9895171effcea5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a5b277e32a10b8b0f5e01eeb2385c2c7863f9bda8910bf4349b286e5aef3f703"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34f61bfc9655cb6573a8cd7fe26a9dce907b74936df213cda5dbfbb55a096a56"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f1a36d0fe75c46a5ed8333067be544dd0013e1b2fca07be69dc0eccc13221407"
+    sha256 cellar: :any_skip_relocation, sonoma:        "432b1aed1bf0ec9c553e3df05a31e5306465fae89656fe9e6a0c0753107df613"
+    sha256 cellar: :any_skip_relocation, ventura:       "e82e68b7b7a84a8ab38e62460114730e0a850b51445200287c68fc9c78418ece"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "32fb9b725a76631fd85f2b341a7abc170d626798ed3522dcbf00c65be62fa220"
   end
 
   depends_on "rust" => :build

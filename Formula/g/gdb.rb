@@ -1,16 +1,16 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-15.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-15.2.tar.xz"
-  sha256 "83350ccd35b5b5a0cba6b334c41294ea968158c573940904f00b92f76345314d"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-16.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-16.2.tar.xz"
+  sha256 "4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119"
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
-    sha256 sonoma:       "9d92a3515e92e9da92688877b856fd36bdcc1117002f3e91e4d0db0e79ce0243"
-    sha256 ventura:      "d2c49ea2e03e06cb8e7144ee46fb2e611eab62119d75629a35e8c99863dd363a"
-    sha256 x86_64_linux: "c05fb7f13c497e1a01985ad57fd48d6467707e57c20143e7eb5457fa678a4152"
+    sha256 sonoma:       "288a80fea7800fb02aad14aebcb279908bafee81681ef7f4e4a3264f96a3a797"
+    sha256 ventura:      "2cc9545f2062e0a7fa3217c8c5a4055191cf6c916461ca76df68fe65f19b201f"
+    sha256 x86_64_linux: "83d95128b74c3d1bba64a44fdbf934d603cd86d93548a03f1ea6acab99c5db76"
   end
 
   depends_on "gmp"
@@ -44,6 +44,10 @@ class Gdb < Formula
   end
 
   def install
+    # Fix `error: use of undeclared identifier 'command_style'`
+    inreplace "gdb/darwin-nat.c", "#include \"cli/cli-cmds.h\"",
+                                  "#include \"cli/cli-cmds.h\"\n#include \"cli/cli-style.h\""
+
     args = %W[
       --enable-targets=all
       --with-lzma

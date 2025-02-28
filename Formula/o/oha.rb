@@ -1,18 +1,18 @@
 class Oha < Formula
   desc "HTTP load generator, inspired by rakyll/hey with tui animation"
   homepage "https://github.com/hatoo/oha/"
-  url "https://github.com/hatoo/oha/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "44ae493c24f42f8994b4192ace99e63866c054e305d368bf77176108cbfa93fd"
+  url "https://github.com/hatoo/oha/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "c09dce5de2020529a03309b96c98e51f6b94c63a73191c281df32024d62c19a7"
   license "MIT"
   head "https://github.com/hatoo/oha.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eac11cb3fb9c60fbffe35ae659200e4491eca44ba1d6dd9c790a1a9c20c328f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "92d34d54400e6fd3b89941b53d9123ad3ccf48729f5d1be339d0bc82a866f723"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e1023f87ef5f7e7d0a8822b28e0b7686ffadb4a79ffcd1530c30ed0126926c1c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e0c6a3ab1ef063700120ae41e4d0effb55c4c7f77874a8c3c130e6529542c702"
-    sha256 cellar: :any_skip_relocation, ventura:       "33932e34c92a5cf9da0c0750b367db40fc63892c56cc045995038c7acfe427a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa9ae4a5a98546c0aea7407e2626a616c9e38b84db2649a947ce882812edcea7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "720dacc70b5da848322d14e2c123629f17d62f8d38795e60a334c3137cad6918"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "847b9e1e0f85d79c3c77405ae08152cb4ddfdfa8e33fcd05c7e3f4619a327de1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "fd38248ad25b39a3c0230aa6ea6cdf25387461d1f5f12f7f5352dde59790a44e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e1bfbf08156b676f74baae9defdef6986bc2b8c8d3cf3b914140619292688d52"
+    sha256 cellar: :any_skip_relocation, ventura:       "ab9eae1e4a28088cfd64254288d77007c043ab90122401b81a01dd754f9debe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd3866d6dcf4784ce901f91d15abc57a7fb6ab940917137236d4a8fd3750ce50"
   end
 
   depends_on "cmake" => :build # for aws-lc-sys
@@ -21,12 +21,6 @@ class Oha < Formula
 
   on_linux do
     depends_on "openssl@3" # Uses Secure Transport on macOS
-  end
-
-  # revert `cc` crate to 1.2.7, upstream pr ref, https://github.com/hatoo/oha/pull/662
-  patch do
-    url "https://github.com/hatoo/oha/commit/e016c271326c201343cf17347dd5c5d6b0de1ab7.patch?full_index=1"
-    sha256 "c3b9b1ef1486e0a9427b2623c8f6852c78fd7fd020383f36a5d2d62cb20b5970"
   end
 
   def install

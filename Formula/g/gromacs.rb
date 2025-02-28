@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2024.4.tar.gz"
-  sha256 "ac618ece2e58afa86b536c5a2c4fcb937f0760318f12d18f10346b6bdebd86a8"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2024.5.tar.gz"
+  sha256 "fecf06b186cddb942cfb42ee8da5f3eb2b9993e6acc0a2f18d14ac0b014424f3"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,18 +11,23 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "3f323aa2f4427e400c8b44767f4f055fb741f491e52f88bb9e33494e31933ca0"
-    sha256 arm64_sonoma:  "5b9553a36a9ded42b96264a786bb92cac4b72e3c7a3365ffcabdc9b060eb4dea"
-    sha256 arm64_ventura: "18e4ea9c5115110f48e1d9d3c4335f280fecac6c0a429baee79373a9b2fec8b8"
-    sha256 sonoma:        "f9940e5bed223d92f809b1c060121e2a5e07600caba24f53166eabdf4b2cf064"
-    sha256 ventura:       "78892b9cb50544b7844d4c6fce43467fed77966b9c04a9b1780e4a991c36f813"
-    sha256 x86_64_linux:  "8161a164ba75c08c6f30cba0a5d8e7953b2932abd027580c6da21e61cbbdb307"
+    rebuild 1
+    sha256 arm64_sequoia: "1ef7ef8b8e243845125d8f54459af0bbeecd2d0cd2c9e6e2196168b1f807dd60"
+    sha256 arm64_sonoma:  "f3c88c1d78f055ea70e2f160ce4110620ff3cd51e8d93a5d9d37f0998a586ed8"
+    sha256 arm64_ventura: "fd6e5a07ba953b529a496015349cecd5c9ad6b1d66c0e0ce2b94be08d2b9851a"
+    sha256 sonoma:        "a3817d56bd459fa7ec6aec143865493806c933d34bddbf27156223934609bc84"
+    sha256 ventura:       "c945a81d50d997c833cb02b5b3fcc872224c2f8ad65dd7ada892501ee8d95ce5"
+    sha256 x86_64_linux:  "68111b0a4216477e6a041cf034de48e8d1b2e720943a816868100b2b7f9371b6"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
+  depends_on "lmfit"
   depends_on "openblas"
+
+  uses_from_macos "zlib"
 
   fails_with :clang
 
@@ -52,6 +57,8 @@ class Gromacs < Formula
       -DGROMACS_CXX_COMPILER=#{cxx}
       -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
       -DGMX_INSTALL_LEGACY_API=ON
+      -DGMX_EXTERNAL_ZLIB=ON
+      -DGMX_USE_LMFIT=EXTERNAL
     ]
 
     # Force SSE2/SSE4.1 for compatibility when building Intel bottles

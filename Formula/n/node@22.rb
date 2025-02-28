@@ -1,8 +1,8 @@
 class NodeAT22 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.13.0/node-v22.13.0.tar.xz"
-  sha256 "e50db6730716ba2ae953cf99d10c80295bd33bb72d3c829d9e99f6af56d626c7"
+  url "https://nodejs.org/dist/v22.14.0/node-v22.14.0.tar.xz"
+  sha256 "c609946bf793b55c7954c26582760808d54c16185d79cb2fb88065e52de21914"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "d977e2ee875b1faebc1a13d70b4d69a56d5942b024b1e1db6a57cda366a8a199"
-    sha256 arm64_sonoma:  "2da3d827f9171349163dbfca8633c14875a8798f75ff54bba9632992276b622f"
-    sha256 arm64_ventura: "70d5963616afba9cece88d5895508aa5b0ef528842b5b09c7225406c7f839475"
-    sha256 sonoma:        "07df64e9d73fd9955eb90170bb604355545fd598b46ebca39eafad819eb648ac"
-    sha256 ventura:       "5a60f44287f2f00ebf019e319bce2035cf490791e9292f3ef4d096b3bf87e267"
-    sha256 x86_64_linux:  "f70313fb80f2f214af76f17408ae6e08b36bfc2003ea3270611e42c2f3604bd1"
+    sha256 arm64_sequoia: "f8ee3b626072192acc1b6fe9d0d6143eeb73da08f4daae24f2d2d3cc8a7daefd"
+    sha256 arm64_sonoma:  "4968ed429bd8555ff5e047e7227c9b67ff3353e054747e9eb8551e2d2e8546a0"
+    sha256 arm64_ventura: "cf1a14ee110b74d7cbcd179d0f179b1a58ed73e35fab49ca2283520a6d1d990f"
+    sha256 sonoma:        "dbca59031a13141494c5adcd5f8b6ac73bc53ce12a07768f93be35e6168e3d48"
+    sha256 ventura:       "d127879bc17ff60a17b6db0dd6d62a17d7b36c8ffe81cfcf98ceca00f49e27f1"
+    sha256 x86_64_linux:  "e107a39c46091c59356bb97bb4927f22c58956f0a4bc20a695d9cd02ffa8fcab"
   end
 
   keg_only :versioned_formula
@@ -112,12 +112,12 @@ class NodeAT22 < Formula
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
-    assert_predicate bin/"npm", :exist?, "npm must exist"
+    assert_path_exists bin/"npm", "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system bin/"npm", *npm_args, "install", "npm@latest"
     system bin/"npm", *npm_args, "install", "nan"
-    assert_predicate bin/"npx", :exist?, "npx must exist"
+    assert_path_exists bin/"npx", "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end

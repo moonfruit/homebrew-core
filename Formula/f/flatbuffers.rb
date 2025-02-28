@@ -1,8 +1,8 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/refs/tags/v24.12.23.tar.gz"
-  sha256 "7e2ef35f1af9e2aa0c6a7d0a09298c2cb86caf3d4f58c0658b306256e5bcab10"
+  url "https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz"
+  sha256 "b9c2df49707c57a48fc0923d52b8c73beb72d675f9d44b2211e4569be40a7421"
   license "Apache-2.0"
   head "https://github.com/google/flatbuffers.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Flatbuffers < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "28f8e16a95b96e48d042009d32a1045e61384d89f02e7b49374531dcdf37ffa2"
-    sha256 cellar: :any,                 arm64_sonoma:  "ba0ab398a1b519f6f76f304c03afc1922f95c64a34ea6cc59e98806ab8742d77"
-    sha256 cellar: :any,                 arm64_ventura: "599860a4cfadd559b0b7403d73e9b8eb581afc55390955659767d416ce39fa8e"
-    sha256 cellar: :any,                 sonoma:        "0bd8085554688dec144bf26a1e18b0ad0d0cca66c25dbaeb8287646170b8fb62"
-    sha256 cellar: :any,                 ventura:       "45590ed0cf730355d7def00f33be726a3a3b9e5c4c1dc8a13b25f1119f70de20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abd4535fdef9ca00323ea310de185911f9225e2aae4508edb78ef6d9bbb30591"
+    sha256 cellar: :any,                 arm64_sequoia: "6a66a964c0cf6b035df7377945002013e1a7ff0111926d91fa9024b058663ecf"
+    sha256 cellar: :any,                 arm64_sonoma:  "c25c90d8626319975d8898a41b873f77d0f4691c1fd699956d5cf940d2c01212"
+    sha256 cellar: :any,                 arm64_ventura: "6968b4b2efa0d5139761970ff456a1ed5d6d5ad7b41e80f4cc9b80fa1c519b7f"
+    sha256 cellar: :any,                 sonoma:        "a58461c37e9674fe74fb1f6fad9f0f18b17fdf75dc26735e37bd11f61efaf73c"
+    sha256 cellar: :any,                 ventura:       "5d7f236f0fc79666d04189c4ac050584475d7eb6e8ac4dfef1aa7f416c9928d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c93870db88b63506938944f084714de60f7a9889d2182c3a0088587b3f91536"
   end
 
   depends_on "cmake" => :build

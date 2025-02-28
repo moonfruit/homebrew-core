@@ -1,27 +1,21 @@
 class Hoverfly < Formula
   desc "API simulations for development and testing"
   homepage "https://hoverfly.io/"
-  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.10.8.tar.gz"
-  sha256 "9674aee1ae2b32552c44c2a8fb520b838f5340ff7d90bf94f5a7ddf5df6d44d4"
+  url "https://github.com/SpectoLabs/hoverfly/archive/refs/tags/v1.10.11.tar.gz"
+  sha256 "ecc329f174a2df9d2806e0a10a0ee4c418a787a6f8b7ff24ab2e4b5c3cb67c84"
   license "Apache-2.0"
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af5ee69a29491fe9c2f44100ab74919e5ee9f45308dfc937e8461f08f1312075"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af5ee69a29491fe9c2f44100ab74919e5ee9f45308dfc937e8461f08f1312075"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "af5ee69a29491fe9c2f44100ab74919e5ee9f45308dfc937e8461f08f1312075"
-    sha256 cellar: :any_skip_relocation, sonoma:        "96079d6d3345b1baf0a22e27de801802d9e2209b8cb2c0ad198c507d72c1ecf7"
-    sha256 cellar: :any_skip_relocation, ventura:       "96079d6d3345b1baf0a22e27de801802d9e2209b8cb2c0ad198c507d72c1ecf7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3d9b61e5283c4f91d75fec58f05a837a9bae3541ef9725845ca7032da6f44c25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f37454874a10628448623e4f8104a3d0cd53659f09aca4d70c96c7aa5208a03d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f37454874a10628448623e4f8104a3d0cd53659f09aca4d70c96c7aa5208a03d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f37454874a10628448623e4f8104a3d0cd53659f09aca4d70c96c7aa5208a03d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d5fab15e2b1583fe3c64c8d0e224ea478e3e812f44a8562bb5abe8e3e15291ce"
+    sha256 cellar: :any_skip_relocation, ventura:       "d5fab15e2b1583fe3c64c8d0e224ea478e3e812f44a8562bb5abe8e3e15291ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3359c96b1bd06dc60990350115f2342478e7b39e7cb864a968bb24909baf8b7e"
   end
 
   depends_on "go" => :build
-
-  # version patch, upstream pr ref, https://github.com/SpectoLabs/hoverfly/pull/1171
-  patch do
-    url "https://github.com/SpectoLabs/hoverfly/commit/e4aae6a3fa53acb444e3fe12ae2ded1c1ebb915a.patch?full_index=1"
-    sha256 "2b31220b440026f8e6a616760ff1eb67b58cc5dac73beeaa6a2c5a1eb6a18a99"
-  end
 
   def install
     ldflags = "-s -w -X main.hoverctlVersion=#{version}"

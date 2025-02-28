@@ -94,6 +94,9 @@
   "badkeys": {
     "exclude_packages": ["cryptography"]
   },
+  "bagels": {
+    "exclude_packages": ["numpy"]
+  },
   "bandcamp-dl": {
     "exclude_packages": ["certifi"]
   },
@@ -295,7 +298,7 @@
     "package_name": "eralchemy[pygraphviz]"
   },
   "esphome": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography", "pillow"]
   },
   "esptool": {
     "exclude_packages": ["cryptography"]
@@ -362,6 +365,7 @@
     "extra_packages": ["packaging"]
   },
   "gnuradio": {
+    "package_name": "",
     "extra_packages": [
       "click", "jsonschema", "lxml", "mako",
       "packaging", "pygccxml", "pyyaml", "setuptools"
@@ -468,6 +472,9 @@
   "kaskade": {
     "exclude_packages": ["certifi"]
   },
+  "keeper-commander": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "keepkey-agent": {
     "exclude_packages": ["cryptography"],
     "extra_packages": ["protobuf==3.20.3"]
@@ -486,6 +493,9 @@
   },
   "linode-cli": {
     "exclude_packages": ["certifi"]
+  },
+  "litecli": {
+    "exclude_packages": ["setuptools"]
   },
   "literate-git": {
     "exclude_packages": ["pygit2"]
@@ -612,6 +622,9 @@
   },
   "pass-import": {
     "exclude_packages": ["certifi"]
+  },
+  "pdfly": {
+    "exclude_packages": ["pillow"]
   },
   "pdm": {
     "exclude_packages": ["certifi"]
@@ -809,6 +822,9 @@
   "snakemake": {
     "exclude_packages": ["certifi"]
   },
+  "snowflake-cli": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "snapcraft": {
     "exclude_packages": ["certifi", "cryptography", "pygit2"],
     "extra_packages": ["catkin-pkg", "jeepney", "pylxd", "secretstorage"]
@@ -945,6 +961,7 @@
     "exclude_packages": ["certifi"]
   },
   "zabbix-cli": {
+    "package_name": "zabbix_cli_uio",
     "exclude_packages": ["certifi"]
   },
   "zim": {

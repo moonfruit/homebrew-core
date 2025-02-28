@@ -1,19 +1,19 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
-  homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/refs/tags/2024.1.1.tar.gz"
-  sha256 "fa0e5305e91ef126ac7de52c99a04728255fc694d45b0a9a3f1ca026a44828bf"
+  homepage "https://staticcheck.dev/"
+  url "https://github.com/dominikh/go-tools/archive/refs/tags/2025.1.tar.gz"
+  sha256 "314e7858de2bc35f7c8ded8537cecf323baf944e657d7075c0d70af9bb3e6d47"
   license "MIT"
-  revision 4
+  revision 1
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3a154301acb8a3fe0b3851a8a6bfed2eb808972a831e1aacb90e12db1659d797"
-    sha256 cellar: :any_skip_relocation, sonoma:        "bc5ce99ae6a04d01df3ba93e4f22901a7490ec0454467d670891da88f8156ee5"
-    sha256 cellar: :any_skip_relocation, ventura:       "bc5ce99ae6a04d01df3ba93e4f22901a7490ec0454467d670891da88f8156ee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ffbecfd6893abb420c8c5c74773ab7e0829a39b0b6f642609f3f0f9bd08ac7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "96473206ee1357a156f8ec9cede903971593cd2f1fb227c093c045fe71effb68"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a4e947d6bc5ecdc56b373be2c81a1bf0277a273c97e19e882c132c491c17a950"
+    sha256 cellar: :any_skip_relocation, ventura:       "a4e947d6bc5ecdc56b373be2c81a1bf0277a273c97e19e882c132c491c17a950"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0affc401b566452f7b98a2a0ab3af8521e822931c288ed85a098bbb5b121abe4"
   end
 
   depends_on "go"

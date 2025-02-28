@@ -1,18 +1,18 @@
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
-  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.1.9.tar.gz"
-  sha256 "03ae330d50f74c8a70be0b06b52bd50868f7cd1251ed040fe3b68d1ad6fd11dc"
+  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.2.1.tar.gz"
+  sha256 "f3a43fb6b4dab2d65bcbce56088f58c94a8ae7fb5746106c069d77ef87794a24"
   license "BSD-2-Clause"
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "b280205134eaf3fe3e68ce2ce3cded36e004b6f62631967261e168b4731084b8"
-    sha256 cellar: :any,                 arm64_sonoma:  "bef02f42df7748a43b1448997506be2f36e31655bdccfde2a750c2c283e8677f"
-    sha256 cellar: :any,                 arm64_ventura: "6f119440dbbc4144c1a2f6e110fea9e6d197a1d758046864e7794e3ee9e21073"
-    sha256 cellar: :any,                 sonoma:        "680953124eb8cfa063c79d095ea0e5789c3dc912b09b13d11e126f53c2bfaee5"
-    sha256 cellar: :any,                 ventura:       "d136ee61c5a24da5e728625c44f0ba9bf5f35e6e030c529f21da6e0433bdab8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1186d8d949a1673eac903322330644875f4bc908aa7c85566ad3ba22406c5a9"
+    sha256 cellar: :any,                 arm64_sequoia: "fe1efe1c387d62c42ba87edc67bd8e13970afe6a8eaaa34f6d6e039aff822e6c"
+    sha256 cellar: :any,                 arm64_sonoma:  "45e430944382db08daa5a7654eac86814e6efe0abd2c7d968a26496a745fba22"
+    sha256 cellar: :any,                 arm64_ventura: "f9c7643970f84f28e3440721629a1388c58b0983e4585d41a688eaf21fea41f0"
+    sha256 cellar: :any,                 sonoma:        "045187c9f34dca248ecb15c671bf788403f6d4e8277b78cb8593c15fcece78f6"
+    sha256 cellar: :any,                 ventura:       "4d305cc2bf4b78783c50f36b6c91920e9e3ededeeb98a611b796064206fa2288"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b9249af47fe8cf665e057dfe679ffdcf4110184b7f31d27272456ad26d2a3cb"
   end
 
   uses_from_macos "zlib"
@@ -39,6 +39,6 @@ class Libxlsxwriter < Formula
 
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lxlsxwriter", "-o", "test"
     system "./test"
-    assert_predicate testpath/"myexcel.xlsx", :exist?, "Failed to create xlsx file"
+    assert_path_exists testpath/"myexcel.xlsx", "Failed to create xlsx file"
   end
 end

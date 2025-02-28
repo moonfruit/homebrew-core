@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
-  homepage "https://github.com/gitleaks/gitleaks"
-  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.23.1.tar.gz"
-  sha256 "2a0157b103d4fb372b613de96ac7a8c0c534852b4e8b712dd5b725e85ebc2efa"
+  homepage "https://gitleaks.io/"
+  url "https://github.com/gitleaks/gitleaks/archive/refs/tags/v8.24.0.tar.gz"
+  sha256 "a0c1e7c3b5d0ee621f1e48b3d502132f8a3e20f9ac2ce3f450c6fca55c702038"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,12 +14,12 @@ class Gitleaks < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d79c8f7a919b28755c181340f2c4c99cd0f6f949c1435952d07675f23c782ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9d79c8f7a919b28755c181340f2c4c99cd0f6f949c1435952d07675f23c782ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "9d79c8f7a919b28755c181340f2c4c99cd0f6f949c1435952d07675f23c782ad"
-    sha256 cellar: :any_skip_relocation, sonoma:        "30bc8d2d9968cccd1fe9354d9b5995e27b19c8e19a1b74048709922ef1f6f67a"
-    sha256 cellar: :any_skip_relocation, ventura:       "30bc8d2d9968cccd1fe9354d9b5995e27b19c8e19a1b74048709922ef1f6f67a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "be1b69ab462a08b21ce360e887f7276416b222674e05e6de2cb735ce3f6ae957"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "02a18ba61b96ac979833ab9be8bf880e748a0e1b7dae8c2d92e1a96d2da8d699"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "02a18ba61b96ac979833ab9be8bf880e748a0e1b7dae8c2d92e1a96d2da8d699"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "02a18ba61b96ac979833ab9be8bf880e748a0e1b7dae8c2d92e1a96d2da8d699"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4997c84dd411d6d1c16d01974e45130c6713b891f5e050444e7ecf852d05d5a4"
+    sha256 cellar: :any_skip_relocation, ventura:       "4997c84dd411d6d1c16d01974e45130c6713b891f5e050444e7ecf852d05d5a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81b529c5b03a7338274b89f6de4a2ea807f12796d41f6495bc2b5148b318d849"
   end
 
   depends_on "go" => :build

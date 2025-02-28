@@ -1,19 +1,19 @@
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.gitlab.com/runner/executors/docker_machine.html"
-  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.31/docker-machine-v0.16.2-gitlab.31.tar.bz2"
-  version "0.16.2-gitlab.31"
-  sha256 "27f1f4c742debe0455ea2c3f1800a262a95dce14aac1dbd2cd82645d7b7970d9"
+  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.33/docker-machine-v0.16.2-gitlab.33.tar.bz2"
+  version "0.16.2-gitlab.33"
+  sha256 "1f0e1ef0ab3fc0c4c43cd90a34471dec7e6faf61a6baa4fe1268364c83ed0dbd"
   license "Apache-2.0"
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a4beb153b0c550f4bd6b40003bb5ba4cd7f5b70e3d95935fecd9c7053fa2049"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9d9b287490a70d58ced64b975b8c7281d012ea560deb0817da4697e0ab119922"
-    sha256 cellar: :any_skip_relocation, ventura:       "9d9b287490a70d58ced64b975b8c7281d012ea560deb0817da4697e0ab119922"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "638e1dfd7391e17f2796c71cc54f0f2fddaaffb9c80acbb487db0a8a53edfbe1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3fe2f67f8f6ec766ec35e8b88b8d7f773b040d5156576560259434ec2c1935ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3fe2f67f8f6ec766ec35e8b88b8d7f773b040d5156576560259434ec2c1935ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3fe2f67f8f6ec766ec35e8b88b8d7f773b040d5156576560259434ec2c1935ec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ddab15cb47e95b1bc485dc02bb41a65ecc6703fa6b2d957034eae94697e11f8"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ddab15cb47e95b1bc485dc02bb41a65ecc6703fa6b2d957034eae94697e11f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1d24027d4de8fd85f240408006ceba98c141c9b2317776b114716db3d90f27e"
   end
 
   depends_on "go" => :build

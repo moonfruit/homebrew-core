@@ -1,8 +1,8 @@
 class Gopls < Formula
   desc "Language server for the Go language"
   homepage "https://github.com/golang/tools/tree/master/gopls"
-  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.17.1.tar.gz"
-  sha256 "5794ebd3302ef4fd08de284834b22810dbb17b7e08efeeaa9b96d5c94eb90d6d"
+  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.18.1.tar.gz"
+  sha256 "e49fae5dd964432a0ea1661868e858acd2aa66aaf7e1c1d646fb8506f15c8e52"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,12 +12,12 @@ class Gopls < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b7a21e9a9e1f0bdf85553420eb00edef566965533135dde983cf1caf7edc3d0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5b7a21e9a9e1f0bdf85553420eb00edef566965533135dde983cf1caf7edc3d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "5b7a21e9a9e1f0bdf85553420eb00edef566965533135dde983cf1caf7edc3d0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "14cd9b99d641f03db5e89e6427aa53f73f6069b21a76cb634e86931811ef160e"
-    sha256 cellar: :any_skip_relocation, ventura:       "14cd9b99d641f03db5e89e6427aa53f73f6069b21a76cb634e86931811ef160e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac9fbb20446b2b78e7d0fa7b90a267d180bf028bd8296a6b78f4df87a06b6eb2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a51103714879c3a9c45b9da97c4c489179e12292b992c5c5d5190c4f684862c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a51103714879c3a9c45b9da97c4c489179e12292b992c5c5d5190c4f684862c8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a51103714879c3a9c45b9da97c4c489179e12292b992c5c5d5190c4f684862c8"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f3e6bae6f127a45cbcece58178bb2a25867e6bc8c209e57ebe58bb815af628cb"
+    sha256 cellar: :any_skip_relocation, ventura:       "f3e6bae6f127a45cbcece58178bb2a25867e6bc8c209e57ebe58bb815af628cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71942ac2fc52efc631a25de23fa00ad34ec720d30dbf4d037d5d062bce31ace0"
   end
 
   depends_on "go" => :build

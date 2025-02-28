@@ -1,18 +1,19 @@
 class Ratify < Formula
   desc "Artifact Ratification Framework"
   homepage "https://ratify.dev"
-  url "https://github.com/ratify-project/ratify/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "ada5c3a3c453a0552c287d0979534fb3c708bd8f41fdec83dc5378520626e339"
+  url "https://github.com/ratify-project/ratify/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "36b18d2070d76a6e85aa86bf94e4e68350c6c277985d6bc8e87a28c78ebb08b8"
   license "Apache-2.0"
   head "https://github.com/ratify-project/ratify.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0e288bb20adfce4de29b56e39519eb0a46aef9c63f8ac9a99495d30c775fcba3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fdc911061d14b31045fcb8a24564bbb131ba1faaa9ad7de05059e682c1e54395"
-    sha256 cellar: :any_skip_relocation, ventura:       "0818e5ce845caafbdf43d5559e20a723d13b015bcc54ba2945dd1e4ba92be846"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71644e4fbc5f83bf238d1ea71cdd2a2e607089e614b7e109febce75c2adcdead"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "76678d359f1e6ab18b91b1703a44b6171e3a03d200a41db6a7d3568a9727b334"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f8913f574364f7b1f4269e539bfe4b1ff128bf4ef3266c2c46c5121fc9132e9"
+    sha256 cellar: :any_skip_relocation, ventura:       "d446ade57aad5022820d43cff3e52206a2521189ea30fe1f39ba198d4789977d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e76330b293fc305772b44b705cc2d7700100276bb27981382984fa474824c851"
   end
 
   depends_on "go" => :build

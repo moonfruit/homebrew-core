@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.18.1/node-v20.18.1.tar.xz"
-  sha256 "91df43f8ab6c3f7be81522d73313dbdd5634bbca228ef0e6d9369fe0ab8cccd0"
+  url "https://nodejs.org/dist/v20.18.3/node-v20.18.3.tar.xz"
+  sha256 "0674f16f3bc284c11724cd3f7c2a43f7c2c13d2eb7a872dd0db198f3d588c5f2"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "21e897f2567b1ae53a45c8e0aa83ce5fd9d16c93b629cb7bcca1966ac33c50b2"
-    sha256 arm64_sonoma:  "ecbadb6730e5e2e48fae9eb862eff5708c042aeca5f070d8d142442598d22983"
-    sha256 arm64_ventura: "c0c6b86e63acc5d9c7d970e949be20769f4476b6e078526ece659305dc4d1ce8"
-    sha256 sonoma:        "ea1914965541a63519aa3b73ec19df6514bf0c7eaa19424e87b3d4e6c6080496"
-    sha256 ventura:       "266e3f955be8cae42f3f64bbedc39eba8e55ce4dfc4ad571e1c0aa1887997716"
-    sha256 x86_64_linux:  "9a6d6eacfca8ec8311ffa7fb3acfea668fff9250fe364a0555d30e027089eca3"
+    sha256 arm64_sequoia: "ece504f250c87c031e311dac4f4555b11cdf905b87e05a0a6b3ae12114100d49"
+    sha256 arm64_sonoma:  "6cf6db1590b126899fb9f7b026d3ea66fa81ef76581cf449be08f7afab0c4779"
+    sha256 arm64_ventura: "4ae750cb4cfac525f8d11671387ebd426d7ab32055108733ca7346864c02a59b"
+    sha256 sonoma:        "4664065d83c6a4f2ac820a523598dcc0a0a751ad190efbe0f4b99b44c69ef033"
+    sha256 ventura:       "f86c7c19cbbaaebac8eb436e028c4db50b5e826ed6359f58a49155f9816b87c2"
+    sha256 x86_64_linux:  "6397d89ffb633f51832d1dd8771fa237e0d3118be4198413a092b7418c20bc6a"
   end
 
   keg_only :versioned_formula
@@ -46,12 +46,6 @@ class NodeAT20 < Formula
     cause <<~EOS
       error: calling a private constructor of class 'v8::internal::(anonymous namespace)::RegExpParserImpl<uint8_t>'
     EOS
-  end
-
-  # Backport support for ICU 76+
-  patch do
-    url "https://github.com/nodejs/node/commit/81517faceac86497b3c8717837f491aa29a5e0f9.patch?full_index=1"
-    sha256 "79a5489617665c5c88651a7dc364b8967bebdea5bdf361b85572d041a4768662"
   end
 
   def install
@@ -118,12 +112,12 @@ class NodeAT20 < Formula
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
     assert_equal which("node"), opt_bin/"node"
-    assert_predicate bin/"npm", :exist?, "npm must exist"
+    assert_path_exists bin/"npm", "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"
     npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
     system bin/"npm", *npm_args, "install", "npm@latest"
     system bin/"npm", *npm_args, "install", "ref-napi"
-    assert_predicate bin/"npx", :exist?, "npx must exist"
+    assert_path_exists bin/"npx", "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end

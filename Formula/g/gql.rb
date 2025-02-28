@@ -1,18 +1,18 @@
 class Gql < Formula
   desc "Git Query language is a SQL like language to perform queries on .git files"
-  homepage "https://github.com/AmrDeveloper/GQL"
-  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.35.0.tar.gz"
-  sha256 "a44d97f1932f63212070908f7938823f0dca7e04d69cc61ad421d56d47be9d91"
+  homepage "https://amrdeveloper.github.io/GQL/"
+  url "https://github.com/AmrDeveloper/GQL/archive/refs/tags/0.37.0.tar.gz"
+  sha256 "56cd23d5d8236c0e103195cdf284b773844eccd8f3caa0b6b7b473df1503baea"
   license "MIT"
   head "https://github.com/AmrDeveloper/GQL.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "579ed70798f8b626af0cb58eab0626bd20057802d18c7b37eec4dcaa3e021913"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "08add3569d9dd0d1d0bc79885446b62dc812ce09e248a3d941c82741174605cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e0d843063460ad33ddd78bf15a57e963c1c289d6bec2b68760b98d42b5a77ffd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "17f06ad42e239a5f899dde72bf4c1c50bb18ee589b2292778e0a9afe4daa1403"
-    sha256 cellar: :any_skip_relocation, ventura:       "73638f1e7bbeff5985f81f928b11af8546f853ee4e50e1fb65b9d054691ee66e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c81bee069eca045217c0632bc9d07ab63e7f78ef36f1ace877bff64d8cf3f20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "90f2c8ffc7d36eaf22cc442045428f59e47234277162aae07ba975bf9ddc1802"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3f582bbd42c0d5cfd49982581f43c4cf28bd8cf6a81d8b91eecbcd7ed64c433e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d136ead59c7e6a5ff5e87e9a2aa0df9badbab9a6cb3e43be843a11d01da52d2d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "71068d471ed38f63c0038accf17734c02c737c70de501aad3edbc1034a1a9338"
+    sha256 cellar: :any_skip_relocation, ventura:       "b0130e6d00ae6db3aa7032b1b841fc9a7beae6d3ad1709c7f54caeb9f17bc58b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "88307577f7da841ef7432ba83def7d627d423d6fb909bb20630c17c00636b1b4"
   end
 
   depends_on "cmake" => :build

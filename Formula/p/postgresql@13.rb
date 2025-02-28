@@ -1,8 +1,8 @@
 class PostgresqlAT13 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v13.18/postgresql-13.18.tar.bz2"
-  sha256 "ceea92abee2a8c19408d278b68de6a78b6bd3dbb4fa2d653fa7ca745d666aab1"
+  url "https://ftp.postgresql.org/pub/source/v13.20/postgresql-13.20.tar.bz2"
+  sha256 "8134b685724d15e60d93bea206fbe0f14c8295e84f1cc91d5a3928163e4fb288"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class PostgresqlAT13 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "276493b77d9d033d03366ec621f06cd8ec9eb024fce1fb61bd8a610905a9f5ae"
-    sha256 arm64_sonoma:  "115d670157157550fd583d9b124cee06191b6b4ccebe76fdffdc3b77ffb84a2b"
-    sha256 arm64_ventura: "1d86cde1dd9cfa0212053c585f070bb71710aa1a78613c1fd017602776f59ab2"
-    sha256 sonoma:        "201e7e2a70caaacdc4a9e374921b445dac192ea7ab1425ec373bafb6e2538958"
-    sha256 ventura:       "cfaf8b39d7c8fad2d2d6ac450e5070c0a8ad25bb3ed193ec0804e02165c8844e"
-    sha256 x86_64_linux:  "1b349f6a1c153bcae95c1fcc622eb9bbfda83896a86d70d179166dd89be6857d"
+    sha256 arm64_sequoia: "125d51438ea4d3fa8ea6c1870311cdcd5834efac3d4b94938e4ea780d864de2a"
+    sha256 arm64_sonoma:  "bb2d23709d11a92aa50426275a991765c52b93474152f444cf1eab32c976e47d"
+    sha256 arm64_ventura: "10530da21d8eaeaf9243bd1e8ccdd9d67d9690ffc7dd2f0a860885fcf42d5f41"
+    sha256 sonoma:        "27e844bbe289d33a2b543ed5b3ee94f6c56dabfd6aa6ddb9ffb2ddc6530fc203"
+    sha256 ventura:       "d01d7666f699ed2fbb8df93c3e42a5a81db7d7106f89becd296192ee44fb0f1d"
+    sha256 x86_64_linux:  "f4aea877cddc65919c912341d0b07f17a72f3c3e391a39351e06182778562dcd"
   end
 
   keg_only :versioned_formula
@@ -120,42 +120,11 @@ class PostgresqlAT13 < Formula
     (postgresql_datadir/"PG_VERSION").exist?
   end
 
-  def old_postgres_data_dir
-    var/"postgres"
-  end
-
-  # Figure out what version of PostgreSQL the old data dir is
-  # using
-  def old_postgresql_datadir_version
-    pg_version = old_postgres_data_dir/"PG_VERSION"
-    pg_version.exist? && pg_version.read.chomp
-  end
-
   def caveats
-    caveats = ""
-
-    # Extract the version from the formula name
-    pg_formula_version = version.major.to_s
-    # ... and check it against the old data dir postgres version number
-    # to see if we need to print a warning re: data dir
-    if old_postgresql_datadir_version == pg_formula_version
-      caveats += <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-
-      EOS
-    end
-
-    caveats += <<~EOS
+    <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
     EOS
-
-    caveats
   end
 
   service do

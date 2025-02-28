@@ -1,8 +1,8 @@
 class PostgresqlAT14 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v14.15/postgresql-14.15.tar.bz2"
-  sha256 "02e891e314b4e9ee24cbd78028dab7c73f9c1ba3e30835bcbef71fe220401fc5"
+  url "https://ftp.postgresql.org/pub/source/v14.17/postgresql-14.17.tar.bz2"
+  sha256 "6ce0ccd6403bf7f0f2eddd333e2ee9ba02edfa977c66660ed9b4b1057e7630a1"
   license "PostgreSQL"
 
   livecheck do
@@ -11,12 +11,12 @@ class PostgresqlAT14 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "98f8b1b18ad13b8ad8e07a1087ee457dbadb60a317ac77e71025e18ef65a1d72"
-    sha256 arm64_sonoma:  "e06e4275448de050feb2dfd89aded87b710beef7f0e56f78fe4d3ef143611c57"
-    sha256 arm64_ventura: "4c5c775bc9a1e8eca606ee23723a7a6e711696295dfa212e57807bd537842c67"
-    sha256 sonoma:        "821c9f71749f0b5adc8775ff47298fa1480f8362dfa6c3175c6bc43f1095716f"
-    sha256 ventura:       "35c483187065c59241192fb80fb5030c95275caa393891fbb258568e874bc6df"
-    sha256 x86_64_linux:  "1bde7950bb79ebc8232bae9498550fdb173fec30fc90cb2ea395158ab7acf018"
+    sha256 arm64_sequoia: "269a76614f8e5b8f9e9d4a6b704e0fb13364171c7b4a509d4120c5be9f6a569f"
+    sha256 arm64_sonoma:  "642443fab21df3720e57c794a267ce04cf376f869b8e592bb145f110e96f8a46"
+    sha256 arm64_ventura: "59449cc08dc5c4c9301b3f171d4dd75f4270811c61f828cd55891638fb5abc2d"
+    sha256 sonoma:        "a34c71754db8a6f5082993f79c2c236ab2d19f3820332994919305f573f2a911"
+    sha256 ventura:       "154b2db641085017ae2c2a4025b09a270e1f9e5b8caf29d19fd1027e06629762"
+    sha256 x86_64_linux:  "116577341c60ec67d12e776b8ccafa6ba78bd8acc5eae2e44026aa45bb6933a0"
   end
 
   # https://www.postgresql.org/support/versioning/
@@ -93,7 +93,18 @@ class PostgresqlAT14 < Formula
     (var/"log").mkpath
     postgresql_datadir.mkpath
 
-    odeprecated old_postgres_data_dir, new_postgres_data_dir if old_postgres_data_dir.exist?
+    old_postgres_data_dir = var/"postgres"
+    if old_postgres_data_dir.exist?
+      opoo "The old PostgreSQL data directory (#{old_postgres_data_dir}) still exists!"
+      puts <<~EOS
+        Previous versions of postgresql shared the same data directory.
+
+        You can migrate to a versioned data directory by running:
+          mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
+
+        (Make sure PostgreSQL is stopped before executing this command)
+      EOS
+    end
 
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
@@ -102,11 +113,7 @@ class PostgresqlAT14 < Formula
   end
 
   def postgresql_datadir
-    if old_postgres_data_dir.exist?
-      old_postgres_data_dir
-    else
-      new_postgres_data_dir
-    end
+    var/name
   end
 
   def postgresql_log_path
@@ -117,46 +124,11 @@ class PostgresqlAT14 < Formula
     (postgresql_datadir/"PG_VERSION").exist?
   end
 
-  def new_postgres_data_dir
-    var/name
-  end
-
-  def old_postgres_data_dir
-    var/"postgres"
-  end
-
-  # Figure out what version of PostgreSQL the old data dir is
-  # using
-  def old_postgresql_datadir_version
-    pg_version = old_postgres_data_dir/"PG_VERSION"
-    pg_version.exist? && pg_version.read.chomp
-  end
-
   def caveats
-    caveats = ""
-
-    # Extract the version from the formula name
-    pg_formula_version = version.major.to_s
-    # ... and check it against the old data dir postgres version number
-    # to see if we need to print a warning re: data dir
-    if old_postgresql_datadir_version == pg_formula_version
-      caveats += <<~EOS
-        Previous versions of postgresql shared the same data directory.
-
-        You can migrate to a versioned data directory by running:
-          mv -v "#{old_postgres_data_dir}" "#{new_postgres_data_dir}"
-
-        (Make sure PostgreSQL is stopped before executing this command)
-
-      EOS
-    end
-
-    caveats += <<~EOS
+    <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
     EOS
-
-    caveats
   end
 
   service do

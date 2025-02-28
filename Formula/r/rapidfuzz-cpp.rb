@@ -1,13 +1,13 @@
 class RapidfuzzCpp < Formula
   desc "Rapid fuzzy string matching in C++ using the Levenshtein Distance"
-  homepage "https://github.com/rapidfuzz/rapidfuzz-cpp"
-  url "https://github.com/rapidfuzz/rapidfuzz-cpp/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "ff7b6631a17dfb23fad1848b992ba1641dfda9bc7eaa4a3db3f79d33ee23d641"
+  homepage "https://rapidfuzz.github.io/rapidfuzz-cpp/"
+  url "https://github.com/rapidfuzz/rapidfuzz-cpp/archive/refs/tags/v3.3.2.tar.gz"
+  sha256 "cf619bb1e7a525472077e76287041d9cd89e97073a24095bcb97f81897b0c1d4"
   license "MIT"
   head "https://github.com/rapidfuzz/rapidfuzz-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "29ca95ee7c22fa067d707b78443980136aea6750cd36387cb66f44a315fb02b7"
+    sha256 cellar: :any_skip_relocation, all: "6c3d224d6635841d64372d9214e0557ce73d2792e504557def95e55183a2098d"
   end
 
   depends_on "cmake" => :build

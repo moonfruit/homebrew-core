@@ -13,7 +13,9 @@
   "open-mpi",
   "qt",
   "spidermonkey",
+  "svt-av1",
   "vc",
   "x265",
-  "xxhash"
+  "xxhash",
+  "zlib-ng-compat"
 ]

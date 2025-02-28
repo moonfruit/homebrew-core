@@ -1,8 +1,8 @@
 class Jruby < Formula
   desc "Ruby implementation in pure Java"
   homepage "https://www.jruby.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.9.0/jruby-dist-9.4.9.0-bin.tar.gz"
-  sha256 "8d64736e66a3c0e1e1ea813b6317219c5d43769e5d06a4417311e2baa8b40ef7"
+  url "https://search.maven.org/remotecontent?filepath=org/jruby/jruby-dist/9.4.12.0/jruby-dist-9.4.12.0-bin.tar.gz"
+  sha256 "05c5d203d6990c92671cc42f57d2fa1c1083bbfd16fa7023dc5848cdb8f0aa2e"
   license any_of: ["EPL-2.0", "GPL-2.0-only", "LGPL-2.1-only"]
 
   livecheck do
@@ -11,12 +11,12 @@ class Jruby < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 arm64_sonoma:  "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 arm64_ventura: "90f1d4c62a14003b9e9fb14466f990d60eef3200823d09569c2e3235cc04f4df"
-    sha256 cellar: :any,                 sonoma:        "96de337118b5728b1da86328c614a03cc927e84ebb8c3d7a6967fcbaee87fa31"
-    sha256 cellar: :any,                 ventura:       "96de337118b5728b1da86328c614a03cc927e84ebb8c3d7a6967fcbaee87fa31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bad7e6b6572b85417d3d5f1a22066e6cb3f89c46c86c4aad7ec1a75e530ffb7f"
+    sha256 cellar: :any,                 arm64_sequoia: "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
+    sha256 cellar: :any,                 arm64_sonoma:  "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
+    sha256 cellar: :any,                 arm64_ventura: "d146ced4843359f4e1292a53a3d7275721716ed16045d4b9bf638948034a2258"
+    sha256 cellar: :any,                 sonoma:        "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
+    sha256 cellar: :any,                 ventura:       "c1f32aafec98d8c1e38e0482b40a554adb21c7b05ebb6acd2818e77f0c1e5062"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "49da0e54dca76b9d1967e3b1aae453618dcfe6f1f04b85ac6d5dd16982ebf672"
   end
 
   depends_on "openjdk"

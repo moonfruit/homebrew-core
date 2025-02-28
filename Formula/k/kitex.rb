@@ -1,8 +1,8 @@
 class Kitex < Formula
   desc "Golang RPC framework for microservices"
   homepage "https://github.com/cloudwego/kitex"
-  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.12.1.tar.gz"
-  sha256 "6b446bb840b04626be6048f02fdaf899e613ada2038f2f169ec0a1262eee219e"
+  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.12.3.tar.gz"
+  sha256 "0a7592fd2cd1fcbdf100a8e304b46c184a6cabd89ec9ef481cdde0b2a7b34e63"
   license "Apache-2.0"
   head "https://github.com/cloudwego/kitex.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Kitex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8bb0db0325c188f59d389d0e18fa43cb64ac53aafc7c82e687fb5babe32dee2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f8bb0db0325c188f59d389d0e18fa43cb64ac53aafc7c82e687fb5babe32dee2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f8bb0db0325c188f59d389d0e18fa43cb64ac53aafc7c82e687fb5babe32dee2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "7fe63a88fe601260e39785d72d37273aac35e8368b28b644416ae2b33f2eedad"
-    sha256 cellar: :any_skip_relocation, ventura:       "7fe63a88fe601260e39785d72d37273aac35e8368b28b644416ae2b33f2eedad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce5e4e6fef19a4785d6e6487f2ff64e393026bde795ae2c3c18b9e1d781e4f2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f52547f9dfdaad1f5d1804e551f0316ee577fb164d6d39d719f1b790991e741e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f52547f9dfdaad1f5d1804e551f0316ee577fb164d6d39d719f1b790991e741e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f52547f9dfdaad1f5d1804e551f0316ee577fb164d6d39d719f1b790991e741e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "516863eb7bae6233ef85c2b150457af1bc36814b60a238cc6421d88b5fd07eaa"
+    sha256 cellar: :any_skip_relocation, ventura:       "516863eb7bae6233ef85c2b150457af1bc36814b60a238cc6421d88b5fd07eaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3353ca803ea7e000230dff63c8413be74871fedc5c0c8a59d28e720ef8bc3fa3"
   end
 
   depends_on "go" => [:build, :test]
@@ -45,9 +45,9 @@ class Kitex < Formula
       }
     EOS
     system bin/"kitex", "-module", "test", "test.thrift"
-    assert_predicate testpath/"go.mod", :exist?
+    assert_path_exists testpath/"go.mod"
     refute_predicate (testpath/"go.mod").size, :zero?
-    assert_predicate testpath/"kitex_gen"/"api"/"test.go", :exist?
+    assert_path_exists testpath/"kitex_gen"/"api"/"test.go"
     refute_predicate (testpath/"kitex_gen"/"api"/"test.go").size, :zero?
   end
 end

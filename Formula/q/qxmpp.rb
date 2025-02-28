@@ -1,16 +1,16 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://github.com/qxmpp-project/qxmpp/"
-  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.9.2.tar.gz"
-  sha256 "b6ddfe446ce5f628d3bc3a2a8d09ea86cdb9b7773435d112192e416f5a69981d"
+  url "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "a9e95847c432cbf9ad36aa6d1596d66aa8f644d6983926457235fb64343bc42c"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "5391364740c7d9cf8caeb61aad8036f2574caea70279d635c2c18c3ec1a52b11"
-    sha256 cellar: :any,                 arm64_ventura: "13e937f25e987d999d22ae33e4b52aa4d12ab6d6d14e7ff9d4735fb7e25dd9e2"
-    sha256 cellar: :any,                 sonoma:        "ca016236373415af1ac2f9cf6947bc1a504b7c448d1f085df01a08917a3c26f5"
-    sha256 cellar: :any,                 ventura:       "205f6083faf8ba8c2979708b2470b249ac72c7bf1c1506a71bf53bfbd0e63197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "689bb5ecf21ac76caa5ecba5f9652220daa0167536e7d6b2923f7a3fac8914fc"
+    sha256 cellar: :any,                 arm64_sonoma:  "c5292bd029b65ed692753b673448f0dfd02f1dd3616662f09bd8b9a6eea6efe0"
+    sha256 cellar: :any,                 arm64_ventura: "d5fff6b8d73a8b7926035e5cd89095e2d287706969d6887c575bfe727812b09f"
+    sha256 cellar: :any,                 sonoma:        "a40ddbf29f1ecf3d8ce8e19a2457f9883b8041913becb16aab6b5182d790e807"
+    sha256 cellar: :any,                 ventura:       "2503b260efbe8630212aec8a1f31279350fa90b318d990fb727f682c8845484a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4fff1b3a44d308322051bea804dfa75283d69a23a624e27b9831027aba30b768"
   end
 
   depends_on "cmake" => :build
@@ -64,7 +64,7 @@ class Qxmpp < Formula
 
     system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
-    assert_predicate testpath/"test", :exist?, "test output file does not exist!"
+    assert_path_exists testpath/"test", "test output file does not exist!"
     system "./test"
   end
 end
