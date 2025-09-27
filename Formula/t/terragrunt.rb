@@ -1,8 +1,8 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://terragrunt.gruntwork.io/"
-  url "https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v0.87.5.tar.gz"
-  sha256 "88ec6b242f8342bd5d530f9a96f110df8840622a3991ea7602df72fb1a07bc3f"
+  url "https://github.com/gruntwork-io/terragrunt/archive/refs/tags/v0.88.0.tar.gz"
+  sha256 "0ee08b062f3f7d3c5a9144f46b056a5b8f17803663c1d7864c2a31978645bae3"
   license "MIT"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -14,11 +14,11 @@ class Terragrunt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4b505c9ffd766725cdedafa0c0dd9440f7eb488a2c2430d0ead23dc501118a3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4b505c9ffd766725cdedafa0c0dd9440f7eb488a2c2430d0ead23dc501118a3d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4b505c9ffd766725cdedafa0c0dd9440f7eb488a2c2430d0ead23dc501118a3d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5f95776ba10fe61b9a37d3c371b256f50da35e17904e656d8b2e2f6da6491461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4e01bdf6960ecf102fcf4a7a4b611a897a3ef49b0557dec260a1f4e1c915fb8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "740b866bb4a9f8d6f900f0fe8d46324cb8ae81dd20a1dad1c892f87d88b0fafb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "740b866bb4a9f8d6f900f0fe8d46324cb8ae81dd20a1dad1c892f87d88b0fafb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "740b866bb4a9f8d6f900f0fe8d46324cb8ae81dd20a1dad1c892f87d88b0fafb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "31d2361d4b49c29ba894c4c05497971b28f149f810d8ba80c63302ced14f8435"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7f115a17e55590d8614a34493a982caf8733c6a11fc06ff79c12f336e5b1da6"
   end
 
   depends_on "go" => :build
