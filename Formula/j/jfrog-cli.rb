@@ -1,8 +1,8 @@
 class JfrogCli < Formula
   desc "Command-line interface for JFrog products"
   homepage "https://www.jfrog.com/confluence/display/CLI/JFrog+CLI"
-  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.79.0.tar.gz"
-  sha256 "78c56f951152d7ff2c3584d897e1b380aeb16def71e9f29c75b8150d717d85d7"
+  url "https://github.com/jfrog/jfrog-cli/archive/refs/tags/v2.80.0.tar.gz"
+  sha256 "59c2c5b2d6cda0e06069c5249baa05431507dadc694d173e764653455efdae5a"
   license "Apache-2.0"
   head "https://github.com/jfrog/jfrog-cli.git", branch: "master"
 
@@ -15,11 +15,11 @@ class JfrogCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f369539baf2ee8472678297582ad38a92ca7dbb9a537c07c2ffa8af7d54c3bdd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f369539baf2ee8472678297582ad38a92ca7dbb9a537c07c2ffa8af7d54c3bdd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f369539baf2ee8472678297582ad38a92ca7dbb9a537c07c2ffa8af7d54c3bdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8a21ed005e0cb7e41119d399cb9803afae6ed941bdf3f74d2f63e10f1763a3b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b72506f8d7a8921e50beba569e11ae2acb75ac3e7b3e217e486761815cac0e6f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2228807789c5ae84e5d3541b63504a281b985fa223789b9e9b9f95aa98b584b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2228807789c5ae84e5d3541b63504a281b985fa223789b9e9b9f95aa98b584b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2228807789c5ae84e5d3541b63504a281b985fa223789b9e9b9f95aa98b584b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2fea5a389a144bbbdc47a4c83b54d8bd235abe1f2eba22398264509ed0ed191d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd679c609f662bc2eece78ad46267011ce384adb1cb4aab9f617cfc62d0525f4"
   end
 
   depends_on "go" => :build

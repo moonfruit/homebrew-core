@@ -3,17 +3,17 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/f2/64/a52f534de300a4fc6d364c14974c5a903cc2e407ca7b9a5de7bf1d07d063/flexget-3.18.10.tar.gz"
-  sha256 "bacbf7699f96eea249048ea9a4d3eb0b38ac43f5684968e984566ab8a96f633b"
+  url "https://files.pythonhosted.org/packages/c4/7b/8f01e7376032f72aee824e954fe5d3c11bb60c4a427df97c9197e0a1ebb9/flexget-3.18.13.tar.gz"
+  sha256 "65994b180f75945e477c235fe297df5804d854a2be8b3695fd0faaff067e30cc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "76d9e4e8aeb10825a756af6b41291c01a4d36f830fd3023477c2b12b7d2fe0e0"
-    sha256 cellar: :any,                 arm64_sequoia: "886080590f6a45f0eaaaa7964235c9a1de385547ff0c229bb46dbba8347499bb"
-    sha256 cellar: :any,                 arm64_sonoma:  "d03f9f954f20a4656f7feef388323e52fded66e542bfa77e5b62261ded7e8e23"
-    sha256 cellar: :any,                 sonoma:        "4a8db59bb195ced832b231330d76d50bba1a7c2ac8c3338ab3ecea17ba473edb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "def33b4269d703d3e402a06fe0d68e8659fdf580db537fa2a411260197b65d6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07c3671d93bde4cbd4e81c8e10ec56225a2a2df5de1177ec1dd8bf2acafaeaa0"
+    sha256 cellar: :any,                 arm64_tahoe:   "de95cf67c594ff1eb59c74548cb91b38afece3aae7434a7c3d3ea1839b9ad464"
+    sha256 cellar: :any,                 arm64_sequoia: "1be4a13fb3b3decf73a68debe8fbb8be41ea698f323691e402afdb8eae420afe"
+    sha256 cellar: :any,                 arm64_sonoma:  "7f643335f9e4fe01d4c7f3fd9c8bac7a2cc99cc03f9202aff436290aeb6061e7"
+    sha256 cellar: :any,                 sonoma:        "7a7ec49f94f51165cd3020679730b45c6f6ce12cd1dd5e518034ebac8012f789"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b01709cd38c75be0809a383aeccfdf9f31a7aef7b2fd6a90c1ab8f3b378e1702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6041b6e2a835740b1fa238a72b232d65bf51be5847079ec4066ddfe7dc87ad3e"
   end
 
   depends_on "rust" => :build
@@ -48,8 +48,8 @@ class Flexget < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/85/2e/3e5079847e653b1f6dc647aa24549d68c6addb4c595cc0d902d1b19308ad/beautifulsoup4-4.13.5.tar.gz"
-    sha256 "5e70131382930e7c3de33450a2f54a63d5e4b19386eab43a5b34d594268f3695"
+    url "https://files.pythonhosted.org/packages/77/e9/df2358efd7659577435e2177bfa69cba6c33216681af51a707193dec162a/beautifulsoup4-4.14.2.tar.gz"
+    sha256 "2a98ab9f944a11acee9cc848508ec28d9228abfd522ef0fad6a02a72e0ded69e"
   end
 
   resource "blinker" do
@@ -108,8 +108,8 @@ class Flexget < Formula
   end
 
   resource "flask-restx" do
-    url "https://files.pythonhosted.org/packages/45/4c/2e7d84e2b406b47cf3bf730f521efe474977b404ee170d8ea68dc37e6733/flask-restx-1.3.0.tar.gz"
-    sha256 "4f3d3fa7b6191fcc715b18c201a12cd875176f92ba4acc61626ccfd571ee1728"
+    url "https://files.pythonhosted.org/packages/43/89/9b9ca58cbb8e9ec46f4a510ba93878e0c88d518bf03c350e3b1b7ad85cbe/flask-restx-1.3.2.tar.gz"
+    sha256 "0ae13d77e7d7e4dce513970cfa9db45364aef210e99022de26d2b73eb4dbced5"
   end
 
   resource "greenlet" do
@@ -188,8 +188,8 @@ class Flexget < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz"
-    sha256 "ee55d3edf80167e48ea11a923c7386f4669df67d7994554387f84e7d8b0a2bf0"
+    url "https://files.pythonhosted.org/packages/7e/99/7690b6d4034fffd95959cbe0c02de8deb3098cc577c67bb6a24fe5d7caa7/markupsafe-3.0.3.tar.gz"
+    sha256 "722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"
   end
 
   resource "mdurl" do
@@ -252,14 +252,9 @@ class Flexget < Formula
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
-  end
-
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
-    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
+    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
   resource "pyzstd" do

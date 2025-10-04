@@ -3,18 +3,18 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.31.0.tar.gz"
-  sha256 "8c4d6c0136babf08043ba3c15d2fa52831ba9b00bdc20311f8ce4ac34fbf25f3"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.31.8.tar.gz"
+  sha256 "403f431980a778f7291e035e92ca5c5a2759659f1e5811fdedcee4f40326198f"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b80ff872d6e84846fc5c6936c1f2c5dcd31a688d37684bd2a483f3bb98afb805"
-    sha256 cellar: :any,                 arm64_sequoia: "3fab47110132d331c4572a2ac52c6a67b0ec363baeedbedac09ca07b58bb4be9"
-    sha256 cellar: :any,                 arm64_sonoma:  "7187bc434b6c5333f931c9afff547950b7e0258a7a0da02778ca2e08d0cec175"
-    sha256 cellar: :any,                 sonoma:        "393886efd9b288f24b68747ed848be5ea280d27af957c52761cebd47f60d86ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54bd01317e48a2cee9e7b1173922961be0bf738a93eb1a1da2078c34bad59b39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2a2cfd3c676c8846b1a5712efdf81fc4d432d40baf6595d731706a7cb9a245c"
+    sha256 cellar: :any,                 arm64_tahoe:   "1614239eeff7102f1198515cde5cfabee6b29a48782306ebdb7c745ec2dfb635"
+    sha256 cellar: :any,                 arm64_sequoia: "59e1e3d06ae40f6919c39093906639ccf104c5a76239715315486a3e0aa937a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "0151a94d361a2ae7f582bc671c87856bfa4a2b38ab96f088dc117fe6b1fbcd62"
+    sha256 cellar: :any,                 sonoma:        "57270cc7e7325e7f0654ca99605c15dfbea5c345cb1c549e69c4568dc895e258"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8908dd112eb5927bc70aa1e97552291dbf6a9a80c1df5c61fdc366397deb9969"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3251f83e2c1e6a641c2d5ed27bb2115fcf9b0a45e5cc01486744eb4eabbdd1d"
   end
 
   depends_on "cmake" => :build
@@ -85,8 +85,8 @@ class Awscli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
-    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
+    url "https://files.pythonhosted.org/packages/24/30/6b0809f4510673dc723187aeaf24c7f5459922d01e2f794277a3dfb90345/wcwidth-0.2.14.tar.gz"
+    sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
   def python3

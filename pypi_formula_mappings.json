@@ -333,11 +333,14 @@
     "extra_packages": ["decorator"],
     "exclude_packages": ["cryptography"]
   },
-  "fava": {
-    "exclude_packages": ["certifi"]
-  },
   "fastapi": {
     "package_name": "fastapi[standard]",
+    "exclude_packages": ["certifi"]
+  },
+  "fastmcp": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
+  "fava": {
     "exclude_packages": ["certifi"]
   },
   "fb-client": {
@@ -506,6 +509,9 @@
     "exclude_packages": ["certifi"]
   },
   "jinja2-cli": "jinja2-cli[yaml,toml,xml]",
+  "jiratui": {
+    "exclude_packages": ["certifi", "cryptography"]
+  },
   "jrnl": {
     "exclude_packages": ["cryptography"]
   },
@@ -563,6 +569,9 @@
   "locust": {
     "exclude_packages": ["certifi"]
   },
+  "lue-reader": {
+    "exclude_packages": ["certifi", "pymupdf"]
+  },
   "mac-cleanup-py": {
     "exclude_packages": ["cffi", "pycparser"]
   },
@@ -578,6 +587,12 @@
   },
   "mat2": {
     "exclude_packages": ["pygobject"]
+  },
+  "mcp-atlassian": {
+    "exclude_packages": ["certifi"]
+  },
+  "mcp-google-sheets": {
+    "exclude_packages": ["certifi"]
   },
   "mcp-proxy": {
     "exclude_packages": ["certifi"]
@@ -860,6 +875,9 @@
   },
   "sail": {
     "exclude_packages": ["certifi", "cryptography"]
+  },
+  "sarif-tools": {
+    "exclude_packages": ["numpy", "pillow"]
   },
   "scdl": {
     "exclude_packages": ["certifi"]

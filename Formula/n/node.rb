@@ -1,9 +1,10 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v24.8.0/node-v24.8.0.tar.xz"
-  sha256 "1c03b362ebf4740d4758b9a3d3087e3de989f54823650ec80b47090ef414b2e0"
+  url "https://nodejs.org/dist/v24.9.0/node-v24.9.0.tar.xz"
+  sha256 "f17bc4cb01f59098c34a288c1bb109a778867c14eeb0ebbd608d0617b1193bbf"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,12 @@ class Node < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "bb5c2204bad0a0ec27acf3a2415d6bd35585ccd8381f467263900a80ab2992ff"
-    sha256 arm64_sequoia: "1eda6648d5c79815fa0349cbcbf8c34b613ee6e3a748c10a12197876b0f36d12"
-    sha256 arm64_sonoma:  "20cd4de5384b83f3da1737fabcbcc103d6a1d45bbc4ca682b2e4f991809bbfc9"
-    sha256 sonoma:        "d4fee38361fb7644ebb2ed271a95b87fa4dfb133818e673be5c304ef53c74f99"
-    sha256 arm64_linux:   "1d23ca175553b7a7f9224f103605c1f887a6768a10676c7b598e1a926e9239a1"
-    sha256 x86_64_linux:  "8ee990f9e8809ad524e45a77299176c47f17986f69783d8c4ae7782742bf744c"
+    sha256 arm64_tahoe:   "e73676891eb34cb3d74d047578a63405b14863f23f0c02ed297c198d7d1ea839"
+    sha256 arm64_sequoia: "e81c9c35749bfdc22925bec8e9e5d11cd3d559fb67a9a37f52dd5d3d953bba76"
+    sha256 arm64_sonoma:  "51177bd3e61e7e781eb5957c6ed01149183574bcec6dbed8d759952e6b8d9ca9"
+    sha256 sonoma:        "98c7cf9d1e63628e8125c6f0e2c00297867a4e5ec7e4da4a0929964d2893d549"
+    sha256 arm64_linux:   "b9b189ff0bdff17af342759b9ef0a89d0111a66f28382fe6d76aee6392de32dc"
+    sha256 x86_64_linux:  "57b1f5b82778fefac34f2b70a7f005cd05716c6e567e60ace6bc016ab0405443"
   end
 
   depends_on "pkgconf" => :build
@@ -36,7 +36,7 @@ class Node < Formula
   depends_on "uvwasi"
   depends_on "zstd"
 
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do

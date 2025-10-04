@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.6.3/netdata-v2.6.3.tar.gz"
-  sha256 "ae99834889c04b5d49b1b03cf1db8812a9b3c6498dd097414bee01a3844c9001"
+  url "https://github.com/netdata/netdata/releases/download/v2.7.1/netdata-v2.7.1.tar.gz"
+  sha256 "8ee20481472f1ceeb40f181a3699897dae5785afbd13d88d3e15d8e7f98f5e44"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,16 +12,18 @@ class Netdata < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "548c2c99d7f493a2117c6e62d7fc51d03dd31e1d3c29832453c76f061e377984"
-    sha256 arm64_sequoia: "ba8894277d1210cea84c48604e02256f79211a88e4c2b7d8431a49843cbd6048"
-    sha256 arm64_sonoma:  "b5676b57cd0387602f4f635558a98393d6d00535e47a46cb97214c1b5a96b3c0"
-    sha256 sonoma:        "0ab87351c045063fd92466f95af2bebda003ec28727b9d1ca64380128accd223"
-    sha256 x86_64_linux:  "ba903994d8d2eef87b33984b9aad165cdaff084dfaa7a341185570edb8cee7fe"
+    sha256 arm64_tahoe:   "217d174723b4cd5a29dbcc4c5c48d5c1d1e636fb7e471804599cbb915333ee98"
+    sha256 arm64_sequoia: "9cb201e12b076bba2fcc411b6f3be01724123c5201c6b6886dcdf021a3d15591"
+    sha256 arm64_sonoma:  "9e96f037bbab593e4da6aaf9efc89dc376eb1c1050f1c66639a9931a05cda4e8"
+    sha256 sonoma:        "af6f9fdbb9cc78f026f52ac5cb9a105eab4d328f2ff6255a3f64b927cd2cd4d7"
+    sha256 x86_64_linux:  "706a70e30cd25b07520f67a6457bd391a7777dc7ad014094431a7f27ae08141e"
   end
 
   depends_on "cmake" => :build
+  depends_on "corrosion" => :build
   depends_on "go" => :build
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build
   depends_on "abseil"
   depends_on "dlib"
   depends_on "json-c"
@@ -72,11 +73,18 @@ class Netdata < Formula
       s.gsub! "netdata_add_dlib_to_target(netdata)", ""
     end
 
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_FOR_PACKAGING=ON",
-                    "-DENABLE_PLUGIN_NFACCT=OFF",
-                    "-DENABLE_PLUGIN_XENSTAT=OFF",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_FOR_PACKAGING=ON
+      -DENABLE_PLUGIN_NFACCT=OFF
+      -DENABLE_PLUGIN_XENSTAT=OFF
+    ]
+    # Avoid to use FetchContent for `corrosion`
+    args += %w[
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

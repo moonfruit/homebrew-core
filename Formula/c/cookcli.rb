@@ -1,19 +1,18 @@
 class Cookcli < Formula
   desc "CLI-tool for cooking recipes formated using Cooklang"
   homepage "https://cooklang.org"
-  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.17.2.tar.gz"
-  sha256 "00ee36f1ece86890ff2698b1a9d2a736f3500466879f57a073b62beed31379b5"
+  url "https://github.com/cooklang/cookcli/archive/refs/tags/v0.18.1.tar.gz"
+  sha256 "9ef5df91b09e0d5e84d58df84dec902c3c9156b833d97f164ffb1949f0ddb972"
   license "MIT"
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5e65defee67a0ee63c160258efe4be11de3c6dc2579bb36ffd643d9d6e7f601"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e2576854282b401de53af4dfe376bcaf4158b84321832f35533239613644b289"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e22dc200115d03c6c740ddc0999af5c922769359ffde20ec8644554880fe3c3f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21e375ff5ce0543f5c2ff4f2cd6bf692e662283143502b660212206c1ef7cf31"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "dcbc736f43c625cecad757dc08a210a2c7b5a5e09aa5d4fcd4ef45a1b33152c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f8798ae9374d87462d6265a08220617ce4b9b5cdfc7975a72d3da97b65e152e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "03192619341d745ab3fc497066b960efec22acfd6a30849582368fd68b215d5e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9277cf74f422acfa65629cb7328f611c04613c2c927c9876fa8212877fb7141d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9bcb0161b749bbb05b0e73510142c9a51c23e2f75177457e8912213c82609b25"
+    sha256 cellar: :any_skip_relocation, sonoma:        "310c083604776b035398ef2f70621422538f63f62ffb5c43db145172eca13718"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d8fd17a80516a0916d8c819b9196607dbeb12ecb34a2c0e5739d8254c45eaea6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f92a885635fdad884c8a7b0c7a1b0bbf4bf170bc1352a6305b6f31e789b96e7"
   end
 
   depends_on "node" => :build
